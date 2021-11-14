@@ -1,7 +1,7 @@
 package ru.alestrange.cultureSurgut
 
 import androidx.room.*
-
+import android.content.Context
 
 @Entity
 data class Interest(
@@ -22,3 +22,8 @@ interface InterestDao {
 abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun interestDao(): InterestDao
 }
+
+class DatabaseCreator
+{
+}
+
