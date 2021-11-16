@@ -16,6 +16,8 @@ data class Interest(
 interface InterestDao {
     @Query("SELECT * FROM interest")
     fun getAll(): List<Interest>
+    @Insert
+    fun insertAll(vararg users: Interest)
 }
 
 @Database(entities = [Interest::class], version = 1)
@@ -23,7 +25,5 @@ abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun interestDao(): InterestDao
 }
 
-class DatabaseCreator
-{
-}
+
 
