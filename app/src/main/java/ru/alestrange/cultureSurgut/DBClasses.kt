@@ -2,7 +2,9 @@ package ru.alestrange.cultureSurgut
 
 import androidx.room.*
 import android.content.Context
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity
 data class Interest(
     @PrimaryKey val id: Int,

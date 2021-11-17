@@ -64,10 +64,11 @@
             app:srcCompat="@android:drawable/ic_menu_compass" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/nearButton"
             android:layout_width="236dp"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
+            android:onClick="nearButtonOnClick"
             android:text="Что рядом?"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
@@ -83,13 +84,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button1" />
+            app:layout_constraintTop_toBottomOf="@+id/nearButton" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/interestButton"
             android:layout_width="236dp"
             android:layout_height="64dp"
             android:layout_marginTop="12dp"
+            android:onClick="interestButtonOnClick"
             android:text="По интересам"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -97,16 +99,15 @@
             app:layout_constraintTop_toBottomOf="@+id/button2" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/historyButton"
             android:layout_width="236dp"
             android:layout_height="64dp"
             android:layout_marginTop="8dp"
             android:text="История города"
-            android:onClick="button4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintTop_toBottomOf="@+id/interestButton" />
 
         <TextView
             android:id="@+id/textView3"
@@ -117,7 +118,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4"
+            app:layout_constraintTop_toBottomOf="@+id/historyButton"
             app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

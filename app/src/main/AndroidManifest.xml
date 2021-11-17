@@ -3,13 +3,18 @@
     package="ru.alestrange.cultureSurgut">
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
-        android:name="ru.alestrange.cultureSurgut.MyApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SurgutCulture">
+        <activity
+            android:name=".NearActivity"
+            android:exported="false"
+            android:label="@string/title_activity_near"
+            android:theme="@style/Theme.SurgutCulture.NoActionBar" />
         <activity
             android:name=".InterestsActivity"
             android:exported="false" />

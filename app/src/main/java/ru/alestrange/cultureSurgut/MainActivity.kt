@@ -16,9 +16,16 @@ class MainActivity : AppCompatActivity() {
             SurgutCultureDatabase::class.java, "database-name"
         ).build()
     }
-    fun button4(view: View) {
+
+    fun interestButtonOnClick(view: View) {
         // val myToast = Toast.makeText(this, message, duration);
         val randomIntent = Intent(this, InterestsActivity::class.java)
+        startActivity(randomIntent)
+    }
+
+    fun nearButtonOnClick(view: View) {
+        // val myToast = Toast.makeText(this, message, duration);
+        val randomIntent = Intent(this, NearActivity::class.java)
         startActivity(randomIntent)
     }
 }
