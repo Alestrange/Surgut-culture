@@ -1,1 +1,8 @@
-{}
+[
+  {"id":1,"systemName":"test1","name":"Музеи и выставки","imageName":"interest_museum","description":"Описание"},
+  {"id":2,"systemName":"test2","name":"Памятники и арт объекты","imageName":"interest_monument","description":"Тест Описание 2"},
+  {"id":4,"systemName":"test 3","name":"Кино и развлечения","imageName":"interest_museum","description":"Тест Описание 3"},
+  {"id":5,"systemName":"test 4","name":"Аутентичная кухня и дары природы","imageName":"interest_museum","description":"Тест Описание 4"},
+  {"id":6,"systemName":"test 5","name":"Красоты природы","imageName":"interest_museum","description":"Тест Описание 5"},
+  {"id":7,"systemName":"test 6","name":"Театры и концерты","imageName":"interest_museum","description":"Тест Описание 6"}
+  ]
