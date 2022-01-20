@@ -2,24 +2,45 @@ package ru.alestrange.cultureSurgut
 
 import android.app.Application
 import androidx.room.Room
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import okhttp3.internal.Version
+import ru.alestrange.cultureSurgut.data.Interest
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.data.SurgutCultureDatabase
+import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
+import ru.alestrange.cultureSurgut.serverDownload.WebApiCaller
+import java.io.BufferedReader
 
-class MyApp: Application() {
+class SurgutCultureApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
         db = Room.databaseBuilder(
             applicationContext,
-            SurgutCultureDatabase::class.java, "database-name"
-        ).allowMainThreadQueries().build()
-        //test
-        val interests=db.interestDao().getAll()
-        val id=interests.count()+1
-        val newInterest = Interest(id+1, "test $id", "Тестовое поле $id", "test_image $id", "Тест Описание $id")
-        db.interestDao().insertAll(newInterest)
+            SurgutCultureDatabase::class.java, resources.getString(R.string.database_name)
+        )
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
+        version = db.getCurrentVersion()
+        val webVersion= WebApiCaller.getSurgutCultureVersion()
+        if ((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion))
+        {
+            //TODO Update database
+            version=webVersion
+        }
+        val interestStream = resources.openRawResource(R.raw.interest)
+        val content = interestStream.bufferedReader().use(BufferedReader::readText)
+        val interestsList: List<Interest> = Json.decodeFromString<List<Interest>>(content)
+        db.interestDao().deleteAll()
+        for (i in interestsList)
+            db.interestDao().insertInterest(i)
     }
 
     companion object {
         lateinit var db: SurgutCultureDatabase
             private set
+        lateinit var version: SurgutCultureVersion
     }
 }
