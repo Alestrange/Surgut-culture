@@ -25,7 +25,8 @@ class SurgutCultureApplication: Application() {
             .build()
         version = db.getCurrentVersion()
         val webVersion= WebApiCaller.getSurgutCultureVersion()
-        if ((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion))
+        internetConnection = version.id != 0
+        if (internetConnection&&((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion)))
         {
             //TODO Update database
             version=webVersion
@@ -42,5 +43,8 @@ class SurgutCultureApplication: Application() {
         lateinit var db: SurgutCultureDatabase
             private set
         lateinit var version: SurgutCultureVersion
+            private set
+        var internetConnection: Boolean = false
+            private set
     }
 }

@@ -9,7 +9,7 @@ import retrofit2.http.GET
 import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
 
 private const val BASE_URL =
-    "http://surgutculture.e92225y8.beget.tech/surgutculture/json1/"
+    "https://raw.githubusercontent.com/Alestrange/Surgut-culture/master/app/src/main/res/raw/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
