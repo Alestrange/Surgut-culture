@@ -6,6 +6,7 @@ import okhttp3.internal.Version
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
 
 private const val BASE_URL =
@@ -23,6 +24,8 @@ private val retrofit = Retrofit.Builder()
 interface WebApiService {
     @GET("surgut_culture_version.json")
     suspend fun getVersion(): SurgutCultureVersion
+    @GET("interest.json")
+    suspend fun getInterest(): List<Interest>
 }
 
 object WebApi {

@@ -17,8 +17,7 @@ data class SurgutCultureVersion(
 @Serializable
 data class Interest(
     @PrimaryKey val id: Int,
-    val systemName: String?,
     val name: String?,
-    val imageName: String?,
+    val image: String?,
     val description: String?
 )

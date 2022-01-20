@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 import okhttp3.internal.Version
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
 
-@Database(entities = [Interest::class, SurgutCultureVersion::class], version = 2)
+@Database(entities = [Interest::class, SurgutCultureVersion::class], version = 3)
 abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun interestDao(): InterestDao
     abstract fun surgutCultureVersionDao(): SurgutCultureVersionDao

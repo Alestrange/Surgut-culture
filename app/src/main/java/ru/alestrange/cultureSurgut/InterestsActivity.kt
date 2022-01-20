@@ -52,7 +52,7 @@ class InterestsActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.interestTextView?.text = interests[position].name
             val imageId: Int =
-                context.resources.getIdentifier(interests[position].imageName, "drawable", context.packageName)
+                context.resources.getIdentifier(interests[position].image, "drawable", context.packageName)
             val drawable: Drawable? = context.getDrawable(imageId)
             holder.interestImageView?.setImageDrawable(drawable)
         }

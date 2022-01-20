@@ -9,6 +9,7 @@ import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.data.SurgutCultureDatabase
 import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
+import ru.alestrange.cultureSurgut.serverDownload.WebApi
 import ru.alestrange.cultureSurgut.serverDownload.WebApiCaller
 import java.io.BufferedReader
 
@@ -25,16 +26,29 @@ class SurgutCultureApplication: Application() {
             .build()
         version = db.getCurrentVersion()
         val webVersion= WebApiCaller.getSurgutCultureVersion()
-        internetConnection = version.id != 0
+        internetConnection = webVersion.id != 0
         if (internetConnection&&((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion)))
         {
-            //TODO Update database
+            updateDatabase()
             version=webVersion
         }
-        val interestStream = resources.openRawResource(R.raw.interest)
-        val content = interestStream.bufferedReader().use(BufferedReader::readText)
-        val interestsList: List<Interest> = Json.decodeFromString<List<Interest>>(content)
+        //val interestStream = resources.openRawResource(R.raw.interest)
+        //val content = interestStream.bufferedReader().use(BufferedReader::readText)
+        //val interestsList: List<Interest> = Json.decodeFromString<List<Interest>>(content)
+        //db.interestDao().deleteAll()
+        //for (i in interestsList)
+        //    db.interestDao().insertInterest(i)
+    }
+
+    fun updateDatabase()
+    {
         db.interestDao().deleteAll()
+        val res=WebApiCaller.getWebTable<Interest>(WebApi.retrofitService::getInterest)
+        if (res.result.count()==0) {
+            databaseError=res.e
+            return
+        }
+        val interestsList: List<Interest> = res.result
         for (i in interestsList)
             db.interestDao().insertInterest(i)
     }
@@ -45,5 +59,7 @@ class SurgutCultureApplication: Application() {
         lateinit var version: SurgutCultureVersion
             private set
         var internetConnection: Boolean = false
+        var databaseEmpty: Boolean = false
+        var databaseError:Exception? = null
     }
 }
