@@ -45,6 +45,5 @@ class SurgutCultureApplication: Application() {
         lateinit var version: SurgutCultureVersion
             private set
         var internetConnection: Boolean = false
-            private set
     }
 }
