@@ -4,5 +4,6 @@
   {"id":3,"name":"Кино и развлечения","image":"interest_museum","description":"Тест Описание 3"},
   {"id":4,"name":"Аутентичная кухня и дары природы","image":"interest_museum","description":"Тест Описание 4"},
   {"id":5,"name":"Красоты природы","image":"interest_museum","description":"Тест Описание 5"},
-  {"id":6,"name":"Театры и концерты","image":"interest_museum","description":"Тест Описание 6"}
+  {"id":6,"name":"Театры и концерты","image":"interest_museum","description":"Тест Описание 6"},
+  {"id":7,"name":"Тест обновлений","image":"interest_monument","description":"Тест Описание 6"}
   ]
