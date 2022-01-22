@@ -6,11 +6,8 @@ import androidx.room.Room
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import okhttp3.internal.Version
-import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.R
-import ru.alestrange.cultureSurgut.data.CultureEntity
-import ru.alestrange.cultureSurgut.data.SurgutCultureDatabase
-import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
+import ru.alestrange.cultureSurgut.data.*
 import ru.alestrange.cultureSurgut.serverDownload.WebApi
 import ru.alestrange.cultureSurgut.serverDownload.WebApiCaller
 import java.io.BufferedReader
@@ -44,7 +41,7 @@ class SurgutCultureApplication: Application() {
         }
     }
 
-    fun <T: CultureEntity>updateDatabaseTable(table:T, webApiFunction:suspend ()->List<T>)
+    private fun <T: CultureEntity>updateDatabaseTable(table:T, webApiFunction:suspend ()->List<T>)
     {
         table.deleteAll()
         val res=WebApiCaller.getWebTable(webApiFunction)
@@ -60,17 +57,8 @@ class SurgutCultureApplication: Application() {
     private fun updateDatabase()
     {
         updateDatabaseTable(Interest(),WebApi.retrofitService::getInterest)
-        /*db.interestDao().deleteAll()
-        val res=WebApiCaller.getWebTable<Interest>(WebApi.retrofitService::getInterest)
-        if (res.result.count()==0) {
-            databaseError=res.e
-            return
-        }
-        val interestsList: List<Interest> = res.result
-        for (i in interestsList)
-            db.interestDao().insertInterest(i)
-
-         */
+        updateDatabaseTable(Tag(),WebApi.retrofitService::getTag)
+        updateDatabaseTable(History(),WebApi.retrofitService::getHistory)
     }
 
     companion object {

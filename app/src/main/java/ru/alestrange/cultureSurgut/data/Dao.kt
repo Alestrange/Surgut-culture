@@ -25,3 +25,23 @@ interface InterestDao {
     @Query("delete FROM interest")
     fun deleteAll(): Int
 }
+
+@Dao
+interface TagDao {
+    @Query("SELECT * FROM tag")
+    fun getAll(): List<Tag>
+    @Insert
+    fun insertTag(vararg tag: Tag)
+    @Query("delete FROM tag")
+    fun deleteAll(): Int
+}
+
+@Dao
+interface HistoryDao {
+    @Query("SELECT * FROM history")
+    fun getAll(): List<History>
+    @Insert
+    fun insertHistory(vararg history: History)
+    @Query("delete FROM history")
+    fun deleteAll(): Int
+}

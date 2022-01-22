@@ -6,8 +6,10 @@ import okhttp3.internal.Version
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import ru.alestrange.cultureSurgut.data.History
 import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
+import ru.alestrange.cultureSurgut.data.Tag
 
 private const val BASE_URL =
     "https://raw.githubusercontent.com/Alestrange/Surgut-culture/master/app/src/main/res/raw/"
@@ -26,6 +28,10 @@ interface WebApiService {
     suspend fun getVersion(): SurgutCultureVersion
     @GET("interest.json")
     suspend fun getInterest(): List<Interest>
+    @GET("history.json")
+    suspend fun getHistory(): List<History>
+    @GET("tag.json")
+    suspend fun getTag(): List<Tag>
 }
 
 object WebApi {
