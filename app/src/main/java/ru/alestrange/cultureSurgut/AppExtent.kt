@@ -1,12 +1,14 @@
 package ru.alestrange.cultureSurgut
 
 import android.app.Application
+import androidx.room.Entity
 import androidx.room.Room
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import okhttp3.internal.Version
 import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.data.CultureEntity
 import ru.alestrange.cultureSurgut.data.SurgutCultureDatabase
 import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
 import ru.alestrange.cultureSurgut.serverDownload.WebApi
@@ -25,24 +27,40 @@ class SurgutCultureApplication: Application() {
             .allowMainThreadQueries()
             .build()
         version = db.getCurrentVersion()
+        if (version.id==0)
+            databaseEmpty=true
         val webVersion= WebApiCaller.getSurgutCultureVersion()
         internetConnection = webVersion.id != 0
         if (internetConnection&&((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion)))
         {
             updateDatabase()
             version=webVersion
+            if (databaseError==null) {
+                if (databaseEmpty)
+                    db.surgutCultureVersionDao().insertVersion(version)
+                else
+                    db.surgutCultureVersionDao().updateVersion(version)
+            }
         }
-        //val interestStream = resources.openRawResource(R.raw.interest)
-        //val content = interestStream.bufferedReader().use(BufferedReader::readText)
-        //val interestsList: List<Interest> = Json.decodeFromString<List<Interest>>(content)
-        //db.interestDao().deleteAll()
-        //for (i in interestsList)
-        //    db.interestDao().insertInterest(i)
     }
 
-    fun updateDatabase()
+    fun <T: CultureEntity>updateDatabaseTable(table:T, webApiFunction:suspend ()->List<T>)
     {
-        db.interestDao().deleteAll()
+        table.deleteAll()
+        val res=WebApiCaller.getWebTable(webApiFunction)
+        if (res.result.count()==0) {
+            databaseError=res.e
+            return
+        }
+        val dataList: List<T> = res.result
+        for (i in dataList)
+            i.insertRecord()
+    }
+
+    private fun updateDatabase()
+    {
+        updateDatabaseTable(Interest(),WebApi.retrofitService::getInterest)
+        /*db.interestDao().deleteAll()
         val res=WebApiCaller.getWebTable<Interest>(WebApi.retrofitService::getInterest)
         if (res.result.count()==0) {
             databaseError=res.e
@@ -51,6 +69,8 @@ class SurgutCultureApplication: Application() {
         val interestsList: List<Interest> = res.result
         for (i in interestsList)
             db.interestDao().insertInterest(i)
+
+         */
     }
 
     companion object {
