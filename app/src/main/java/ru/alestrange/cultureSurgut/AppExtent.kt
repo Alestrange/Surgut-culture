@@ -33,7 +33,7 @@ class SurgutCultureApplication: Application() {
             databaseEmpty=true
         val webVersion= WebApiCaller.getSurgutCultureVersion()
         internetConnection = webVersion.id != 0
-        if (true)//if (internetConnection&&((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion)))
+        if (internetConnection&&((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion)))
         {
             updateDatabase()
             version=webVersion

@@ -123,10 +123,10 @@ class Cultobject: CultureEntity, ImageEntity {
     var name: String? = null
     override var image: String? = null
     var description: String? = null
-    var coordX : Int? = 0
-    var coordY : Int? = 0
+    var coordX : Double? = 0.0
+    var coordY : Double? = 0.0
 
-    fun Cultobject(id: Int, name: String?, image: String?, description: String?, coordX: Int?, coordY: Int?) {
+    fun Cultobject(id: Int, name: String?, image: String?, description: String?, coordX: Double?, coordY: Double?) {
         this.id = id
         this.name = name
         this.image = image
