@@ -38,10 +38,8 @@ class SurgutCultureApplication: Application() {
             updateDatabase()
             version=webVersion
             if (databaseError==null) {
-                if (databaseEmpty)
-                    db.surgutCultureVersionDao().insertVersion(version)
-                else
-                    db.surgutCultureVersionDao().updateVersion(version)
+                db.surgutCultureVersionDao().deleteAll()
+                db.surgutCultureVersionDao().insertVersion(version)
             }
         }
     }

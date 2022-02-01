@@ -47,9 +47,4 @@ class MainActivity : AppCompatActivity() {
         startActivity(randomIntent)
     }
 
-    fun nearButtonOnClick(view: View) {
-        // val myToast = Toast.makeText(this, message, duration);
-        val randomIntent = Intent(this, NearActivity::class.java)
-        startActivity(randomIntent)
-    }
 }

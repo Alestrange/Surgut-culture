@@ -16,19 +16,24 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.alestrange.cultureSurgut.data.Cultobject
 import ru.alestrange.cultureSurgut.data.Interest
 
 
-class InterestsActivity : AppCompatActivity() {
+class ObjectsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_interests)
+        setContentView(R.layout.activity_objects)
         findViewById<TextView>(R.id.testTextJ).apply {
-            text = SurgutCultureApplication.db.isOpen.toString()
+            text = "Что нибудь написать?"
         }
-        val interestsView: RecyclerView = findViewById(R.id.interestsView)
-        interestsView.layoutManager = LinearLayoutManager(this)
-        interestsView.adapter = InterestsRecyclerAdapter(SurgutCultureApplication.db.interestDao().getAll(), baseContext)
+        val objectsView: RecyclerView = findViewById(R.id.objectsView)
+        objectsView.layoutManager = LinearLayoutManager(this)
+        val interestId = intent?.extras?.getInt("interestId")
+        interestId?.let {
+            val cultobjects = SurgutCultureApplication.db.cultobjectDao().getCiltobjectByInterest(interestId)
+            objectsView.adapter = ObjectsRecyclerAdapter(cultobjects, baseContext)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -36,43 +41,44 @@ class InterestsActivity : AppCompatActivity() {
         return true
     }
 
-    class InterestsRecyclerAdapter(private val interests: List<Interest>, val context: Context):
-        RecyclerView.Adapter<InterestsRecyclerAdapter.MyViewHolder>()
+    class ObjectsRecyclerAdapter(private val cultobjects: List<Cultobject>, val context: Context):
+        RecyclerView.Adapter<ObjectsActivity.ObjectsRecyclerAdapter.MyViewHolder>()
     {
 
         class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-            var interestTextView: TextView? = null
-            var interestImageView: ImageView? = null
+            var objectTextView: TextView? = null
+            var objectImageView: ImageView? = null
 
             init {
-                interestTextView = itemView.findViewById(R.id.textInterestName)
-                interestImageView = itemView.findViewById(R.id.imageInterest)
+                objectTextView = itemView.findViewById(R.id.textObjectName)
+                objectImageView = itemView.findViewById(R.id.imageObject)
             }
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val itemView =
                     LayoutInflater.from(parent.context)
-                            .inflate(R.layout.interestsview_item, parent, false)
+                            .inflate(R.layout.objectsview_item, parent, false)
             return MyViewHolder(itemView)
         }
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            holder.interestTextView?.text = interests[position].name
-            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${interests[position].image}.png")
+            holder.objectTextView?.text = cultobjects[position].name
+            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cultobjects[position].image}.png")
             Log.i("mymy","result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
-            holder.interestImageView?.setImageDrawable(d)
-            holder.interestImageView?.tag=interests[position].id
-            holder.interestImageView?.setOnClickListener {
+            holder.objectImageView?.setImageDrawable(d)
+            holder.objectImageView?.tag=cultobjects[position].id
+            holder.objectImageView?.setOnClickListener {
                 val context = it.context
-                val intent = Intent(context, ObjectsActivity::class.java)
-                intent.putExtra("interestId", it.tag as Int)
+                val intent = Intent(context, ObjectDetailActivity::class.java)
+                intent.putExtra("objectId", it.tag as Int)
                 context.startActivity(intent)
             }
+
         }
 
         override fun getItemCount(): Int {
-            return interests.count()
+            return cultobjects.count()
         }
 
     }

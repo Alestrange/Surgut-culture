@@ -54,12 +54,12 @@ class Tag:ImageEntity, CultureEntity {
     @PrimaryKey override var id: Int = 0
     var name: String? = null
     override var image: String? = null
-    var interest_id:Int? = 0
-    fun Tag(id: Int, name: String?, image:String?, interest_id:Int?) {
+    var interestId:Int? = 0
+    fun Tag(id: Int, name: String?, image:String?, interestId:Int?) {
         this.id = id
         this.name = name
         this.image = image
-        this.interest_id=interest_id
+        this.interestId=interestId
     }
     override fun deleteAll()
     {

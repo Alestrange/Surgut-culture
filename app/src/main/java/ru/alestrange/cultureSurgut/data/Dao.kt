@@ -14,6 +14,8 @@ interface SurgutCultureVersionDao {
     fun updateVersion(version: SurgutCultureVersion)
     @Insert
     fun insertVersion(version: SurgutCultureVersion)
+    @Query("delete FROM SurgutCultureVersion")
+    fun deleteAll(): Int
 }
 
 @Dao
@@ -60,6 +62,12 @@ interface CultobjectTagDao {
 interface CultobjectDao {
     @Query("SELECT * FROM cultobject")
     fun getAll(): List<Cultobject>
+    @Query("SELECT distinct cultobject.* " +
+            "FROM cultobject, tag, cultobjecttag " +
+            "where cultobject.id=cultobjecttag.cultobjectId and cultobjecttag.tagId=tag.id and tag.interestId=:interestID")
+    fun getCiltobjectByInterest(interestID:Int): List<Cultobject>
+    @Query("SELECT * FROM cultobject where cultobject.id=:objectID")
+    fun getCultobjectById(objectID:Int): Cultobject
     @Insert
     fun insertCultobject(vararg cultobject: Cultobject)
     @Query("delete FROM cultobject")
