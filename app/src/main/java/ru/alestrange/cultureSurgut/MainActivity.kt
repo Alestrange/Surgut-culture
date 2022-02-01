@@ -9,14 +9,36 @@ import android.widget.TextView
 import androidx.room.*
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.SurgutCultureDatabase
+import android.view.Menu
+import android.view.MenuItem
+import ru.alestrange.cultureSurgut.databinding.ActivityMainBinding
+
+private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var db:SurgutCultureDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val aboutText : TextView = findViewById(R.id.aboutView)
-        aboutText.text= SurgutCultureApplication.version.description?:"No information"
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        binding.aboutView.text= SurgutCultureApplication.version.description?:"No information"
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.miInterest -> {
+                interestButtonOnClick(binding.interestButton)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     fun interestButtonOnClick(view: View) {

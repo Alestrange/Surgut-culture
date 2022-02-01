@@ -45,3 +45,23 @@ interface HistoryDao {
     @Query("delete FROM history")
     fun deleteAll(): Int
 }
+
+@Dao
+interface CultobjectTagDao {
+    @Query("SELECT * FROM CultobjectTag")
+    fun getAll(): List<CultobjectTag>
+    @Insert
+    fun insertCultobjectTag(vararg cultobjectTag: CultobjectTag)
+    @Query("delete FROM CultobjectTag")
+    fun deleteAll(): Int
+}
+
+@Dao
+interface CultobjectDao {
+    @Query("SELECT * FROM cultobject")
+    fun getAll(): List<Cultobject>
+    @Insert
+    fun insertCultobject(vararg cultobject: Cultobject)
+    @Query("delete FROM cultobject")
+    fun deleteAll(): Int
+}

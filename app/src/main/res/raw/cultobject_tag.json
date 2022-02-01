@@ -1,0 +1,9 @@
+[
+  {"id":1,"cultobjectId":1, "tagId":1},
+  {"id":2,"cultobjectId":1, "tagId":2},
+  {"id":3,"cultobjectId":1, "tagId":3},
+  {"id":4,"cultobjectId":2, "tagId":1},
+  {"id":4,"cultobjectId":2, "tagId":2},
+  {"id":4,"cultobjectId":2, "tagId":19}
+]
+

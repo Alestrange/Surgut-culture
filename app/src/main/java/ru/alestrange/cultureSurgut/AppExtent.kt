@@ -2,24 +2,15 @@ package ru.alestrange.cultureSurgut
 
 import android.app.Application
 import androidx.core.graphics.drawable.toBitmap
-import androidx.room.Entity
 import androidx.room.Room
-import coil.Coil
 import coil.ImageLoader
 import coil.request.ImageRequest
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
-import okhttp3.internal.Version
-import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.data.*
 import ru.alestrange.cultureSurgut.serverDownload.WebApi
 import ru.alestrange.cultureSurgut.serverDownload.WebApiCaller
-import java.io.BufferedReader
 import java.io.File
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
 import android.graphics.Bitmap
+import android.util.Log
 import java.io.FileOutputStream
 
 
@@ -27,7 +18,7 @@ const val imagePath:String="images"
 const val imageUrl:String="https://raw.githubusercontent.com/Alestrange/Surgut-culture/master/images/"
 
 class SurgutCultureApplication: Application() {
-    private lateinit var imageLoader:ImageLoader
+
     override fun onCreate() {
         super.onCreate()
         db = Room.databaseBuilder(
@@ -56,18 +47,22 @@ class SurgutCultureApplication: Application() {
     }
 
     private fun insertImage(imageName:String) {
-        val path: Path = Paths.get(filesDir + "/" + imagePath+"/"+imageName+".jpg")
-        if (!Files.exists(path)) {
+        if (!File("$filesDir/$imagePath/$imageName.png").exists()) {
             val request = ImageRequest.Builder(applicationContext)
-                .data(imageUrl + "\\" + imageName+".jpg")
+                .data("$imageUrl$imageName.jpg")
                 .target(
                     onSuccess = { result ->
                             val bm=result.toBitmap()
-                            val file = File(imagePath)
+                            val file = File("$filesDir/$imagePath/$imageName.png")
                             val outStream = FileOutputStream(file)
-                            bm.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
+                            bm.compress(Bitmap.CompressFormat.PNG, 100, outStream)
                             outStream.flush()
                             outStream.close()
+                            Log.i("mymy", file.exists().toString())
+                            Log.i("mymy", "${bm.width.toString()} ${bm.height.toString()}")
+                    },
+                    onError = { error ->
+                        Log.i("mymy", error.toString())
                     }
                 )
                 .build()
@@ -96,8 +91,7 @@ class SurgutCultureApplication: Application() {
 
     private fun updateDatabase()
     {
-        val path: Path = Paths.get(filesDir+"/"+imagePath)
-        if (!Files.exists(path)) {
+        if (!File("$filesDir/$imagePath").exists()) {
             val f = File(filesDir,imagePath)
             f.mkdirs()
         }
@@ -108,6 +102,8 @@ class SurgutCultureApplication: Application() {
         updateDatabaseTable(Interest(),WebApi.retrofitService::getInterest)
         updateDatabaseTable(Tag(),WebApi.retrofitService::getTag)
         updateDatabaseTable(History(),WebApi.retrofitService::getHistory)
+        updateDatabaseTable(Cultobject(),WebApi.retrofitService::getCultobject)
+        updateDatabaseTable(CultobjectTag(),WebApi.retrofitService::getCultobjectTag)
     }
 
     companion object {
@@ -115,6 +111,7 @@ class SurgutCultureApplication: Application() {
             private set
         lateinit var version: SurgutCultureVersion
             private set
+        lateinit var imageLoader:ImageLoader
         var internetConnection: Boolean = false
         var databaseEmpty: Boolean = false
         var databaseError:Exception? = null

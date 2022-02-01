@@ -1,27 +1,27 @@
 package ru.alestrange.cultureSurgut
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.graphics.drawable.Drawable
-import android.widget.ImageView
-import kotlinx.coroutines.NonDisposableHandle.parent
 import ru.alestrange.cultureSurgut.data.Interest
-import ru.alestrange.cultureSurgut.SurgutCultureApplication
-import ru.alestrange.cultureSurgut.data.SurgutCultureDatabase
 
 
 class InterestsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interests)
-        val textView = findViewById<TextView>(R.id.testTextJ).apply {
+        findViewById<TextView>(R.id.testTextJ).apply {
             text = SurgutCultureApplication.db.isOpen.toString()
         }
         val interestsView: RecyclerView = findViewById(R.id.interestsView)
@@ -51,10 +51,10 @@ class InterestsActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.interestTextView?.text = interests[position].name
-            val imageId: Int =
-                context.resources.getIdentifier(interests[position].image, "drawable", context.packageName)
-            val drawable: Drawable? = context.getDrawable(imageId)
-            holder.interestImageView?.setImageDrawable(drawable)
+            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${interests[position].image}.png")
+            Log.i("mymy","result img ${bm.width} ${bm.height}")
+            val d: Drawable = BitmapDrawable(context.resources, bm)
+            holder.interestImageView?.setImageDrawable(d)
         }
 
         override fun getItemCount(): Int {

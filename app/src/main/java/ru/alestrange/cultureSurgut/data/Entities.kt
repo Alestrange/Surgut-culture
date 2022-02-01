@@ -1,5 +1,6 @@
 package ru.alestrange.cultureSurgut.data
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
@@ -53,10 +54,12 @@ class Tag:ImageEntity, CultureEntity {
     @PrimaryKey override var id: Int = 0
     var name: String? = null
     override var image: String? = null
-    fun Tag(id: Int, name: String?, image:String?) {
+    var interest_id:Int? = 0
+    fun Tag(id: Int, name: String?, image:String?, interest_id:Int?) {
         this.id = id
         this.name = name
         this.image = image
+        this.interest_id=interest_id
     }
     override fun deleteAll()
     {
@@ -88,5 +91,55 @@ class History: CultureEntity {
     override fun insertRecord()
     {
         db.historyDao().insertHistory(this)
+    }
+}
+
+
+@Entity
+@Serializable
+class CultobjectTag: CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var cultobjectId:Int? = 0
+    var tagId:Int? = 0
+    fun CultobjectTag(id: Int, cultobjectId: Int?, tagId:Int?) {
+        this.id = id
+        this.cultobjectId = cultobjectId
+        this.tagId = tagId
+    }
+    override fun deleteAll()
+    {
+        db.cultobjectTagDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.cultobjectTagDao().insertCultobjectTag(this)
+    }
+}
+
+@Entity
+@Serializable
+class Cultobject: CultureEntity, ImageEntity {
+    @PrimaryKey override var id: Int = 0
+    var name: String? = null
+    override var image: String? = null
+    var description: String? = null
+    var coordX : Int? = 0
+    var coordY : Int? = 0
+
+    fun Cultobject(id: Int, name: String?, image: String?, description: String?, coordX: Int?, coordY: Int?) {
+        this.id = id
+        this.name = name
+        this.image = image
+        this.description = description
+        this.coordX = coordX
+        this.coordY = coordY
+    }
+    override fun deleteAll()
+    {
+        db.cultobjectDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.cultobjectDao().insertCultobject(this)
     }
 }

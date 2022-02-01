@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Surgut culture</string>
-
+    <string name="app_label">Сургут.Культурный</string>
     <!-- Strings used for setting -->
     <string name="database_name">database-surgutculture</string>
 
@@ -14,4 +14,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="name">Name</string>
+    <string name="whatNear">Что рядом?</string>
+    <string name="cityHistory">История города</string>
+    <string name="byInterest">По интересам</string>
+    <string name="activeSurgut">Активный Сургут</string>
 </resources>
