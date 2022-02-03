@@ -2,9 +2,9 @@
   {"id":1,"cultobjectId":2, "illustrationId": 1},
   {"id":2,"cultobjectId":2, "illustrationId": 2},
   {"id":3,"cultobjectId":2, "illustrationId": 3},
-  {"id":3,"cultobjectId":11, "illustrationId": 4},
-  {"id":3,"cultobjectId":13, "illustrationId": 5},
-  {"id":3,"cultobjectId":13, "illustrationId": 6},
-  {"id":3,"cultobjectId":12, "illustrationId": 7},
-  {"id":3,"cultobjectId":12, "illustrationId": 8}
+  {"id":4,"cultobjectId":11, "illustrationId": 4},
+  {"id":5,"cultobjectId":13, "illustrationId": 5},
+  {"id":6,"cultobjectId":13, "illustrationId": 6},
+  {"id":7,"cultobjectId":12, "illustrationId": 7},
+  {"id":8,"cultobjectId":12, "illustrationId": 8}
 ]
