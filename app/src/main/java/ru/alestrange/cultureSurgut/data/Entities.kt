@@ -38,8 +38,7 @@ class Interest:ImageEntity, CultureEntity {
         this.image = image
         this.description = description
     }
-    override fun deleteAll()
-    {
+    override fun deleteAll() {
         db.interestDao().deleteAll()
     }
     override fun insertRecord()
