@@ -82,6 +82,10 @@ interface IllustrationDao {
     fun insertInterest(vararg illustration: Illustration)
     @Query("delete FROM illustration")
     fun deleteAll(): Int
+    @Query("SELECT distinct illustration.* " +
+            "FROM illustration, CultobjectIllustration " +
+            "where CultobjectIllustration.illustrationId=Illustration.id and CultobjectIllustration.cultobjectId=:objectID")
+    fun getIllustrationByCultobject(objectID:Int): List<Illustration>
 }
 
 

@@ -68,9 +68,8 @@ class SurgutCultureApplication: Application() {
         }
     }
 
-    private fun <T: CultureEntity>updateDatabaseTable(table:T, webApiFunction:suspend ()->List<T>)
+    private fun <T: CultureEntity>updateDatabaseTable(webApiFunction:suspend ()->List<T>)
     {
-        table.deleteAll()
         val res=WebApiCaller.getWebTable(webApiFunction)
         if (res.result.count()==0) {
             databaseError=res.e
@@ -89,6 +88,13 @@ class SurgutCultureApplication: Application() {
 
     private fun updateDatabase()
     {
+        Interest().deleteAll()
+        Tag().deleteAll()
+        History().deleteAll()
+        Cultobject().deleteAll()
+        CultobjectTag().deleteAll()
+        Illustration().deleteAll()
+        CultobjectIllustration().deleteAll()
         if (!File("$filesDir/$imagePath").exists()) {
             val f = File(filesDir,imagePath)
             f.mkdirs()
@@ -97,13 +103,13 @@ class SurgutCultureApplication: Application() {
             .availableMemoryPercentage(0.25)
             .crossfade(true)
             .build()
-        updateDatabaseTable(Interest(),WebApi.retrofitService::getInterest)
-        updateDatabaseTable(Tag(),WebApi.retrofitService::getTag)
-        updateDatabaseTable(History(),WebApi.retrofitService::getHistory)
-        updateDatabaseTable(Cultobject(),WebApi.retrofitService::getCultobject)
-        updateDatabaseTable(CultobjectTag(),WebApi.retrofitService::getCultobjectTag)
-        updateDatabaseTable(Illustration(),WebApi.retrofitService::getIllustration)
-        updateDatabaseTable(CultobjectIllustration(),WebApi.retrofitService::getCultobjectIllustration)
+        updateDatabaseTable<Interest>(WebApi.retrofitService::getInterest)
+        updateDatabaseTable<Tag>(WebApi.retrofitService::getTag)
+        updateDatabaseTable<History>(WebApi.retrofitService::getHistory)
+        updateDatabaseTable<Cultobject>(WebApi.retrofitService::getCultobject)
+        updateDatabaseTable<CultobjectTag>(WebApi.retrofitService::getCultobjectTag)
+        updateDatabaseTable<Illustration>(WebApi.retrofitService::getIllustration)
+        updateDatabaseTable<CultobjectIllustration>(WebApi.retrofitService::getCultobjectIllustration)
     }
 
     companion object {

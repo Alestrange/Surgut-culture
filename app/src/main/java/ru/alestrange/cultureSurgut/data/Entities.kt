@@ -177,7 +177,7 @@ class CultobjectIllustration: CultureEntity {
     }
     override fun deleteAll()
     {
-        db.cultobjectTagDao().deleteAll()
+        db.cultobjectIllustrationDao().deleteAll()
     }
     override fun insertRecord()
     {
