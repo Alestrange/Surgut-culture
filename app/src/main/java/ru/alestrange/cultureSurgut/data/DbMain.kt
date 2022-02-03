@@ -7,8 +7,9 @@ import okhttp3.internal.Version
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
 
 @Database(
-    entities = [Interest::class, SurgutCultureVersion::class, Tag::class, History::class, CultobjectTag::class, Cultobject::class],
-    version = 9
+    entities = [Interest::class, SurgutCultureVersion::class, Tag::class, History::class, CultobjectTag::class, Cultobject::class,
+        Illustration::class, CultobjectIllustration::class],
+    version = 10
 )
 abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun interestDao(): InterestDao
@@ -16,6 +17,8 @@ abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun historyDao(): HistoryDao
     abstract fun cultobjectTagDao(): CultobjectTagDao
     abstract fun cultobjectDao(): CultobjectDao
+    abstract fun illustrationDao(): IllustrationDao
+    abstract fun cultobjectIllustrationDao(): CultobjectIllustrationDao
     abstract fun surgutCultureVersionDao(): SurgutCultureVersionDao
     fun getCurrentVersion(): SurgutCultureVersion {
         return surgutCultureVersionDao().getSurgutCultureVersion() ?: SurgutCultureVersion(

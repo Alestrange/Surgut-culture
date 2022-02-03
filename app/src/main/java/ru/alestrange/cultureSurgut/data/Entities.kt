@@ -50,6 +50,27 @@ class Interest:ImageEntity, CultureEntity {
 
 @Entity
 @Serializable
+class Illustration:ImageEntity, CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var description: String? = null
+    override var image: String? = null
+    fun Interest(id: Int, description: String?, image:String?) {
+        this.id = id
+        this.description = description
+        this.image = image
+    }
+    override fun deleteAll()
+    {
+        db.illustrationDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.illustrationDao().insertInterest(this)
+    }
+}
+
+@Entity
+@Serializable
 class Tag:ImageEntity, CultureEntity {
     @PrimaryKey override var id: Int = 0
     var name: String? = null
@@ -141,5 +162,26 @@ class Cultobject: CultureEntity, ImageEntity {
     override fun insertRecord()
     {
         db.cultobjectDao().insertCultobject(this)
+    }
+}
+
+@Entity
+@Serializable
+class CultobjectIllustration: CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var cultobjectId:Int? = 0
+    var illustrationId:Int? = 0
+    fun CultobjectIllustration(id: Int, cultobjectId: Int?, illustrationId:Int?) {
+        this.id = id
+        this.cultobjectId = cultobjectId
+        this.illustrationId = illustrationId
+    }
+    override fun deleteAll()
+    {
+        db.cultobjectTagDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.cultobjectIllustrationDao().insertCultobjectIllustration(this)
     }
 }

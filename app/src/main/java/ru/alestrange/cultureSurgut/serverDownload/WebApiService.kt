@@ -33,6 +33,10 @@ interface WebApiService {
     suspend fun getCultobjectTag(): List<CultobjectTag>
     @GET("tag.json")
     suspend fun getTag(): List<Tag>
+    @GET("illustration.json")
+    suspend fun getIllustration(): List<Illustration>
+    @GET("cultobject_illustration.json")
+    suspend fun getCultobjectIllustration(): List<CultobjectIllustration>
 }
 
 object WebApi {
