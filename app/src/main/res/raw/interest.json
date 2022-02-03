@@ -1,10 +1,10 @@
 [
   {"id":1,"name":"Музеи и выставки","image":"interest_museum","description":"Описание"},
-  {"id":2,"name":"Театры и концертные залы","image":"interest_museum","description":"Тест Описание 6"},
-  {"id":3,"name":"Памятники и арт-объекты","image":"interest_monument","description":"Тест Описание 2"},
+  {"id":2,"name":"Театры и концертные залы","image":"obj_filarmonia","description":"Тест Описание 6"},
+  {"id":3,"name":"Памятники и арт-объекты","image":"pic_energo","description":"Тест Описание 2"},
   {"id":4,"name":"Аутентичная кухня, дары природы, сувениры","image":"interest_museum","description":"Тест Описание 4"},
-  {"id":5,"name":"Прогулки на свежем воздухе","image":"interest_monument","description":"Тест Описание 5"},
+  {"id":5,"name":"Прогулки на свежем воздухе","image":"obj_alley_gasovikov","description":"Тест Описание 5"},
   {"id":6,"name":"Кино","image":"interest_museum","description":"Тест Описание 3"},
-  {"id":7,"name":"Религия","image":"interest_museum","description":"Тест Описание 5"}
+  {"id":7,"name":"Религия","image":"obj_george_chram","description":"Тест Описание 5"}
 ]
 

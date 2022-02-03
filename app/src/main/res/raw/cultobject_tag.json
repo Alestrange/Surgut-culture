@@ -4,6 +4,10 @@
   {"id":3,"cultobjectId":1, "tagId":3},
   {"id":4,"cultobjectId":2, "tagId":1},
   {"id":5,"cultobjectId":2, "tagId":2},
+  {"id":5,"cultobjectId":2, "tagId":3},
+  {"id":5,"cultobjectId":2, "tagId":23},
+  {"id":5,"cultobjectId":2, "tagId":24},
+  {"id":5,"cultobjectId":2, "tagId":26},
   {"id":6,"cultobjectId":2, "tagId":19}
 ]
 
