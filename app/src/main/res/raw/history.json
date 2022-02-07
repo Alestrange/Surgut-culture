@@ -1,4 +1,44 @@
 [
-  {"id":1,"name":"История 1","period":"1904","description":""},
-  {"id":2,"name":"История 2","period":"1988","description":""}
+  {
+    "id": 1,
+    "name": "История 1",
+    "period": "1904",
+    "description": "",
+    "periodId": 1
+  },
+  {
+    "id": 2,
+    "name": "История 2",
+    "period": "1988",
+    "description": "",
+    "periodId": 1
+  },
+  {
+    "id": 3,
+    "name": "История 1",
+    "period": "1904",
+    "description": "",
+    "periodId": 1
+  },
+  {
+    "id": 4,
+    "name": "История 2",
+    "period": "1988",
+    "description": "",
+    "periodId": 2
+  },
+  {
+    "id": 5,
+    "name": "История 1",
+    "period": "1904",
+    "description": "",
+    "periodId": 2
+  },
+  {
+    "id": 6,
+    "name": "История 2",
+    "period": "1988",
+    "description": "",
+    "periodId": 2
+  }
 ]

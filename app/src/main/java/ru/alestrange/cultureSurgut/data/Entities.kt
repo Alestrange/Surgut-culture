@@ -98,11 +98,13 @@ class History: CultureEntity {
     var name: String? = null
     var period: String? = null
     var description: String? = null
-    fun History(id: Int, name: String?, period:String?, description: String?) {
+    var periodId:Int = 0
+    fun History(id: Int, name: String?, period:String?, description: String?, periodId:Int) {
         this.id = id
         this.name = name
         this.period = period
         this.description = description
+        this.periodId = periodId
     }
     override fun deleteAll()
     {
@@ -182,5 +184,47 @@ class CultobjectIllustration: CultureEntity {
     override fun insertRecord()
     {
         db.cultobjectIllustrationDao().insertCultobjectIllustration(this)
+    }
+}
+
+@Entity
+@Serializable
+class HistoryIllustration: CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var historyId:Int? = 0
+    var illustrationId:Int? = 0
+    fun CultobjectIllustration(id: Int, historyId: Int?, illustrationId:Int?) {
+        this.id = id
+        this.historyId = historyId
+        this.illustrationId = illustrationId
+    }
+    override fun deleteAll()
+    {
+        db.historyIllustrationDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.historyIllustrationDao().insertHistoryIllustration(this)
+    }
+}
+
+@Entity
+@Serializable
+class CultobjectHistory: CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var cultobjectId:Int? = 0
+    var historyId:Int? = 0
+    fun CultobjectHistory(id: Int, cultobjectId: Int?, historyId:Int?) {
+        this.id = id
+        this.cultobjectId = cultobjectId
+        this.historyId = historyId
+    }
+    override fun deleteAll()
+    {
+        db.cultobjectHistoryDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.cultobjectHistoryDao().insertCultobjectHistory(this)
     }
 }

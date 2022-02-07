@@ -8,8 +8,8 @@ import ru.alestrange.cultureSurgut.SurgutCultureApplication
 
 @Database(
     entities = [Interest::class, SurgutCultureVersion::class, Tag::class, History::class, CultobjectTag::class, Cultobject::class,
-        Illustration::class, CultobjectIllustration::class],
-    version = 10
+        Illustration::class, CultobjectIllustration::class, HistoryIllustration::class, CultobjectHistory::class],
+    version = 12
 )
 abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun interestDao(): InterestDao
@@ -19,6 +19,8 @@ abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun cultobjectDao(): CultobjectDao
     abstract fun illustrationDao(): IllustrationDao
     abstract fun cultobjectIllustrationDao(): CultobjectIllustrationDao
+    abstract fun historyIllustrationDao(): HistoryIllustrationDao
+    abstract fun cultobjectHistoryDao(): CultobjectHistoryDao
     abstract fun surgutCultureVersionDao(): SurgutCultureVersionDao
     fun getCurrentVersion(): SurgutCultureVersion {
         return surgutCultureVersionDao().getSurgutCultureVersion() ?: SurgutCultureVersion(
