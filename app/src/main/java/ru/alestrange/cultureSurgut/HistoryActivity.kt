@@ -1,6 +1,7 @@
 package ru.alestrange.cultureSurgut
 
 import android.R.attr.*
+import android.content.Intent
 import android.graphics.Matrix
 import android.os.Bundle
 import android.view.Menu
@@ -27,6 +28,12 @@ class HistoryActivity : AppCompatActivity() {
         setContentView(view)
         angle = 30.0F
         setAngle()
+        binding.detailButton.setOnClickListener{
+            val context = it.context
+            val intent = Intent(context, HistoryEventActivity::class.java)
+            intent.putExtra("periodId", historyPeriod)
+            context.startActivity(intent)
+        }
     }
 
     private fun setAngle()

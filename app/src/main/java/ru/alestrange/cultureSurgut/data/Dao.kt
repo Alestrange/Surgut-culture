@@ -46,6 +46,10 @@ interface HistoryDao {
     fun insertHistory(vararg history: History)
     @Query("delete FROM history")
     fun deleteAll(): Int
+    @Query("SELECT * " +
+            "FROM history " +
+            "where history.periodId=:periodID")
+    fun getHistoryByPeriod(periodID:Int): List<History>
 }
 
 @Dao
