@@ -1,21 +1,17 @@
 package ru.alestrange.cultureSurgut
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.alestrange.cultureSurgut.data.Cultobject
 import ru.alestrange.cultureSurgut.data.Illustration
 import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
 
@@ -28,19 +24,29 @@ class ObjectDetailActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         val objectId = intent?.extras?.getInt("objectId")
-        objectId?.let {
+        if (objectId!=null)
+        {
             val cultobject = SurgutCultureApplication.db.cultobjectDao().getCultobjectById(objectId)
             binding.textObjectName.text = cultobject.name
             binding.textObjectDescription.text = cultobject.description
             val bm = BitmapFactory.decodeFile("${applicationContext.filesDir}/$imagePath/${cultobject.image}.png")
             Log.i("mymy","result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(applicationContext.resources, bm)
-            binding.imageObject?.setImageDrawable(d)
+            binding.imageObject.setImageDrawable(d)
             val objectsView: RecyclerView = findViewById(R.id.illustrationsView)
             objectsView.layoutManager = LinearLayoutManager(this)
             val cultobjects = SurgutCultureApplication.db.illustrationDao().getIllustrationByCultobject(objectId)
             objectsView.adapter = IllustrationRecyclerAdapter(cultobjects, baseContext)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return MainMenu.menuClickHandler(this,item)
     }
 
     class IllustrationRecyclerAdapter(private val illustrations: List<Illustration>, val context: Context):

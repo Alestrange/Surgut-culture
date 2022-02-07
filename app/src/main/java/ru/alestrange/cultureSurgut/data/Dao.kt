@@ -98,3 +98,23 @@ interface CultobjectIllustrationDao {
     @Query("delete FROM CultobjectIllustration")
     fun deleteAll(): Int
 }
+
+@Dao
+interface HistoryIllustrationDao {
+    @Query("SELECT * FROM HistoryIllustration")
+    fun getAll(): List<HistoryIllustration>
+    @Insert
+    fun insertHistoryIllustration(vararg historyIllustration: HistoryIllustration)
+    @Query("delete FROM HistoryIllustration")
+    fun deleteAll(): Int
+}
+
+@Dao
+interface CultobjectHistoryDao {
+    @Query("SELECT * FROM CultobjectHistory")
+    fun getAll(): List<CultobjectHistory>
+    @Insert
+    fun insertCultobjectHistory(vararg cultobjectHistory: CultobjectHistory)
+    @Query("delete FROM CultobjectHistory")
+    fun deleteAll(): Int
+}

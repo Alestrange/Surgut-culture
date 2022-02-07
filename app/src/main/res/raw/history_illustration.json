@@ -1,0 +1,10 @@
+[
+  {"id":1,"historyId":2, "illustrationId": 1},
+  {"id":2,"historyId":2, "illustrationId": 2},
+  {"id":3,"historyId":2, "illustrationId": 3},
+  {"id":4,"historyId":11, "illustrationId": 4},
+  {"id":5,"historyId":13, "illustrationId": 5},
+  {"id":6,"historyId":13, "illustrationId": 6},
+  {"id":7,"historyId":12, "illustrationId": 7},
+  {"id":8,"historyId":12, "illustrationId": 8}
+]

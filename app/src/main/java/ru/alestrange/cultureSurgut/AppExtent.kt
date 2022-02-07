@@ -110,6 +110,8 @@ class SurgutCultureApplication: Application() {
         updateDatabaseTable<CultobjectTag>(WebApi.retrofitService::getCultobjectTag)
         updateDatabaseTable<Illustration>(WebApi.retrofitService::getIllustration)
         updateDatabaseTable<CultobjectIllustration>(WebApi.retrofitService::getCultobjectIllustration)
+        updateDatabaseTable<CultobjectHistory>(WebApi.retrofitService::getCultobjectHistory)
+        updateDatabaseTable<HistoryIllustration>(WebApi.retrofitService::getHistoryIllustration)
     }
 
     companion object {
