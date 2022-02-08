@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         //binding.interestButton.setOnClickListener(this::interestButtonOnClick)
         binding.interestButton.setOnClickListener{_ -> MainMenu.openActivity(this,InterestsActivity())}
         binding.historyButton.setOnClickListener {_ -> MainMenu.openActivity(this,HistoryActivity())}
+        binding.activeSurgutButton.setOnClickListener {_ -> MainMenu.openActivity(this,SportActivity())}
         }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

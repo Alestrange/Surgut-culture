@@ -22,6 +22,10 @@ class MainMenu {
                     openActivity(current,MainActivity())
                     true
                 }
+                R.id.miActive -> {
+                    openActivity(current,SportActivity())
+                    true
+                }
                 else -> true
             }
         }

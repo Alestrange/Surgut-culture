@@ -5,6 +5,7 @@
   {"id":4,"name":"Аутентичная кухня, дары природы, сувениры","image":"interest_museum","description":"Тест Описание 4"},
   {"id":5,"name":"Прогулки на свежем воздухе","image":"obj_alley_gasovikov","description":"Тест Описание 5"},
   {"id":6,"name":"Кино","image":"interest_museum","description":"Тест Описание 3"},
-  {"id":7,"name":"Религия","image":"obj_george_chram","description":"Тест Описание 5"}
+  {"id":7,"name":"Религия","image":"obj_george_chram","description":"Тест Описание 5"},
+  {"id":8,"name":"Спорт","image":"obj_george_chram","description":"Тест Описание 5"}
 ]
 
