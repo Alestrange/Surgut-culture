@@ -27,10 +27,16 @@ class ObjectsActivity : AppCompatActivity() {
         val objectsView: RecyclerView = findViewById(R.id.objectsView)
         objectsView.layoutManager = LinearLayoutManager(this)
         val interestId = intent?.extras?.getInt("interestId")
+        val tagId = intent?.extras?.getInt("tagId")
         interestId?.let {
-            val cultobjects = SurgutCultureApplication.db.cultobjectDao().getCiltobjectByInterest(interestId)
+            val cultobjects = SurgutCultureApplication.db.cultobjectDao().getCultobjectByInterest(interestId)
             objectsView.adapter = ObjectsRecyclerAdapter(cultobjects, baseContext)
         }
+        tagId?.let {
+            val cultobjects = SurgutCultureApplication.db.cultobjectDao().getCultobjectByTag(tagId)
+            objectsView.adapter = ObjectsRecyclerAdapter(cultobjects, baseContext)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

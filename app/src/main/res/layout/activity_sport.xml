@@ -1,68 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SportActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <Button
-        android:id="@+id/routsButton"
-        android:layout_width="0dp"
-        android:layout_height="260dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/button_border"
-        android:gravity="center_horizontal|bottom"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="@string/velorouts_title"
-        android:textColor="@color/teal_700"
-        android:textSize="13sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_weight="1" />
-
-    <ImageView
-        android:id="@+id/routImage"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginRight="3dp"
-        android:layout_marginBottom="22dp"
-        android:importantForAccessibility="no"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@id/routsButton"
-        app:layout_constraintEnd_toEndOf="@id/routsButton"
-        app:layout_constraintStart_toStartOf="@id/routsButton"
-        app:layout_constraintTop_toTopOf="@id/routsButton"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/velorouts" />
-
-    <TextView
-        android:id="@+id/textTagTitle"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/rent_sport_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/routsButton"
-        />
+        tools:context=".SportActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tagView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTagTitle"
-        tools:listitem="@layout/objectsview_item" />
+        <Button
+            android:id="@+id/routsButton"
+            android:layout_width="0dp"
+            android:layout_height="260dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/button_border"
+            android:gravity="center_horizontal|bottom"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/velorouts_title"
+            android:textColor="@color/teal_700"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/routImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="22dp"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/routsButton"
+            app:layout_constraintEnd_toEndOf="@id/routsButton"
+            app:layout_constraintStart_toStartOf="@id/routsButton"
+            app:layout_constraintTop_toTopOf="@id/routsButton"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/velorouts" />
+
+        <TextView
+            android:id="@+id/textTagTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rent_sport_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/routsButton" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tagView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTagTitle"
+            tools:listitem="@layout/objectsview_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

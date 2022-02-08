@@ -75,7 +75,7 @@ interface CultobjectDao {
     @Query("SELECT distinct cultobject.* " +
             "FROM cultobject, tag, cultobjecttag " +
             "where cultobject.id=cultobjecttag.cultobjectId and cultobjecttag.tagId=tag.id and tag.interestId=:interestID")
-    fun getCiltobjectByInterest(interestID:Int): List<Cultobject>
+    fun getCultobjectByInterest(interestID:Int): List<Cultobject>
     @Query("SELECT * FROM cultobject where cultobject.id=:objectID")
     fun getCultobjectById(objectID:Int): Cultobject
     @Insert
@@ -86,6 +86,10 @@ interface CultobjectDao {
             "FROM cultobject, cultobjecthistory " +
             "where cultobject.id=cultobjecthistory.cultobjectId and cultobjecthistory.historyId=:historyId")
     fun getCultobjectByHistory(historyId: Int): List<Cultobject>
+    @Query("SELECT distinct cultobject.* " +
+            "FROM cultobject, cultobjecttag " +
+            "where cultobject.id=cultobjecttag.cultobjectId and cultobjecttag.tagId=:tagID")
+    abstract fun getCultobjectByTag(tagId: Int): List<Cultobject>
 }
 
 @Dao
