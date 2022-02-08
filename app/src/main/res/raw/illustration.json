@@ -6,5 +6,7 @@
   {"id":5,"description":"Парк энергетиков", "image": "pic_park_energo"},
   {"id":6,"description":"Парк энергетиков 2", "image": "pic_park_energo2"},
   {"id":7,"description":"Храм ст. Георгия", "image": "pic_george_chram"},
-  {"id":8,"description":"Храм ст. Георгия 3", "image": "pic_george_chram2"}
+  {"id":8,"description":"Храм ст. Георгия 3", "image": "pic_george_chram2"},
+  {"id":9,"description":"Храм Преображения", "image": "pic_preobrajen_sobor"},
+  {"id":10,"description":"Парк геологов", "image": "pic_park_geologov"}
 ]

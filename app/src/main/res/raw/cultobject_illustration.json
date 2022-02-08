@@ -6,5 +6,7 @@
   {"id":5,"cultobjectId":13, "illustrationId": 5},
   {"id":6,"cultobjectId":13, "illustrationId": 6},
   {"id":7,"cultobjectId":12, "illustrationId": 7},
-  {"id":8,"cultobjectId":12, "illustrationId": 8}
+  {"id":8,"cultobjectId":12, "illustrationId": 8},
+  {"id":9,"cultobjectId":14, "illustrationId": 9},
+  {"id":10,"cultobjectId":15, "illustrationId": 10}
 ]
