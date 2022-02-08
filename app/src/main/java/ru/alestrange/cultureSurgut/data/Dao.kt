@@ -36,6 +36,8 @@ interface TagDao {
     fun insertTag(vararg tag: Tag)
     @Query("delete FROM tag")
     fun deleteAll(): Int
+    @Query("SELECT * FROM tag where interestId=8")
+    fun getSports(): List<Tag>
 }
 
 @Dao
