@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -63,10 +64,12 @@ class HistoryEventActivity : AppCompatActivity() {
             var nameTextView: TextView? = null
             var periodTextView: TextView? = null
             var descriptionTextView: TextView? = null
+            var detailButtom: Button? = null
             init {
                 nameTextView = itemView.findViewById(R.id.textEventName)
                 periodTextView = itemView.findViewById(R.id.textEventPeriod)
                 descriptionTextView = itemView.findViewById(R.id.textEventDescription)
+                detailButtom = itemView.findViewById(R.id.detailButton)
             }
         }
 
@@ -81,19 +84,13 @@ class HistoryEventActivity : AppCompatActivity() {
             holder.nameTextView?.text = events[position].name
             holder.periodTextView?.text = events[position].period
             holder.descriptionTextView?.text = events[position].description
-
-/*            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cultobjects[position].image}.png")
-            Log.i("mymy","result img ${bm?.width} ${bm?.height}")
-            val d: Drawable = BitmapDrawable(context.resources, bm)
-            holder.objectImageView?.setImageDrawable(d)
-            holder.objectImageView?.tag=cultobjects[position].id
-            holder.objectImageView?.setOnClickListener {
+            holder.detailButtom?.tag=events[position].id
+            holder.detailButtom?.setOnClickListener{
                 val context = it.context
-                val intent = Intent(context, ObjectDetailActivity::class.java)
-                intent.putExtra("objectId", it.tag as Int)
+                val intent = Intent(context, HistoryDetailActivity::class.java)
+                intent.putExtra("historyId", it.tag as Int)
                 context.startActivity(intent)
-            }*/
-
+            }
         }
 
         override fun getItemCount(): Int {

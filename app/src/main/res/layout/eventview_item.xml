@@ -26,4 +26,17 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearance" />
 
+    <Button
+        android:id="@+id/detailButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_border"
+        android:gravity="center_horizontal|bottom"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/button_detail"
+        android:textColor="@color/teal_700"
+        android:textSize="13sp"
+ />
+
 </LinearLayout>

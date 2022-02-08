@@ -1,7 +1,7 @@
 [
-  {"id":1,"historyId":2, "illustrationId": 1},
-  {"id":2,"historyId":2, "illustrationId": 2},
-  {"id":3,"historyId":2, "illustrationId": 3},
+  {"id":1,"historyId":1, "illustrationId": 1},
+  {"id":2,"historyId":1, "illustrationId": 2},
+  {"id":3,"historyId":1, "illustrationId": 3},
   {"id":4,"historyId":11, "illustrationId": 4},
   {"id":5,"historyId":13, "illustrationId": 5},
   {"id":6,"historyId":13, "illustrationId": 6},

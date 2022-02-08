@@ -95,6 +95,8 @@ class SurgutCultureApplication: Application() {
         CultobjectTag().deleteAll()
         Illustration().deleteAll()
         CultobjectIllustration().deleteAll()
+        CultobjectHistory().deleteAll()
+        HistoryIllustration().deleteAll()
         if (!File("$filesDir/$imagePath").exists()) {
             val f = File(filesDir,imagePath)
             f.mkdirs()

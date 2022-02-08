@@ -1,6 +1,6 @@
 [
   {"id":1,"cultobjectId":1, "historyId": 1},
-  {"id":2,"cultobjectId":1, "historyId": 1},
+  {"id":2,"cultobjectId":2, "historyId": 1},
   {"id":3,"cultobjectId":1, "historyId": 2},
   {"id":4,"cultobjectId":2, "historyId": 2},
   {"id":5,"cultobjectId":2, "historyId": 3},

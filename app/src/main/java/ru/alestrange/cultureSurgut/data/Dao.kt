@@ -50,6 +50,10 @@ interface HistoryDao {
             "FROM history " +
             "where history.periodId=:periodID")
     fun getHistoryByPeriod(periodID:Int): List<History>
+    @Query("SELECT * " +
+            "FROM history " +
+            "where history.id=:historyId")
+    fun getHistoryById(historyId: Int): History
 }
 
 @Dao
@@ -76,6 +80,10 @@ interface CultobjectDao {
     fun insertCultobject(vararg cultobject: Cultobject)
     @Query("delete FROM cultobject")
     fun deleteAll(): Int
+    @Query("SELECT distinct cultobject.* " +
+            "FROM cultobject, cultobjecthistory " +
+            "where cultobject.id=cultobjecthistory.cultobjectId and cultobjecthistory.historyId=:historyId")
+    fun getCultobjectByHistory(historyId: Int): List<Cultobject>
 }
 
 @Dao
@@ -90,6 +98,10 @@ interface IllustrationDao {
             "FROM illustration, CultobjectIllustration " +
             "where CultobjectIllustration.illustrationId=Illustration.id and CultobjectIllustration.cultobjectId=:objectID")
     fun getIllustrationByCultobject(objectID:Int): List<Illustration>
+    @Query("SELECT distinct illustration.* " +
+            "FROM illustration, HistoryIllustration " +
+            "where HistoryIllustration.illustrationId=Illustration.id and HistoryIllustration.historyId=:historyId")
+    fun getIllustrationByHistory(historyId: Int): List<Illustration>
 }
 
 
