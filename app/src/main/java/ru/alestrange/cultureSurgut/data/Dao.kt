@@ -88,7 +88,7 @@ interface CultobjectDao {
     fun getCultobjectByHistory(historyId: Int): List<Cultobject>
     @Query("SELECT distinct cultobject.* " +
             "FROM cultobject, cultobjecttag " +
-            "where cultobject.id=cultobjecttag.cultobjectId and cultobjecttag.tagId=:tagID")
+            "where cultobject.id=cultobjecttag.cultobjectId and cultobjecttag.tagId=:tagId")
     abstract fun getCultobjectByTag(tagId: Int): List<Cultobject>
 }
 
