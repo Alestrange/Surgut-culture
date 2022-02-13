@@ -29,12 +29,18 @@ class ObjectsActivity : AppCompatActivity() {
         val interestId = intent?.extras?.getInt("interestId")
         val tagId = intent?.extras?.getInt("tagId")
         interestId?.let {
-            val cultobjects = SurgutCultureApplication.db.cultobjectDao().getCultobjectByInterest(interestId)
-            objectsView.adapter = ObjectsRecyclerAdapter(cultobjects, baseContext)
+            if (interestId>0) {
+                val cultobjects =
+                    SurgutCultureApplication.db.cultobjectDao().getCultobjectByInterest(interestId)
+                objectsView.adapter = ObjectsRecyclerAdapter(cultobjects, baseContext)
+            }
         }
         tagId?.let {
-            val cultobjects = SurgutCultureApplication.db.cultobjectDao().getCultobjectByTag(tagId)
-            objectsView.adapter = ObjectsRecyclerAdapter(cultobjects, baseContext)
+            if (tagId>0) {
+                val cultobjects =
+                    SurgutCultureApplication.db.cultobjectDao().getCultobjectByTag(tagId)
+                objectsView.adapter = ObjectsRecyclerAdapter(cultobjects, baseContext)
+            }
         }
 
     }
