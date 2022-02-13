@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding.interestButton.setOnClickListener{_ -> MainMenu.openActivity(this,InterestsActivity())}
         binding.historyButton.setOnClickListener {_ -> MainMenu.openActivity(this,HistoryActivity())}
         binding.activeSurgutButton.setOnClickListener {_ -> MainMenu.openActivity(this,SportActivity())}
+        binding.nearButton.setOnClickListener {_ -> MainMenu.openActivity(this,NearActivity())}
         }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

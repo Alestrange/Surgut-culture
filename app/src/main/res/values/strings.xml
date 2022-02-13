@@ -20,6 +20,8 @@
     <string name="activeSurgut">Активный Сургут</string>
     <string name="button_detail">Подробнее…</string>
     <string name="selected_period">Выбранный период</string>
+    <string name="distance_meters">%d метров</string>
+    <string name="distance_kms">%d километров</string>
 
     <string name="history_period_1">1594 – 1708. Острог, населённый казаками и стрельцами. Часть Томского разряда. Ссылали бунтовщиков.</string>
     <string name="history_period_2">1708 – 1877. Петром определён к сибирской губернии, а через 80 лет стал главой тобольского наместничества.</string>
@@ -30,4 +32,6 @@
     <string name="history_linked_object_title">Объекты в городе, связанные с этим событием:</string>
     <string name="velorouts_title">Сургутские веломаршруты</string>
     <string name="rent_sport_title">Пункты проката велосипедов и другого спортивного инвенторя:</string>
+    <string name="search_button">Найти...</string>
+    <string name="search_distance_title">Выберите расстояние от Вашего местонахождения для поиска</string>
 </resources>

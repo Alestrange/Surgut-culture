@@ -66,7 +66,7 @@
             app:layout_constraintStart_toStartOf="@id/nearButton"
             app:layout_constraintTop_toTopOf="@id/nearButton"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/history_deer" />
+            app:srcCompat="@drawable/near" />
 
         <Button
             android:id="@+id/activeSurgutButton"

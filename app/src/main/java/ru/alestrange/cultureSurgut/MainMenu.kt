@@ -26,6 +26,10 @@ class MainMenu {
                     openActivity(current,SportActivity())
                     true
                 }
+                R.id.miNear -> {
+                    openActivity(current,NearActivity())
+                    true
+                }
                 else -> true
             }
         }
