@@ -21,7 +21,7 @@
   {"id":20,"name":"Сквер","image":"interest_monument", "interestId":5},
   {"id":21,"name":"Природный объект","image":"interest_monument", "interestId":5},
   {"id":22,"name":"Кинотеатр","image":"interest_monument", "interestId":6},
-  {"id":23,"name":"Храм","image":"interest_monument", "interestId":1},
+  {"id":23,"name":"Храм","image":"interest_monument", "interestId":7},
   {"id":24,"name":"Церковь","image":"interest_monument", "interestId":7},
   {"id":25,"name":"Мечеть","image":"interest_monument", "interestId":7},
   {"id":26,"name":"Религиозный объект","image":"interest_monument", "interestId":7},
