@@ -1,10 +1,10 @@
 [
-  {"id":1,"name":"Музеи и выставки","image":"interest_museum","description":"Описание"},
+  {"id":1,"name":"Музеи и выставки","image":"obj_musey","description":"Описание"},
   {"id":2,"name":"Театры и концертные залы","image":"obj_filarmonia","description":"Тест Описание 6"},
-  {"id":3,"name":"Памятники и арт-объекты","image":"pic_energo","description":"Тест Описание 2"},
-  {"id":4,"name":"Аутентичная кухня, дары природы, сувениры","image":"interest_museum","description":"Тест Описание 4"},
+  {"id":3,"name":"Памятники и арт-объекты","image":"pic_park_energo","description":"Тест Описание 2"},
+  {"id":4,"name":"Аутентичная кухня, дары природы, сувениры","image":"pic_old_surgut2","description":"Тест Описание 4"},
   {"id":5,"name":"Прогулки на свежем воздухе","image":"obj_alley_gasovikov","description":"Тест Описание 5"},
-  {"id":6,"name":"Кино","image":"interest_museum","description":"Тест Описание 3"},
+  {"id":6,"name":"Кино","image":"obj_graffity_prosv19","description":"Тест Описание 3"},
   {"id":7,"name":"Религия","image":"obj_preobrajen_sobor","description":"Тест Описание 5"},
   {"id":8,"name":"Спорт","image":"obj_ice_palace","description":"Тест Описание 5"}
 ]
