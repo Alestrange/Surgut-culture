@@ -22,7 +22,8 @@
     <string name="selected_period">Выбранный период</string>
     <string name="distance_meters">%d метров</string>
     <string name="distance_kms">%d километров</string>
-
+    <string name="impossible_seek_location">К сожалению, приложение не сможет определить ваше местоположение"</string>
+    <string name="seek_location_in_process">Местоположение определяется"</string>
     <string name="history_period_1">1594 – 1708. Острог, населённый казаками и стрельцами. Часть Томского разряда. Ссылали бунтовщиков.</string>
     <string name="history_period_2">1708 – 1877. Петром определён к сибирской губернии, а через 80 лет стал главой тобольского наместничества.</string>
     <string name="history_period_3">1877 – 1918. Активное развитие города. Строительство казачьих школ, училищ, библиотек. Создан герб с чёрно-бурой лисой.</string>

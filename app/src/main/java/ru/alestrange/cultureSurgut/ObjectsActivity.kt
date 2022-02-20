@@ -54,7 +54,7 @@ class ObjectsActivity : AppCompatActivity() {
         return MainMenu.menuClickHandler(this,item)
     }
 
-    class ObjectsRecyclerAdapter(private val cultobjects: List<Cultobject>, val context: Context):
+    class ObjectsRecyclerAdapter(private var cultobjects: List<Cultobject>, val context: Context):
         RecyclerView.Adapter<ObjectsActivity.ObjectsRecyclerAdapter.MyViewHolder>()
     {
 
@@ -92,6 +92,11 @@ class ObjectsActivity : AppCompatActivity() {
 
         override fun getItemCount(): Int {
             return cultobjects.count()
+        }
+
+        fun update(cultobjects: List<Cultobject>){
+            this.cultobjects=cultobjects
+            notifyDataSetChanged()
         }
 
     }
