@@ -4,20 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green_surgut_light"
     tools:context=".MainActivity">
-
 
     <ImageView
         android:id="@+id/emblemView"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:importantForAccessibility="no"
-        android:scaleType="centerCrop"
+        android:scaleType="fitStart"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/emblem"
-        tools:layout_editor_absoluteY="97dp" />
+        tools:layout_editor_absoluteY="97dp"
+        android:background="@drawable/button_border"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buttonLayout"
@@ -29,56 +34,65 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:context=".MainActivity">
 
-        <Button
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/nearButton"
+            android:background="@drawable/button_border"
+            android:padding="8dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="4dp"
-            android:background="@drawable/button_border"
-            android:gravity="center_horizontal|bottom"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/whatNear"
-            android:textColor="@color/teal_700"
-            android:textSize="13sp"
             app:layout_constraintBottom_toTopOf="@id/interestButton"
             app:layout_constraintEnd_toStartOf="@id/activeSurgutButton"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1" />
+            app:layout_constraintVertical_weight="1" >
 
-        <ImageView
-            android:id="@+id/nearImage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginBottom="22dp"
-            android:importantForAccessibility="no"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@id/nearButton"
-            app:layout_constraintEnd_toEndOf="@id/nearButton"
-            app:layout_constraintStart_toStartOf="@id/nearButton"
-            app:layout_constraintTop_toTopOf="@id/nearButton"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/near" />
+            <ImageView
+                android:id="@+id/nearImage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:importantForAccessibility="no"
+                android:scaleType="fitXY"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/nearText"
+                android:text="@string/activeSurgut"
+                app:srcCompat="@drawable/near" />
 
-        <Button
+            <TextView
+                android:id="@+id/nearText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/whatNear"
+                android:textColor="@color/black"
+                android:layout_below="@id/nearImage"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/nearImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activeSurgutButton"
+            android:background="@drawable/button_border"
+            android:padding="8dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="4dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:background="@drawable/button_border"
             android:gravity="center_horizontal|bottom"
             android:textColor="@color/teal_700"
             android:textSize="13sp"
@@ -88,103 +102,123 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/nearButton"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1" />
+            app:layout_constraintVertical_weight="1" >
 
         <ImageView
             android:id="@+id/activeSurgutImage"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:importantForAccessibility="no"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginBottom="22dp"
-            app:layout_constraintEnd_toEndOf="@id/activeSurgutButton"
-            app:layout_constraintStart_toStartOf="@id/activeSurgutButton"
-            app:layout_constraintTop_toTopOf="@id/activeSurgutButton"
-            app:layout_constraintBottom_toBottomOf="@id/activeSurgutButton"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/activeText"
             app:srcCompat="@drawable/history_deer"
-            tools:layout_editor_absoluteY="97dp" />
+             />
 
-        <Button
+            <TextView
+                android:id="@+id/activeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activeSurgut"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/activeSurgutImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/interestButton"
+            android:background="@drawable/button_border"
+            android:padding="8dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/byInterest"
-            android:background="@drawable/button_border"
-            android:gravity="center_horizontal|bottom"
-            android:textColor="@color/teal_700"
-            android:textSize="13sp"
-            android:tag="@id/miInterest"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/historyButton"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nearButton"
-            app:layout_constraintVertical_weight="1" />
+            app:layout_constraintVertical_weight="1" >
 
         <ImageView
             android:id="@+id/InterestImage"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:importantForAccessibility="no"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginBottom="22dp"
-            app:layout_constraintEnd_toEndOf="@id/interestButton"
-            app:layout_constraintStart_toStartOf="@id/interestButton"
-            app:layout_constraintTop_toTopOf="@id/interestButton"
-            app:layout_constraintBottom_toBottomOf="@id/interestButton"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/interestText"
             app:srcCompat="@drawable/chirch"
             tools:layout_editor_absoluteY="97dp" />
 
-        <Button
+            <TextView
+                android:id="@+id/interestText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/byInterest"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/InterestImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/historyButton"
+            android:background="@drawable/button_border"
+            android:padding="8dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/cityHistory"
-            android:background="@drawable/button_border"
-            android:gravity="center_horizontal|bottom"
-            android:textColor="@color/teal_700"
-            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/interestButton"
             app:layout_constraintTop_toBottomOf="@+id/activeSurgutButton"
-            app:layout_constraintVertical_weight="1" />
+            app:layout_constraintVertical_weight="1" >
 
         <ImageView
             android:id="@+id/historyImage"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:importantForAccessibility="no"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginBottom="22dp"
-            app:layout_constraintEnd_toEndOf="@id/historyButton"
-            app:layout_constraintStart_toStartOf="@id/historyButton"
-            app:layout_constraintTop_toTopOf="@id/historyButton"
-            app:layout_constraintBottom_toBottomOf="@id/historyButton"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/historyText"
             app:srcCompat="@drawable/active_surgut"
             tools:layout_editor_absoluteY="97dp" />
+
+            <TextView
+                android:id="@+id/historyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cityHistory"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/historyImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
@@ -192,11 +226,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
+            android:textColor="@color/black"
             tools:text="О нас копирайты и тд"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonLayout"
             app:layout_constraintVertical_bias="0.0" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
