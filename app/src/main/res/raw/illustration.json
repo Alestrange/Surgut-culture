@@ -1,6 +1,6 @@
 [
-  {"id":1,"description":"Старый Сургут", "image": "pic_old_surgut"},
-  {"id":2,"description":"Старый Сургут 2", "image": "pic_old_surgut2"},
+  {"id":1,"description":"Вход в Старый Сургут", "image": "pic_old_surgut"},
+  {"id":2,"description":"Исторический комплекс, воссоздающий облик Сургутского острога", "image": "pic_old_surgut2"},
   {"id":3,"description":"Старый Сургут 3", "image": "pic_old_surgut3"},
   {"id":4,"description":"Имена павших", "image": "pic_vechi_fire"},
   {"id":5,"description":"Скульптура 'Кот'", "image": "pic_park_energo"},
