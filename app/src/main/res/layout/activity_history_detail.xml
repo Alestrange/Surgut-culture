@@ -70,6 +70,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textHistoryDescription"
         tools:listitem="@layout/illustrationview_item" />
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@id/illustrationsView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
     <TextView
         android:id="@+id/textObjectTitle"
         android:layout_width="match_parent"
@@ -77,8 +87,9 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_title"
         android:text="@string/history_linked_object_title"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/illustrationsView"
+        app:layout_constraintTop_toBottomOf="@id/divider"
         />
 
     <androidx.recyclerview.widget.RecyclerView

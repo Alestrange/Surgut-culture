@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_gravity="center"
+        android:gravity="center"
         android:textSize="@dimen/text_annotation"
         android:textColor="@color/black"
         />
