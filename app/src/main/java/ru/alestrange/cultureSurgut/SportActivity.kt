@@ -21,11 +21,17 @@ class SportActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sport)
         val tagView: RecyclerView = findViewById(R.id.tagView)
-        tagView.layoutManager = LinearLayoutManager(this)
+        val linearLayoutManager = object : LinearLayoutManager(this) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
+        tagView.layoutManager = linearLayoutManager//LinearLayoutManager(this)
         tagView.adapter = TagsRecyclerAdapter(
             SurgutCultureApplication.db.tagDao().getSports(), baseContext
         )
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -33,14 +39,13 @@ class SportActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return MainMenu.menuClickHandler(this,item)
+        return MainMenu.menuClickHandler(this, item)
     }
 
-    class TagsRecyclerAdapter(private val tags: List<Tag>, val context: Context):
-        RecyclerView.Adapter<TagsRecyclerAdapter.MyViewHolder>()
-    {
+    class TagsRecyclerAdapter(private val tags: List<Tag>, val context: Context) :
+        RecyclerView.Adapter<TagsRecyclerAdapter.MyViewHolder>() {
 
-        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var tagTextView: TextView? = null
             var tagImageView: ImageView? = null
 
@@ -49,6 +54,7 @@ class SportActivity : AppCompatActivity() {
                 tagImageView = itemView.findViewById(R.id.imageTag)
             }
         }
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val itemView =
                 LayoutInflater.from(parent.context)
@@ -58,11 +64,12 @@ class SportActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.tagTextView?.text = tags[position].name
-            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${tags[position].image}.png")
-            Log.i("mymy","result img ${bm?.width} ${bm?.height}")
+            val bm =
+                BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${tags[position].image}.png")
+            Log.i("mymy", "result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
             holder.tagImageView?.setImageDrawable(d)
-            holder.tagImageView?.tag=tags[position].id
+            holder.tagImageView?.tag = tags[position].id
             holder.tagImageView?.setOnClickListener {
                 val context = it.context
                 val intent = Intent(context, ObjectsActivity::class.java)

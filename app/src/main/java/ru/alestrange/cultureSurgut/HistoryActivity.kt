@@ -26,7 +26,7 @@ class HistoryActivity : AppCompatActivity() {
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        angle = 30.0F
+        angle = 0.0F
         setAngle()
         binding.detailButton.setOnClickListener{
             val context = it.context
@@ -44,29 +44,29 @@ class HistoryActivity : AppCompatActivity() {
             approxAngle+=360
         when (approxAngle)
         {
-            in 0F..60.0F -> {
-                binding.periodDescriptionText.text = getString(R.string.history_period_6)
-                historyPeriod = 6
-            }
-            in 60.1F..120.0F -> {
+            in 330F..360.0F, in 0F..30.0F -> {
                 binding.periodDescriptionText.text = getString(R.string.history_period_5)
                 historyPeriod = 5
             }
-            in 120.1F..180.0F -> {
+            in 30.1F..90.0F -> {
                 binding.periodDescriptionText.text = getString(R.string.history_period_4)
                 historyPeriod = 4
             }
-            in 180.1F..240.0F -> {
+            in 90.1F..150.0F -> {
                 binding.periodDescriptionText.text = getString(R.string.history_period_3)
                 historyPeriod = 3
             }
-            in 240.1F..300.0F -> {
+            in 150.1F..210.0F -> {
                 binding.periodDescriptionText.text = getString(R.string.history_period_2)
                 historyPeriod = 2
             }
-            in 300.1F..360.0F -> {
+            in 210.1F..270.0F -> {
                 binding.periodDescriptionText.text = getString(R.string.history_period_1)
                 historyPeriod = 1
+            }
+            in 270.1F..330.0F -> {
+                binding.periodDescriptionText.text = getString(R.string.history_period_6)
+                historyPeriod = 6
             }
         }
     }

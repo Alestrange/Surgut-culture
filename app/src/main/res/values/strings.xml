@@ -15,6 +15,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="name">Name</string>
     <string name="whatNear">Что рядом?</string>
+    <string name="map_button">На карте</string>
     <string name="cityHistory">История города</string>
     <string name="byInterest">По интересам</string>
     <string name="activeSurgut">Активный Сургут</string>
@@ -25,15 +26,15 @@
     <string name="version_info">%s v.%d.%d</string>
     <string name="impossible_seek_location">К сожалению, приложение не сможет определить ваше местоположение"</string>
     <string name="seek_location_in_process">Местоположение определяется"</string>
-    <string name="history_period_1">1594 – 1708. Острог, населённый казаками и стрельцами. Часть Томского разряда. Ссылали бунтовщиков.</string>
-    <string name="history_period_2">1708 – 1877. Петром определён к сибирской губернии, а через 80 лет стал главой тобольского наместничества.</string>
+    <string name="history_period_1">1594 – 1708. Сургут - острог, населённый казаками и стрельцами. Часть Томского разряда.</string>
+    <string name="history_period_2">1708 – 1877. Петром определён к сибирской губернии. Место ссылки бунтовщиков.</string>
     <string name="history_period_3">1877 – 1918. Активное развитие города. Строительство казачьих школ, училищ, библиотек. Создан герб с чёрно-бурой лисой.</string>
-    <string name="history_period_4">1918 – 1930. Кулачьи мятежи, из-за которых сургут лишился статуса города. В конце 20-ых построена консервная фабрика, являющияся первым объектом промышленности.</string>
-    <string name="history_period_5">1941 – 1945. Практически всё взрослое население ушло на войну, половина не вернулось.</string>
-    <string name="history_period_6">1964 – наши дни. Найдена нефть и началась активная её разработка. Были построены железнодорожные узлы, обский мост, Грэс 1 и самая мощная ТЭС на континенте Грес 2. В 97 была добыта миллиардная тонна нефти.</string>
+    <string name="history_period_4">1918 – 1930. Кулачьи мятежи, гражданская война. Построена консервная фабрика, являющияся первым объектом промышленности.</string>
+    <string name="history_period_5">1931 – 1963. Сургут лишился статуса города. Развитие лесной и рыбной промышленности в поселке. Великая отечественная война. Практически всё взрослое население ушло на войну, половина не вернулось.</string>
+    <string name="history_period_6">1964 – наши дни. Найдена нефть и началась активная её разработка. Были построены железнодорожные узлы, Обский мост, ГРЭС 1 и самая мощная ТЭС на континенте - ГРЭС 2. В 1997 была добыта миллиардная тонна нефти.</string>
     <string name="history_linked_object_title">Объекты в городе, связанные с этим событием:</string>
     <string name="velorouts_title">Сургутские веломаршруты</string>
-    <string name="rent_sport_title">Пункты проката велосипедов и другого спортивного инвенторя:</string>
+    <string name="rent_sport_title">Пункты проката:</string>
     <string name="search_button">Найти...</string>
     <string name="search_distance_title">Выберите расстояние от Вашего местонахождения для поиска</string>
 </resources>

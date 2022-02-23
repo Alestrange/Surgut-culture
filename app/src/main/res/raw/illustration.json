@@ -2,7 +2,7 @@
   {"id":1,"description":"Старый Сургут", "image": "pic_old_surgut"},
   {"id":2,"description":"Старый Сургут 2", "image": "pic_old_surgut2"},
   {"id":3,"description":"Старый Сургут 3", "image": "pic_old_surgut3"},
-  {"id":4,"description":"Вечный огонь", "image": "pic_vechi_fire"},
+  {"id":4,"description":"Имена павших", "image": "pic_vechi_fire"},
   {"id":5,"description":"Парк энергетиков", "image": "pic_park_energo"},
   {"id":6,"description":"Парк энергетиков 2", "image": "pic_park_energo2"},
   {"id":7,"description":"Храм ст. Георгия", "image": "pic_george_chram"},

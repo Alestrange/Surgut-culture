@@ -35,7 +35,7 @@ class NearActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNearBinding.inflate(layoutInflater)
-        val view = binding.root
+        val view:View = binding.root
         setContentView(view)
         val objectsView: RecyclerView = binding.objectsView
         objectsView.layoutManager = LinearLayoutManager(this)
@@ -76,7 +76,9 @@ class NearActivity : AppCompatActivity() {
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location: Location? ->
                 deviceLocation = location
-                binding.searchButton.text = resources.getText(R.string.search_button)
+                binding.searchButton.text =
+                    //"${location?.longitude} ${location?.latitude}"
+                     resources.getText(R.string.search_button)
             }
             .addOnFailureListener {
                 Log.i("mymy", it.toString())
@@ -124,6 +126,7 @@ class NearActivity : AppCompatActivity() {
                             .addOnSuccessListener { location: Location? ->
                                 deviceLocation = location
                                 binding.searchButton.text =
+                                    //"${location?.longitude} ${location?.latitude}"
                                     resources.getText(R.string.search_button)
                             }
                     }

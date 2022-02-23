@@ -30,6 +30,8 @@ class HistoryDetailActivity : AppCompatActivity() {
             val history = SurgutCultureApplication.db.historyDao().getHistoryById(historyId)
             val illustration = SurgutCultureApplication.db.illustrationDao().getIllustrationByHistory(historyId)
             val cultobjects = SurgutCultureApplication.db.cultobjectDao().getCultobjectByHistory(historyId)
+            if (cultobjects.size==0)
+                binding.textObjectTitle.visibility=View.INVISIBLE
             binding.textHistoryName.text = history.name
             binding.textHistoryPeriod.text = history.period
             binding.textHistoryDescription.text = history.description

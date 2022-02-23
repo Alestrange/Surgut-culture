@@ -21,9 +21,6 @@ class ObjectsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_objects)
-        findViewById<TextView>(R.id.testTextJ).apply {
-            text = "Что нибудь написать?"
-        }
         val objectsView: RecyclerView = findViewById(R.id.objectsView)
         objectsView.layoutManager = LinearLayoutManager(this)
         val interestId = intent?.extras?.getInt("interestId")

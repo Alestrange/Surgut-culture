@@ -1,3 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_annotation">16sp</dimen>
+    <dimen name="text_description">14sp</dimen>
 </resources>

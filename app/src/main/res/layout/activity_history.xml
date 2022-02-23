@@ -5,6 +5,7 @@
     android:id="@+id/historyLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green_surgut_light"
     tools:context=".HistoryActivity">
 
     <TextView
@@ -12,11 +13,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Вращайте колесо истории и выберите нужный период:"
-        android:textColor="@color/teal_700"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_annotation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/pointerImage"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:elevation="1dp"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_wheelarrow" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/historyLayoutInternal"
@@ -31,28 +42,20 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_historywheel" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="30dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_wheelarrow" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
         android:id="@+id/periodTitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/selected_period"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_annotation"
         app:layout_constraintBottom_toTopOf="@id/periodDescriptionText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +67,8 @@
         android:layout_height="wrap_content"
         android:text=""
         tools:text="Описание периода"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_description"
         app:layout_constraintBottom_toTopOf="@id/detailButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +79,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_detail"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,27 +8,23 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/green_surgut_light"
         tools:context=".SportActivity">
 
-        <Button
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/routsButton"
+            android:padding="6dp"
             android:layout_width="0dp"
             android:layout_height="260dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/button_border"
-            android:gravity="center_horizontal|bottom"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/velorouts_title"
-            android:textColor="@color/teal_700"
-            android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1" />
+            app:layout_constraintVertical_weight="1" >
 
         <ImageView
             android:id="@+id/routImage"
@@ -47,12 +43,29 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/velorouts" />
 
+            <TextView
+                android:id="@+id/nearText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/velorouts_title"
+                android:textColor="@color/black"
+                android:layout_below="@id/routImage"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/routImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
             android:id="@+id/textTagTitle"
+            android:layout_marginLeft="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rent_sport_title"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_annotation"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/routsButton" />
 
@@ -60,8 +73,8 @@
             android:id="@+id/tagView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

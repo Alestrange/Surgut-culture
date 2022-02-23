@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@color/green_surgut_light"
+    >
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -19,25 +21,41 @@
         android:importantForAccessibility="no"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:text="Заголовок Тест тест тест тест"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_title"
+        android:gravity="center"
         />
 
     <TextView
         android:id="@+id/textHistoryPeriod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        tools:text="Период"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:importantForAccessibility="no"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textHistoryName"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_annotation"
+        android:textStyle="bold"
+        android:gravity="center"
         />
 
     <TextView
         android:id="@+id/textHistoryDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="8dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
+        tools:text="Описание Тест тест тест тест"
         app:layout_constraintTop_toBottomOf="@id/textHistoryPeriod"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_description"
+        android:justificationMode="inter_word"
         />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -48,6 +66,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textHistoryDescription"
         tools:listitem="@layout/illustrationview_item" />
 
@@ -55,7 +74,8 @@
         android:id="@+id/textObjectTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_title"
         android:text="@string/history_linked_object_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/illustrationsView"

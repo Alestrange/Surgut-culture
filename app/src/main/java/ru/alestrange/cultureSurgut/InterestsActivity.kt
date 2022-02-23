@@ -20,9 +20,6 @@ class InterestsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interests)
-        findViewById<TextView>(R.id.testTextJ).apply {
-            text = SurgutCultureApplication.db.isOpen.toString()
-        }
         val interestsView: RecyclerView = findViewById(R.id.interestsView)
         interestsView.layoutManager = LinearLayoutManager(this)
         interestsView.adapter = InterestsRecyclerAdapter(SurgutCultureApplication.db.interestDao().getAll(), baseContext)

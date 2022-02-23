@@ -1,9 +1,11 @@
 package ru.alestrange.cultureSurgut
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -12,12 +14,15 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.alestrange.cultureSurgut.data.Cultobject
 import ru.alestrange.cultureSurgut.data.Illustration
 import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
 
 private lateinit var binding: ActivityObjectDetailBinding
 
-class ObjectDetailActivity : AppCompatActivity() {
+private var cultobject:Cultobject?=null
+
+class ObjectDetailActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityObjectDetailBinding.inflate(layoutInflater)
@@ -26,10 +31,10 @@ class ObjectDetailActivity : AppCompatActivity() {
         val objectId = intent?.extras?.getInt("objectId")
         if (objectId!=null)
         {
-            val cultobject = SurgutCultureApplication.db.cultobjectDao().getCultobjectById(objectId)
-            binding.textObjectName.text = cultobject.name
-            binding.textObjectDescription.text = cultobject.description
-            val bm = BitmapFactory.decodeFile("${applicationContext.filesDir}/$imagePath/${cultobject.image}.png")
+            cultobject = SurgutCultureApplication.db.cultobjectDao().getCultobjectById(objectId)
+            binding.textObjectName.text = cultobject?.name
+            binding.textObjectDescription.text = cultobject?.description
+            val bm = BitmapFactory.decodeFile("${applicationContext.filesDir}/$imagePath/${cultobject?.image}.png")
             Log.i("mymy","result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(applicationContext.resources, bm)
             binding.imageObject.setImageDrawable(d)
@@ -37,7 +42,16 @@ class ObjectDetailActivity : AppCompatActivity() {
             objectsView.layoutManager = LinearLayoutManager(this)
             val cultobjects = SurgutCultureApplication.db.illustrationDao().getIllustrationByCultobject(objectId)
             objectsView.adapter = IllustrationRecyclerAdapter(cultobjects, baseContext)
+            binding.mapButton.setOnClickListener{_ -> onMapClick()}
         }
+    }
+
+    private fun onMapClick()
+    {
+        val geoUriString = "geo:${cultobject?.coordX},${cultobject?.coordY}?z=15"
+        val geoUri: Uri = Uri.parse(geoUriString)
+        val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
+        startActivity(mapIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
