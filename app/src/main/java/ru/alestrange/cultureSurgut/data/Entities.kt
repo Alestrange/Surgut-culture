@@ -228,3 +228,58 @@ class CultobjectHistory: CultureEntity {
         db.cultobjectHistoryDao().insertCultobjectHistory(this)
     }
 }
+
+
+@Entity
+@Serializable
+class CycleRoute:ImageEntity, CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var name: String? = null
+    var complex:Int? = null
+    var road: String? = null
+    var description: String? = null
+    override var image: String? = null
+    fun CycleRoute(id: Int, name: String?, complex:Int?, road:String?, description: String?, image:String?) {
+        this.id = id
+        this.name = name
+        this.complex=complex
+        this.road=road
+        this.image = image
+        this.image = image
+    }
+    override fun deleteAll() {
+        db.cycleRouteDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.cycleRouteDao().insertCycleRoute(this)
+    }
+}
+
+@Entity
+@Serializable
+class CycleCheckpoint:ImageEntity, CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var num: Int? = null
+    var cyclerouteId:Int? = null
+    var description: String? = null
+    var coordX : Double? = 0.0
+    var coordY : Double? = 0.0
+    override var image: String? = null
+    fun CycleCheckpoint(id: Int, num: Int?, cyclerouteId:Int?, description: String?, coordX : Double?, coordY : Double?, image:String?) {
+        this.id = id
+        this.num=num
+        this.cyclerouteId=cyclerouteId
+        this.description=description
+        this.coordX=coordX
+        this.coordY=coordY
+        this.image = image
+    }
+    override fun deleteAll() {
+        db.cycleCheckpointDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.cycleCheckpointDao().insertCycleCheckpoint(this)
+    }
+}

@@ -140,3 +140,23 @@ interface CultobjectHistoryDao {
     @Query("delete FROM CultobjectHistory")
     fun deleteAll(): Int
 }
+
+@Dao
+interface CycleRouteDao {
+    @Query("SELECT * FROM CycleRoute")
+    fun getAll(): List<CycleRoute>
+    @Insert
+    fun insertCycleRoute(vararg cycleRoute: CycleRoute)
+    @Query("delete FROM CycleRoute")
+    fun deleteAll(): Int
+}
+
+@Dao
+interface CycleCheckpointDao {
+    @Query("SELECT * FROM CycleCheckpoint")
+    fun getAll(): List<CycleCheckpoint>
+    @Insert
+    fun insertCycleCheckpoint(vararg cycleCheckpoint: CycleCheckpoint)
+    @Query("delete FROM CycleCheckpoint")
+    fun deleteAll(): Int
+}
