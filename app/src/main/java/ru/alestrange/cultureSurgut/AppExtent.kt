@@ -56,8 +56,7 @@ class SurgutCultureApplication: Application() {
                             bm.compress(Bitmap.CompressFormat.PNG, 100, outStream)
                             outStream.flush()
                             outStream.close()
-                            Log.i("mymy", file.exists().toString())
-                            Log.i("mymy", "${bm.width.toString()} ${bm.height.toString()}")
+                            Log.i("mymy", "Downloaded $imageName  ${bm.width.toString()} ${bm.height.toString()}")
                     },
                     onError = { error ->
                         Log.i("mymy", error.toString())
