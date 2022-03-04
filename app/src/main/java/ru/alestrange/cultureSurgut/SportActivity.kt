@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,12 @@ class SportActivity : AppCompatActivity() {
             override fun canScrollVertically(): Boolean {
                 return false
             }
+        }
+        val cycleRouteButton :ImageView = findViewById(R.id.routImage)
+        cycleRouteButton.setOnClickListener {
+            val context = it.context
+            val intent = Intent(context, CycleRouteActivity::class.java)
+            context.startActivity(intent)
         }
         tagView.layoutManager = linearLayoutManager//LinearLayoutManager(this)
         tagView.adapter = TagsRecyclerAdapter(

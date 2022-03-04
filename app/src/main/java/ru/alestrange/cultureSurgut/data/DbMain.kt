@@ -9,7 +9,7 @@ import ru.alestrange.cultureSurgut.SurgutCultureApplication
 @Database(
     entities = [Interest::class, SurgutCultureVersion::class, Tag::class, History::class, CultobjectTag::class, Cultobject::class,
         Illustration::class, CultobjectIllustration::class, HistoryIllustration::class, CultobjectHistory::class, CycleRoute::class, CycleCheckpoint::class],
-    version = 13
+    version = 14
 )
 abstract class SurgutCultureDatabase : RoomDatabase() {
     abstract fun interestDao(): InterestDao

@@ -41,6 +41,10 @@ interface WebApiService {
     suspend fun getCultobjectHistory(): List<CultobjectHistory>
     @GET("history_illustration.json")
     suspend fun getHistoryIllustration(): List<HistoryIllustration>
+    @GET("cycleroute.json")
+    suspend fun getCycleRoute(): List<CycleRoute>
+    @GET("cycle_checkpoint.json")
+    suspend fun getCycleCheckpoint(): List<CycleCheckpoint>
 }
 
 object WebApi {

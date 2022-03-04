@@ -237,14 +237,16 @@ class CycleRoute:ImageEntity, CultureEntity {
     var name: String? = null
     var complex:Int? = null
     var road: String? = null
+    var distance:Int? = null
     var description: String? = null
     override var image: String? = null
-    fun CycleRoute(id: Int, name: String?, complex:Int?, road:String?, description: String?, image:String?) {
+    fun CycleRoute(id: Int, name: String?, complex:Int?, road:String?, distance:Int?, description: String?, image:String?) {
         this.id = id
         this.name = name
         this.complex=complex
         this.road=road
-        this.image = image
+        this.distance=distance
+        this.description = description
         this.image = image
     }
     override fun deleteAll() {

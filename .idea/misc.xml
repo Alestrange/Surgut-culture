@@ -11,6 +11,7 @@
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/drawable/ic_historywheel.xml" value="0.2035" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/drawable/ic_wheelarrow.xml" value="0.126" />
+        <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_cycle_route.xml" value="0.1921875" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_history.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_history_detail.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_history_event.xml" value="0.19427083333333334" />
@@ -22,6 +23,7 @@
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_second.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_sport.xml" value="0.1921875" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/content_near.xml" value="0.1921875" />
+        <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/cycleroute_item.xml" value="0.1921875" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/eventview_item.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/fragment_second.xml" value="0.1921875" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/illustrationview_item.xml" value="0.1921875" />
