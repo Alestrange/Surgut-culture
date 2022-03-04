@@ -28,6 +28,11 @@ class SurgutCultureApplication: Application() {
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
             .build()
+        imageLoader = ImageLoader.Builder(applicationContext)
+            .availableMemoryPercentage(0.25)
+            .crossfade(true)
+            .build()
+        surgutCultureApplication=this
         version = db.getCurrentVersion()
         if (version.id==0)
             databaseEmpty=true
@@ -44,7 +49,7 @@ class SurgutCultureApplication: Application() {
         }
     }
 
-    private fun insertImage(imageName:String) {
+    fun insertImage(imageName:String) {
         if (!File("$filesDir/$imagePath/$imageName.png").exists()) {
             val request = ImageRequest.Builder(applicationContext)
                 .data("$imageUrl$imageName.jpg")
@@ -102,10 +107,6 @@ class SurgutCultureApplication: Application() {
             val f = File(filesDir,imagePath)
             f.mkdirs()
         }
-        imageLoader = ImageLoader.Builder(applicationContext)
-            .availableMemoryPercentage(0.25)
-            .crossfade(true)
-            .build()
         updateDatabaseTable<Interest>(WebApi.retrofitService::getInterest)
         updateDatabaseTable<Tag>(WebApi.retrofitService::getTag)
         updateDatabaseTable<History>(WebApi.retrofitService::getHistory)
@@ -123,6 +124,8 @@ class SurgutCultureApplication: Application() {
         lateinit var db: SurgutCultureDatabase
             private set
         lateinit var version: SurgutCultureVersion
+            private set
+        lateinit var surgutCultureApplication: SurgutCultureApplication
             private set
         lateinit var imageLoader:ImageLoader
         var internetConnection: Boolean = false

@@ -17,6 +17,7 @@ import ru.alestrange.cultureSurgut.data.CycleRoute
 import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.databinding.ActivityCycleRouteBinding
 import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
+import java.io.File
 
 private lateinit var binding: ActivityCycleRouteBinding
 
@@ -39,14 +40,16 @@ class CycleRouteActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return MainMenu.menuClickHandler(this,item)
+        return MainMenu.menuClickHandler(this, item)
     }
 
-    class CycleRouteRecyclerAdapter(private val cycleRoutes: List<CycleRoute>, val context: Context):
-        RecyclerView.Adapter<CycleRouteRecyclerAdapter.MyViewHolder>()
-    {
+    class CycleRouteRecyclerAdapter(
+        private val cycleRoutes: List<CycleRoute>,
+        val context: Context
+    ) :
+        RecyclerView.Adapter<CycleRouteRecyclerAdapter.MyViewHolder>() {
 
-        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var nameTextView: TextView? = null
             var complexTextView: TextView? = null
             var roadTextView: TextView? = null
@@ -61,6 +64,7 @@ class CycleRouteActivity : AppCompatActivity() {
                 imageView = itemView.findViewById(R.id.imageCycleRoute)
             }
         }
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val itemView =
                 LayoutInflater.from(parent.context)
@@ -70,14 +74,27 @@ class CycleRouteActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.nameTextView?.text = cycleRoutes[position].name
-            holder.complexTextView?.text = context.getString(R.string.cycleroute_complex,  cycleRoutes[position].complex)
-            holder.roadTextView?.text = context.getString(R.string.cycleroute_road,  cycleRoutes[position].road)
-            holder.dintanceTextView?.text = context.getString(R.string.cycleroute_distance,  cycleRoutes[position].distance)
-            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png")
-            Log.i("mymy","result img ${cycleRoutes[position].image}.png ${bm?.width} ${bm?.height}")
+            holder.complexTextView?.text =
+                context.getString(R.string.cycleroute_complex, cycleRoutes[position].complex)
+            holder.roadTextView?.text =
+                context.getString(R.string.cycleroute_road, cycleRoutes[position].road)
+            holder.dintanceTextView?.text =
+                context.getString(R.string.cycleroute_distance, cycleRoutes[position].distance)
+
+            //TODO
+            if (!File("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png").exists())
+                cycleRoutes[position].image?.let {
+                    SurgutCultureApplication.surgutCultureApplication.insertImage(it)
+                }
+            val bm =
+                BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png")
+            Log.i(
+                "mymy",
+                "result img ${cycleRoutes[position].image}.png ${bm?.width} ${bm?.height}"
+            )
             val d: Drawable = BitmapDrawable(context.resources, bm)
             holder.imageView?.setImageDrawable(d)
-            holder.imageView?.tag=cycleRoutes[position].id
+            holder.imageView?.tag = cycleRoutes[position].id
             holder.imageView?.setOnClickListener {
                 val context = it.context
                 val intent = Intent(context, ObjectsActivity::class.java) //TODO DETAIL ACTIVITY
