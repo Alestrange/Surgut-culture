@@ -24,6 +24,9 @@
     <string name="distance_meters">%d метров</string>
     <string name="distance_kms">%d километров</string>
     <string name="version_info">%s v.%d.%d</string>
+    <string name="cycleroute_road">Тип дороги: %s</string>
+    <string name="cycleroute_complex">Уровень сложности: %d из 5</string>
+    <string name="cycleroute_distance">Дистанция: %d км</string>
     <string name="impossible_seek_location">К сожалению, приложение не сможет определить ваше местоположение"</string>
     <string name="seek_location_in_process">Местоположение определяется"</string>
     <string name="history_period_1">1594 – 1708. Сургут - острог, населённый казаками и стрельцами. Часть Томского разряда.</string>

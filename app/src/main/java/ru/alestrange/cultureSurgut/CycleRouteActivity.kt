@@ -70,11 +70,11 @@ class CycleRouteActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.nameTextView?.text = cycleRoutes[position].name
-            holder.complexTextView?.text = cycleRoutes[position].complex.toString()
-            holder.roadTextView?.text = cycleRoutes[position].road
-            holder.dintanceTextView?.text = cycleRoutes[position].distance.toString()
+            holder.complexTextView?.text = context.getString(R.string.cycleroute_complex,  cycleRoutes[position].complex)
+            holder.roadTextView?.text = context.getString(R.string.cycleroute_road,  cycleRoutes[position].road)
+            holder.dintanceTextView?.text = context.getString(R.string.cycleroute_distance,  cycleRoutes[position].distance)
             val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png")
-            Log.i("mymy","result img ${bm?.width} ${bm?.height}")
+            Log.i("mymy","result img ${cycleRoutes[position].image}.png ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
             holder.imageView?.setImageDrawable(d)
             holder.imageView?.tag=cycleRoutes[position].id
