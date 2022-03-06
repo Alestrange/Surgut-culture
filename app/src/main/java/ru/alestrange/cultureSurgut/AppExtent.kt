@@ -64,7 +64,7 @@ class SurgutCultureApplication: Application() {
                             Log.i("mymy", "Downloaded $imageName  ${bm.width.toString()} ${bm.height.toString()}")
                     },
                     onError = { error ->
-                        Log.i("mymy", error.toString())
+                        Log.i("mymy", "Downloading $imageName error: ${error.toString()}")
                     }
                 )
                 .build()
