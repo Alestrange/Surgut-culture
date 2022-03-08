@@ -145,6 +145,10 @@ interface CultobjectHistoryDao {
 interface CycleRouteDao {
     @Query("SELECT * FROM CycleRoute")
     fun getAll(): List<CycleRoute>
+    @Query("SELECT * FROM CycleRoute order by complex")
+    fun getAllSortedByDifficulty(): List<CycleRoute>
+    @Query("SELECT * FROM CycleRoute order by distance")
+    fun getAllSortedByDistance(): List<CycleRoute>
     @Query("SELECT * FROM cycleroute where cycleroute.id=:routeID")
     fun getCycleRouteById(routeID:Int): CycleRoute
     @Insert

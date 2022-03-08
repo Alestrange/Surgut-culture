@@ -39,6 +39,8 @@
     <string name="velorouts_title">Сургутские веломаршруты</string>
     <string name="rent_sport_title">Пункты проката:</string>
     <string name="search_button">Найти...</string>
+    <string name="sort_by_difficulty_button">По сложности</string>
+    <string name="sort_by_distance_button">По длине</string>
     <string name="search_distance_title">Выберите расстояние от Вашего местонахождения для поиска</string>
     <string name="cycle_tab_info">Описание</string>
     <string name="cycle_tab_checkpoints">Чекпоинты</string>

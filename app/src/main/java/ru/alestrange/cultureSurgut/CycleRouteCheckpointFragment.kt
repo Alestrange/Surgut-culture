@@ -72,10 +72,15 @@ class CycleRouteCheckpointFragment : Fragment() {
                 val bm =
                     BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${checkpoint[position].image}.png")
                 Log.i("mymy", "result img ${bm?.width} ${bm?.height}")
-                val d: Drawable = BitmapDrawable(context.resources, bm)
-                holder.checkpointImageView?.setImageDrawable(d)
+                bm?.let{
+                    val d: Drawable = BitmapDrawable(context.resources, it)
+                    holder.checkpointImageView?.setImageDrawable(d)
+                } ?: run{
+                    holder.checkpointImageView?.visibility=View.GONE
+                }
                 holder.checkpointButton?.setOnClickListener {
-                    val geoUriString = "geo:${checkpoint[position].coordX},${checkpoint[position].coordY}?z=15"
+                    //val geoUriString = "geo:${checkpoint[position].coordX},${checkpoint[position].coordY}?z=12"
+                    val geoUriString = "geo:0,0?q=${checkpoint[position].coordX},${checkpoint[position].coordY}"
                     val geoUri: Uri = Uri.parse(geoUriString)
                     val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
                     context.startActivity(mapIntent)

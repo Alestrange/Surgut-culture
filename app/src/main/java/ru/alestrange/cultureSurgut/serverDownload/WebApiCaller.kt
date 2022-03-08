@@ -1,7 +1,9 @@
 package ru.alestrange.cultureSurgut.serverDownload
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.SurgutCultureVersion
 
 class WebApiResult<T>
@@ -23,6 +25,7 @@ object WebApiCaller {
                 }
             }
             result=ver.await()
+            Log.i("mymy", "Web (corutine) version ${result.minorVersion}")
         }
         return result
     }

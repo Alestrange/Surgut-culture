@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.alestrange.cultureSurgut.data.Cultobject
 import ru.alestrange.cultureSurgut.data.CycleRoute
 import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.databinding.ActivityCycleRouteBinding
@@ -20,6 +21,7 @@ import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
 import java.io.File
 
 private lateinit var binding: ActivityCycleRouteBinding
+private lateinit var cycleRoutes:List<CycleRoute>
 
 class CycleRouteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +30,18 @@ class CycleRouteActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         binding.cyclerouteView.layoutManager = LinearLayoutManager(this)
+        cycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAll()
         binding.cyclerouteView.adapter = CycleRouteRecyclerAdapter(
-            SurgutCultureApplication.db.cycleRouteDao().getAll(), baseContext
+            cycleRoutes, baseContext
         )
-
+        binding.difficultyButton.setOnClickListener{
+            cycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAllSortedByDifficulty()
+            (binding.cyclerouteView.adapter as CycleRouteRecyclerAdapter).update()
+        }
+        binding.distanceButton.setOnClickListener{
+            cycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAllSortedByDistance()
+            (binding.cyclerouteView.adapter as CycleRouteRecyclerAdapter).update()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,7 +54,7 @@ class CycleRouteActivity : AppCompatActivity() {
     }
 
     class CycleRouteRecyclerAdapter(
-        private val cycleRoutes: List<CycleRoute>,
+        private var cycleRoutes: List<CycleRoute>,
         val context: Context
     ) :
         RecyclerView.Adapter<CycleRouteRecyclerAdapter.MyViewHolder>() {
@@ -106,6 +116,10 @@ class CycleRouteActivity : AppCompatActivity() {
             return cycleRoutes.count()
         }
 
+        fun update(){
+            this.cycleRoutes = cycleRoutes
+            notifyDataSetChanged()
+        }
     }
 
 }

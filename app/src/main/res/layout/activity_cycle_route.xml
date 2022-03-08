@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     android:background="@color/green_surgut_light"
     tools:context=".CycleRouteActivity">
+    <Button
+        android:id="@+id/difficultyButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_border"
+        android:gravity="center_horizontal|bottom"
+        android:text="@string/sort_by_difficulty_button"
+        android:textColor="@color/black"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/distanceButton"
+        android:drawableLeft="@android:drawable/ic_menu_sort_by_size"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <Button
+        android:id="@+id/distanceButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_border"
+        android:gravity="center_horizontal|bottom"
+        android:text="@string/sort_by_distance_button"
+        android:textColor="@color/black"
+        android:drawableLeft="@android:drawable/ic_menu_sort_by_size"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/difficultyButton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cyclerouteView"
         android:layout_width="0dp"
@@ -17,6 +47,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/difficultyButton"
         tools:listitem="@layout/cycleroute_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>
