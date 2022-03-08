@@ -37,6 +37,7 @@ class SurgutCultureApplication: Application() {
         if (version.id==0)
             databaseEmpty=true
         val webVersion= WebApiCaller.getSurgutCultureVersion()
+        Log.i("mymy", "Current version ${version.minorVersion} Web version: ${webVersion.minorVersion}")
         internetConnection = webVersion.id != 0
         if (internetConnection&&((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion)))
         {
@@ -51,6 +52,7 @@ class SurgutCultureApplication: Application() {
 
     fun insertImage(imageName:String) {
         if (!File("$filesDir/$imagePath/$imageName.png").exists()) {
+            imageLoader.memoryCache.clear()
             val request = ImageRequest.Builder(applicationContext)
                 .data("$imageUrl$imageName.jpg")
                 .target(

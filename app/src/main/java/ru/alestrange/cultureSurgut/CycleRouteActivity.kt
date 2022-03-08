@@ -81,7 +81,6 @@ class CycleRouteActivity : AppCompatActivity() {
             holder.dintanceTextView?.text =
                 context.getString(R.string.cycleroute_distance, cycleRoutes[position].distance)
 
-            //TODO
             if (!File("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png").exists())
                 cycleRoutes[position].image?.let {
                     SurgutCultureApplication.surgutCultureApplication.insertImage(it)
@@ -97,7 +96,7 @@ class CycleRouteActivity : AppCompatActivity() {
             holder.imageView?.tag = cycleRoutes[position].id
             holder.imageView?.setOnClickListener {
                 val context = it.context
-                val intent = Intent(context, ObjectsActivity::class.java) //TODO DETAIL ACTIVITY
+                val intent = Intent(context, CycleDetailActivity::class.java)
                 intent.putExtra("cycleRouteId", it.tag as Int)
                 context.startActivity(intent)
             }

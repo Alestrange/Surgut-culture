@@ -145,6 +145,8 @@ interface CultobjectHistoryDao {
 interface CycleRouteDao {
     @Query("SELECT * FROM CycleRoute")
     fun getAll(): List<CycleRoute>
+    @Query("SELECT * FROM cycleroute where cycleroute.id=:routeID")
+    fun getCycleRouteById(routeID:Int): CycleRoute
     @Insert
     fun insertCycleRoute(vararg cycleRoute: CycleRoute)
     @Query("delete FROM CycleRoute")
@@ -155,6 +157,10 @@ interface CycleRouteDao {
 interface CycleCheckpointDao {
     @Query("SELECT * FROM CycleCheckpoint")
     fun getAll(): List<CycleCheckpoint>
+    @Query("SELECT * " +
+            "FROM CycleCheckpoint " +
+            "where CycleRouteId =:cycleRouteId")
+    fun getCheckpointByRoute(cycleRouteId:Int): List<CycleCheckpoint>
     @Insert
     fun insertCycleCheckpoint(vararg cycleCheckpoint: CycleCheckpoint)
     @Query("delete FROM CycleCheckpoint")
