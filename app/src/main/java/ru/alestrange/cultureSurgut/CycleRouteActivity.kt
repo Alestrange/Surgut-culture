@@ -21,7 +21,7 @@ import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
 import java.io.File
 
 private lateinit var binding: ActivityCycleRouteBinding
-private lateinit var cycleRoutes:List<CycleRoute>
+private lateinit var activityCycleRoutes:List<CycleRoute>
 
 class CycleRouteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,16 +30,16 @@ class CycleRouteActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         binding.cyclerouteView.layoutManager = LinearLayoutManager(this)
-        cycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAll()
+        activityCycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAll()
         binding.cyclerouteView.adapter = CycleRouteRecyclerAdapter(
-            cycleRoutes, baseContext
+            activityCycleRoutes, baseContext
         )
         binding.difficultyButton.setOnClickListener{
-            cycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAllSortedByDifficulty()
+            activityCycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAllSortedByDifficulty()
             (binding.cyclerouteView.adapter as CycleRouteRecyclerAdapter).update()
         }
         binding.distanceButton.setOnClickListener{
-            cycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAllSortedByDistance()
+            activityCycleRoutes = SurgutCultureApplication.db.cycleRouteDao().getAllSortedByDistance()
             (binding.cyclerouteView.adapter as CycleRouteRecyclerAdapter).update()
         }
     }
@@ -117,7 +117,7 @@ class CycleRouteActivity : AppCompatActivity() {
         }
 
         fun update(){
-            this.cycleRoutes = cycleRoutes
+            this.cycleRoutes = activityCycleRoutes
             notifyDataSetChanged()
         }
     }
