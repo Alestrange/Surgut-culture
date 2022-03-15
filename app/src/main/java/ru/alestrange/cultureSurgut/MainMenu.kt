@@ -3,31 +3,30 @@ package ru.alestrange.cultureSurgut
 import android.app.Activity
 import android.content.Intent
 import android.view.MenuItem
-import android.view.View
-import kotlin.reflect.KClass
+import ru.alestrange.cultureSurgut.activities.*
 
 class MainMenu {
     companion object{
         fun menuClickHandler(current: Activity, item: MenuItem): Boolean {
             return when (item.itemId) {
                 R.id.miInterest -> {
-                    openActivity(current,InterestsActivity())
+                    openActivity(current, InterestsActivity())
                     true
                 }
                 R.id.miHistory -> {
-                    openActivity(current,HistoryActivity())
+                    openActivity(current, HistoryActivity())
                     true
                 }
                 R.id.miHome -> {
-                    openActivity(current,MainActivity())
+                    openActivity(current, MainActivity())
                     true
                 }
                 R.id.miActive -> {
-                    openActivity(current,SportActivity())
+                    openActivity(current, SportActivity())
                     true
                 }
                 R.id.miNear -> {
-                    openActivity(current,NearActivity())
+                    openActivity(current, NearActivity())
                     true
                 }
                 else -> true

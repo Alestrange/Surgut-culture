@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.Manifest
 import android.content.Context
@@ -15,12 +15,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.alestrange.cultureSurgut.databinding.ActivityNearBinding
-import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
-import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.OnSuccessListener
+import ru.alestrange.cultureSurgut.Haversine
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.Cultobject
 
 private lateinit var binding: ActivityNearBinding
@@ -39,7 +38,7 @@ class NearActivity : AppCompatActivity() {
         setContentView(view)
         val objectsView: RecyclerView = binding.objectsView
         objectsView.layoutManager = LinearLayoutManager(this)
-        allCultobjects=SurgutCultureApplication.db.cultobjectDao().getAll()
+        allCultobjects = SurgutCultureApplication.db.cultobjectDao().getAll()
         val cultobjects = listOf<Cultobject>()
         objectsView.adapter = ObjectsActivity.ObjectsRecyclerAdapter(cultobjects, baseContext)
         val listener = SeekBarListener()
@@ -87,7 +86,7 @@ class NearActivity : AppCompatActivity() {
     }
 
     fun onSearchClickListener(view: View){
-        if (deviceLocation!=null) {
+        if (deviceLocation !=null) {
             val center = Haversine(deviceLocation!!.latitude, deviceLocation!!.longitude)
             val nearCultobject = allCultobjects
                 .filter {

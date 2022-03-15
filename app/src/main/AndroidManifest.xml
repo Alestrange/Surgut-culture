@@ -16,37 +16,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SurgutCulture">
         <activity
-            android:name=".CycleDetailActivity"
+            android:name=".activities.CycleDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".CycleRouteActivity"
+            android:name=".activities.CycleRouteActivity"
             android:exported="false" />
         <activity
-            android:name=".NearActivity"
+            android:name=".activities.NearActivity"
             android:exported="false" />
         <activity
-            android:name=".SportActivity"
+            android:name=".activities.SportActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryActivity"
+            android:name=".activities.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ObjectDetailActivity"
+            android:name=".activities.ObjectDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".InterestsActivity"
+            android:name=".activities.InterestsActivity"
             android:exported="false" />
         <activity
-            android:name=".ObjectsActivity"
+            android:name=".activities.ObjectsActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryDetailActivity"
+            android:name=".activities.HistoryDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryEventActivity"
+            android:name=".activities.HistoryEventActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -285,3 +285,24 @@ class CycleCheckpoint:ImageEntity, CultureEntity {
         db.cycleCheckpointDao().insertCycleCheckpoint(this)
     }
 }
+
+@Entity
+@Serializable
+class CultobjectCycleroute: CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var cultobjectId:Int? = 0
+    var cyclerouteId:Int? = 0
+    fun CultobjectCycleroute(id: Int, cultobjectId: Int?, cyclerouteId:Int?) {
+        this.id = id
+        this.cultobjectId = cultobjectId
+        this.cyclerouteId = cyclerouteId
+    }
+    override fun deleteAll()
+    {
+        db.cultobjectCyclerouteDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.cultobjectCyclerouteDao().insertCultobjectCycleroute(this)
+    }
+}

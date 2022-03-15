@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_surgut_light"
-        tools:context=".SportActivity">
+        tools:context=".activities.SportActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/routsButton"

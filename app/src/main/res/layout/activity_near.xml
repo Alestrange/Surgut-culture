@@ -5,7 +5,7 @@
     android:background="@color/green_surgut_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NearActivity">
+    tools:context=".activities.NearActivity">
 
     <TextView
         android:id="@+id/distTitle"

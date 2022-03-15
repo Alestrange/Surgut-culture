@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_surgut_light"
-    tools:context=".CycleDetailActivity">
+    tools:context=".activities.CycleDetailActivity">
     <TextView
         android:id="@+id/textCycleRouteName"
         android:layout_width="match_parent"

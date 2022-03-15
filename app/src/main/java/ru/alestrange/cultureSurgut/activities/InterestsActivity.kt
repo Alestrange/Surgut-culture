@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.content.Context
 import android.content.Intent
@@ -13,7 +13,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.alestrange.cultureSurgut.MainMenu
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.Interest
+import ru.alestrange.cultureSurgut.imagePath
 
 
 class InterestsActivity : AppCompatActivity() {
@@ -31,7 +35,7 @@ class InterestsActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return MainMenu.menuClickHandler(this,item)
+        return MainMenu.menuClickHandler(this, item)
     }
 
     class InterestsRecyclerAdapter(private val interests: List<Interest>, val context: Context):

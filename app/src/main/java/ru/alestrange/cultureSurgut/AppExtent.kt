@@ -105,6 +105,7 @@ class SurgutCultureApplication: Application() {
         HistoryIllustration().deleteAll()
         CycleRoute().deleteAll()
         CycleCheckpoint().deleteAll()
+        CultobjectCycleroute().deleteAll()
         if (!File("$filesDir/$imagePath").exists()) {
             val f = File(filesDir,imagePath)
             f.mkdirs()
@@ -120,6 +121,7 @@ class SurgutCultureApplication: Application() {
         updateDatabaseTable<HistoryIllustration>(WebApi.retrofitService::getHistoryIllustration)
         updateDatabaseTable<CycleRoute>(WebApi.retrofitService::getCycleRoute)
         updateDatabaseTable<CycleCheckpoint>(WebApi.retrofitService::getCycleCheckpoint)
+        updateDatabaseTable<CultobjectCycleroute>(WebApi.retrofitService::getCultobjectCycleroute)
     }
 
     companion object {

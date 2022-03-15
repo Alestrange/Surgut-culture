@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.fragments
 
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
@@ -9,9 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ru.alestrange.cultureSurgut.databinding.ActivityHistoryBinding.inflate
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
+import ru.alestrange.cultureSurgut.activities.CycleDetailActivity
 import ru.alestrange.cultureSurgut.databinding.FragmentCycleRouteDetailBinding
-import ru.alestrange.cultureSurgut.databinding.TagviewItemBinding.inflate
+import ru.alestrange.cultureSurgut.imagePath
 import java.io.File
 
 class CycleRouteDetailFragment : Fragment() {
@@ -25,9 +27,11 @@ class CycleRouteDetailFragment : Fragment() {
         binding = FragmentCycleRouteDetailBinding.inflate(inflater, container, false)
         val view = binding.root
         binding.textCycleRouteComplex.text=getString(R.string.cycleroute_complex, CycleDetailActivity.cycleRoute?.complex)
-        binding.textCycleRouteRoad.text=getString(R.string.cycleroute_road,CycleDetailActivity.cycleRoute?.road)
-        binding.textCycleRouteDistance.text=getString(R.string.cycleroute_distance,CycleDetailActivity.cycleRoute?.distance)
-        binding.textHistoryDescription.text=CycleDetailActivity.cycleRoute?.description
+        binding.textCycleRouteRoad.text=getString(R.string.cycleroute_road, CycleDetailActivity.cycleRoute?.road)
+        binding.textCycleRouteDistance.text=getString(
+            R.string.cycleroute_distance,
+            CycleDetailActivity.cycleRoute?.distance)
+        binding.textHistoryDescription.text= CycleDetailActivity.cycleRoute?.description
         if (!File("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.png").exists())
             CycleDetailActivity.cycleRoute?.image?.let {
                 SurgutCultureApplication.surgutCultureApplication.insertImage(it)

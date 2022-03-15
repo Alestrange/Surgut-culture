@@ -1,25 +1,19 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.alestrange.cultureSurgut.data.Cultobject
+import ru.alestrange.cultureSurgut.MainMenu
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.History
-import ru.alestrange.cultureSurgut.data.Interest
-import ru.alestrange.cultureSurgut.databinding.ActivityHistoryBinding
 import ru.alestrange.cultureSurgut.databinding.ActivityHistoryEventBinding
-import ru.alestrange.cultureSurgut.databinding.ActivityMainBinding
 
 private lateinit var binding: ActivityHistoryEventBinding
 
@@ -53,7 +47,7 @@ class HistoryEventActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return MainMenu.menuClickHandler(this,item)
+        return MainMenu.menuClickHandler(this, item)
     }
 
     class HistoryRecyclerAdapter(private val events: List<History>, val context: Context):

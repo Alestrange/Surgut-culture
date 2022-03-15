@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.os.Bundle
 import android.view.Menu
@@ -9,14 +9,16 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import ru.alestrange.cultureSurgut.*
+import ru.alestrange.cultureSurgut.data.Cultobject
 import ru.alestrange.cultureSurgut.data.CycleCheckpoint
 import ru.alestrange.cultureSurgut.data.CycleRoute
 import ru.alestrange.cultureSurgut.databinding.ActivityCycleDetailBinding
+import ru.alestrange.cultureSurgut.fragments.CycleRouteCheckpointFragment
+import ru.alestrange.cultureSurgut.fragments.CycleRouteCultobjectFragment
+import ru.alestrange.cultureSurgut.fragments.CycleRouteDetailFragment
 
 private lateinit var binding: ActivityCycleDetailBinding
-
-private var cycleRoute: CycleRoute?=null
-private var checkpoints: List<CycleCheckpoint>?=null
 
 class CycleDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +30,7 @@ class CycleDetailActivity : AppCompatActivity() {
         if (routeId!=null) {
             cycleRoute = SurgutCultureApplication.db.cycleRouteDao().getCycleRouteById(routeId)
             checkpoints = SurgutCultureApplication.db.cycleCheckpointDao().getCheckpointByRoute(routeId)
+            cultobjects = SurgutCultureApplication.db.cultobjectCyclerouteDao().getCultobjectsByRoute(routeId)
             binding.textCycleRouteName.text= cycleRoute?.name
             val viewPager = binding.viewPager
             val pagerAdapter = ViewPagerFragmentStateAdapter(this)
@@ -35,6 +38,7 @@ class CycleDetailActivity : AppCompatActivity() {
             val tabLayout = binding.tabLayout
             tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.cycle_tab_checkpoints)))
             tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.cycle_tab_info)))
+            tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.cycle_tab_cultobjects)))
             tabLayout.tabGravity = TabLayout.GRAVITY_FILL
             tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab) {
@@ -62,14 +66,17 @@ class CycleDetailActivity : AppCompatActivity() {
                 0 -> {
                     CycleRouteCheckpointFragment()
                 }
-                else -> {
+                1 -> {
                     CycleRouteDetailFragment()
+                }
+                else -> {
+                    CycleRouteCultobjectFragment()
                 }
             }
         }
 
         override fun getItemCount(): Int {
-            return 2
+            return 3
         }
 
 
@@ -81,11 +88,12 @@ class CycleDetailActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return MainMenu.menuClickHandler(this,item)
+        return MainMenu.menuClickHandler(this, item)
     }
 
     companion object{
         var cycleRoute: CycleRoute?=null
         var checkpoints: List<CycleCheckpoint>?=null
+        var cultobjects: List<Cultobject>?=null
     }
 }

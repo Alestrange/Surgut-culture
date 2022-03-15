@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_surgut_light"
-    tools:context=".CycleRouteActivity">
+    tools:context=".activities.CycleRouteActivity">
     <Button
         android:id="@+id/difficultyButton"
         android:layout_width="0dp"

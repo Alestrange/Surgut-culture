@@ -1,14 +1,13 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
-import android.R.attr.*
 import android.content.Intent
-import android.graphics.Matrix
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import ru.alestrange.cultureSurgut.MainMenu
+import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.databinding.ActivityHistoryBinding
 
 private const val TOUCH_SCALE_FACTOR: Float = 180.0f / 320f

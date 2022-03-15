@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_surgut_light"
-    tools:context=".HistoryActivity">
+    tools:context=".activities.HistoryActivity">
 
     <TextView
         android:id="@+id/textTitle"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/textTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:context=".HistoryActivity">
+        tools:context=".activities.HistoryActivity">
 
     <ImageView
         android:id="@+id/imageView"

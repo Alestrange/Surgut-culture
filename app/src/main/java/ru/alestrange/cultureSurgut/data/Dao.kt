@@ -170,3 +170,17 @@ interface CycleCheckpointDao {
     @Query("delete FROM CycleCheckpoint")
     fun deleteAll(): Int
 }
+
+@Dao
+interface CultobjectCyclerouteDao {
+    @Query("SELECT * FROM CultobjectCycleroute")
+    fun getAll(): List<CultobjectCycleroute>
+    @Query("SELECT Cultobject.* " +
+            "FROM Cultobject, cultobjectcycleroute " +
+            "where Cultobject.id=cultobjectcycleroute.cultobjectId and cultobjectcycleroute.cyclerouteId =:cycleRouteId")
+    fun getCultobjectsByRoute(cycleRouteId:Int): List<Cultobject>
+    @Insert
+    fun insertCultobjectCycleroute(vararg cultobjectCycleroute: CultobjectCycleroute)
+    @Query("delete FROM CultobjectCycleroute")
+    fun deleteAll(): Int
+}

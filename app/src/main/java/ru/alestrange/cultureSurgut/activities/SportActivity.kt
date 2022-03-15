@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.content.Context
 import android.content.Intent
@@ -9,13 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.alestrange.cultureSurgut.data.Interest
+import ru.alestrange.cultureSurgut.MainMenu
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.Tag
+import ru.alestrange.cultureSurgut.imagePath
 
 class SportActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

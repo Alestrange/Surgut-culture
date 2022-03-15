@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.fragments
 
 import android.content.Context
 import android.content.Intent
@@ -14,14 +14,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.activities.CycleDetailActivity
 import ru.alestrange.cultureSurgut.data.CycleCheckpoint
-import ru.alestrange.cultureSurgut.data.Illustration
 import ru.alestrange.cultureSurgut.databinding.FragmentCycleRouteCheckpointBinding
-import ru.alestrange.cultureSurgut.databinding.FragmentCycleRouteDetailBinding
+import ru.alestrange.cultureSurgut.imagePath
 
 class CycleRouteCheckpointFragment : Fragment() {
     private lateinit var binding: FragmentCycleRouteCheckpointBinding
@@ -36,7 +36,7 @@ class CycleRouteCheckpointFragment : Fragment() {
         checkpointView.layoutManager = LinearLayoutManager(context)
         CycleDetailActivity.checkpoints?.let {
             checkpointView.adapter =
-                CycleRouteCheckpointFragment.CheckpointRecyclerAdapter(
+                CheckpointRecyclerAdapter(
                     it,
                     requireContext()
                 )
@@ -45,7 +45,7 @@ class CycleRouteCheckpointFragment : Fragment() {
     }
 
     class CheckpointRecyclerAdapter(private val illustrations: List<CycleCheckpoint>, val context: Context):
-        RecyclerView.Adapter<CycleRouteCheckpointFragment.CheckpointRecyclerAdapter.MyViewHolder>()
+        RecyclerView.Adapter<CheckpointRecyclerAdapter.MyViewHolder>()
     {
 
         class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -66,7 +66,7 @@ class CycleRouteCheckpointFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            CycleDetailActivity.checkpoints?.let {checkpoint ->
+            CycleDetailActivity.checkpoints?.let { checkpoint ->
                 holder.checkpointTextView?.text =
                     checkpoint[position].description
                 val bm =

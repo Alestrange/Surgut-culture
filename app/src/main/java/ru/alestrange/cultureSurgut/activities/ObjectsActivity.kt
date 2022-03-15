@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.content.Context
 import android.content.Intent
@@ -13,8 +13,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.alestrange.cultureSurgut.MainMenu
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.Cultobject
-import ru.alestrange.cultureSurgut.data.Interest
+import ru.alestrange.cultureSurgut.imagePath
 
 
 class ObjectsActivity : AppCompatActivity() {
@@ -48,11 +51,11 @@ class ObjectsActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return MainMenu.menuClickHandler(this,item)
+        return MainMenu.menuClickHandler(this, item)
     }
 
     class ObjectsRecyclerAdapter(private var cultobjects: List<Cultobject>, val context: Context):
-        RecyclerView.Adapter<ObjectsActivity.ObjectsRecyclerAdapter.MyViewHolder>()
+        RecyclerView.Adapter<ObjectsRecyclerAdapter.MyViewHolder>()
     {
 
         class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.content.Context
 import android.content.Intent
@@ -14,9 +14,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.alestrange.cultureSurgut.MainMenu
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.Cultobject
 import ru.alestrange.cultureSurgut.data.Illustration
 import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
+import ru.alestrange.cultureSurgut.imagePath
 
 private lateinit var binding: ActivityObjectDetailBinding
 
@@ -42,7 +46,7 @@ class ObjectDetailActivity : AppCompatActivity(){
             objectsView.layoutManager = LinearLayoutManager(this)
             val cultobjects = SurgutCultureApplication.db.illustrationDao().getIllustrationByCultobject(objectId)
             objectsView.adapter = IllustrationRecyclerAdapter(cultobjects, baseContext)
-            binding.mapButton.setOnClickListener{_ -> onMapClick()}
+            binding.mapButton.setOnClickListener{ _ -> onMapClick()}
         }
     }
 
@@ -60,7 +64,7 @@ class ObjectDetailActivity : AppCompatActivity(){
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return MainMenu.menuClickHandler(this,item)
+        return MainMenu.menuClickHandler(this, item)
     }
 
     class IllustrationRecyclerAdapter(private val illustrations: List<Illustration>, val context: Context):

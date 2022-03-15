@@ -1,4 +1,4 @@
-package ru.alestrange.cultureSurgut
+package ru.alestrange.cultureSurgut.activities
 
 import android.content.Context
 import android.content.Intent
@@ -13,11 +13,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.alestrange.cultureSurgut.data.Cultobject
+import ru.alestrange.cultureSurgut.MainMenu
+import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.CycleRoute
-import ru.alestrange.cultureSurgut.data.Interest
 import ru.alestrange.cultureSurgut.databinding.ActivityCycleRouteBinding
-import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
+import ru.alestrange.cultureSurgut.imagePath
 import java.io.File
 
 private lateinit var binding: ActivityCycleRouteBinding
