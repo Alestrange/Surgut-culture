@@ -19,6 +19,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        //binding.interestButton.setOnClickListener(this::interestButtonOnClick)
+        binding.interestButton.setOnClickListener{ _ ->
+            MainMenu.openActivity(
+                this,
+                InterestsActivity()
+            )
+        }
+        binding.historyButton.setOnClickListener { _ ->
+            MainMenu.openActivity(
+                this,
+                HistoryActivity()
+            )
+        }
+        binding.activeSurgutButton.setOnClickListener { _ ->
+            MainMenu.openActivity(
+                this,
+                SportActivity()
+            )
+        }
+        binding.nearButton.setOnClickListener { _ -> MainMenu.openActivity(this, NearActivity()) }
+        }
+
+    override fun onResume() {
+        super.onResume()
         if (SurgutCultureApplication.internetConnection &&((SurgutCultureApplication.version.majorVersion!=SurgutCultureApplication.webVersion.majorVersion)||(SurgutCultureApplication.version.minorVersion!=SurgutCultureApplication.webVersion.minorVersion)))
         {
             binding.loadingLayout.visibility= View.VISIBLE
@@ -43,27 +67,7 @@ class MainActivity : AppCompatActivity() {
             R.string.version_info, SurgutCultureApplication.version.description,
             SurgutCultureApplication.version.majorVersion,
             SurgutCultureApplication.version.minorVersion)
-        //binding.interestButton.setOnClickListener(this::interestButtonOnClick)
-        binding.interestButton.setOnClickListener{ _ ->
-            MainMenu.openActivity(
-                this,
-                InterestsActivity()
-            )
-        }
-        binding.historyButton.setOnClickListener { _ ->
-            MainMenu.openActivity(
-                this,
-                HistoryActivity()
-            )
-        }
-        binding.activeSurgutButton.setOnClickListener { _ ->
-            MainMenu.openActivity(
-                this,
-                SportActivity()
-            )
-        }
-        binding.nearButton.setOnClickListener { _ -> MainMenu.openActivity(this, NearActivity()) }
-        }
+    }
 
     fun onUpdateProgress(message:String,progress:Int)
     {
