@@ -52,6 +52,8 @@
     <string name="cycle_tab_info">Описание</string>
     <string name="cycle_tab_checkpoints">Чекпоинты</string>
     <string name="cycle_tab_cultobjects">Объекты культуры</string>
+    <string name="update_phase0">Обновление данных: начало</string>
+    <string name="update_phase1">Обновление данных о культурных объектах</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

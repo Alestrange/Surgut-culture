@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import coil.ImageLoader
 import coil.request.ImageRequest
+import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.*
 import ru.alestrange.cultureSurgut.imagePath
@@ -58,9 +59,9 @@ class DataUpdater {
             }
         }
 
-        fun updateDatabase()
+        fun updateDatabase(updateResults: (String, Int) -> Unit)
         {
-
+            updateResults(SurgutCultureApplication.surgutCultureApplication.getString(R.string.update_phase0),0)
             Interest().deleteAll()
             Tag().deleteAll()
             History().deleteAll()
@@ -77,6 +78,7 @@ class DataUpdater {
                 val f = File(SurgutCultureApplication.surgutCultureApplication.filesDir, imagePath)
                 f.mkdirs()
             }
+            updateResults(SurgutCultureApplication.surgutCultureApplication.getString(R.string.update_phase1),2)
             updateDatabaseTable<Interest>(WebApi.retrofitService::getInterest)
             updateDatabaseTable<Tag>(WebApi.retrofitService::getTag)
             updateDatabaseTable<History>(WebApi.retrofitService::getHistory)

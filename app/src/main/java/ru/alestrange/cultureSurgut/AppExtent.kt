@@ -55,18 +55,9 @@ class SurgutCultureApplication: Application() {
         version = db.getCurrentVersion()
         if (version.id==0)
             databaseEmpty=true
-        val webVersion= WebApiCaller.getSurgutCultureVersion()
-        Log.i("mymy", "Current version ${version.minorVersion} Web version: ${webVersion.minorVersion}")
+        webVersion= WebApiCaller.getSurgutCultureVersion()
+        Log.i("sclog", "Current version ${version.minorVersion} Web version: ${webVersion.minorVersion}")
         internetConnection = webVersion.id != 0
-        if (internetConnection&&((version.majorVersion!=webVersion.majorVersion)||(version.minorVersion!=webVersion.minorVersion)))
-        {
-            DataUpdater.updateDatabase()
-            version=webVersion
-            if (databaseError==null) {
-                db.surgutCultureVersionDao().deleteAll()
-                db.surgutCultureVersionDao().insertVersion(version)
-            }
-        }
     }
 
 
@@ -75,7 +66,7 @@ class SurgutCultureApplication: Application() {
         lateinit var db: SurgutCultureDatabase
             private set
         lateinit var version: SurgutCultureVersion
-            private set
+        lateinit var webVersion: SurgutCultureVersion
         lateinit var surgutCultureApplication: SurgutCultureApplication
             private set
         var internetConnection: Boolean = false

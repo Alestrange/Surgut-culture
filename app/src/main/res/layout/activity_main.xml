@@ -28,6 +28,7 @@
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@id/emblemView"
         app:layout_constraintBottom_toTopOf="@id/aboutView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +221,46 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/emblemView"
+        app:layout_constraintBottom_toTopOf="@id/aboutView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context=".activities.MainActivity">
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/loadingIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:min="0"
+            android:max="100"
+            />
         <TextView
+            android:id="@+id/loadingTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:textColor="@color/black"
+            tools:text="Загрузка..."
+            android:gravity="center"
+            android:textSize="@dimen/text_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loadingIndicator"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
             android:id="@+id/aboutView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
