@@ -19,6 +19,7 @@ import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.CycleRoute
 import ru.alestrange.cultureSurgut.databinding.ActivityCycleRouteBinding
 import ru.alestrange.cultureSurgut.imagePath
+import ru.alestrange.cultureSurgut.serverDownload.DataUpdater
 import java.io.File
 
 private lateinit var binding: ActivityCycleRouteBinding
@@ -94,7 +95,7 @@ class CycleRouteActivity : AppCompatActivity() {
 
             if (!File("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png").exists())
                 cycleRoutes[position].image?.let {
-                    SurgutCultureApplication.surgutCultureApplication.insertImage(it)
+                    DataUpdater.insertImage(it)
                 }
             val bm =
                 BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png")

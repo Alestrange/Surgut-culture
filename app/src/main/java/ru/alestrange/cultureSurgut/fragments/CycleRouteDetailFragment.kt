@@ -14,6 +14,7 @@ import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.activities.CycleDetailActivity
 import ru.alestrange.cultureSurgut.databinding.FragmentCycleRouteDetailBinding
 import ru.alestrange.cultureSurgut.imagePath
+import ru.alestrange.cultureSurgut.serverDownload.DataUpdater
 import java.io.File
 
 class CycleRouteDetailFragment : Fragment() {
@@ -34,7 +35,7 @@ class CycleRouteDetailFragment : Fragment() {
         binding.textHistoryDescription.text= CycleDetailActivity.cycleRoute?.description
         if (!File("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.png").exists())
             CycleDetailActivity.cycleRoute?.image?.let {
-                SurgutCultureApplication.surgutCultureApplication.insertImage(it)
+                DataUpdater.insertImage(it)
             }
         val bm =
             BitmapFactory.decodeFile("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.png")

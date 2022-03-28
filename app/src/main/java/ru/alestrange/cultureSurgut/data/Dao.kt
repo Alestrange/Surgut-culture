@@ -89,7 +89,14 @@ interface CultobjectDao {
     @Query("SELECT distinct cultobject.* " +
             "FROM cultobject, cultobjecttag " +
             "where cultobject.id=cultobjecttag.cultobjectId and cultobjecttag.tagId=:tagId")
-    abstract fun getCultobjectByTag(tagId: Int): List<Cultobject>
+    fun getCultobjectByTag(tagId: Int): List<Cultobject>
+    @Query("SELECT distinct cultobject.* " +
+            "FROM cultobject, tag, cultobjecttag, interest " +
+            "where cultobject.id=cultobjecttag.cultobjectId and cultobjecttag.tagId=tag.id and tag.interestId=interest.id and" +
+            "(cultobject.name like '%'||:text || '%' "+
+            "or  tag.name like '%'||:text || '%'" +
+            "or interest.name like '%'||:text || '%')")
+    fun getCultobjectByText(text: String): List<Cultobject>
 }
 
 @Dao

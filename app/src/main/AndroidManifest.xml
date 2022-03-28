@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SurgutCulture">
         <activity
+            android:name=".activities.SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.CycleDetailActivity"
             android:exported="false" />
         <activity

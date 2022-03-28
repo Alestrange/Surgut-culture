@@ -24,10 +24,12 @@
     <string name="distance_meters">%d метров</string>
     <string name="distance_kms">%d километров</string>
     <string name="version_info">%s v.%d.%d</string>
+    <string name="update_location_button">Обновить местоположение</string>
     <string name="cycleroute_road">Тип дороги: %s</string>
     <string name="cycleroute_complex">Уровень сложности: %d из 5</string>
     <string name="cycleroute_distance">Дистанция: %d км</string>
-    <string name="impossible_seek_location">К сожалению, приложение не сможет определить ваше местоположение"</string>
+    <string name="impossible_seek_location">К сожалению, приложение не сможет определить Ваше местоположение"</string>
+    <string name="impossible_seek_location_not_yet">Подождите, пока устройства определит Ваше местоположение"</string>
     <string name="seek_location_in_process">Местоположение определяется"</string>
     <string name="history_period_1">1594 – 1708. Сургут - острог, населённый казаками и стрельцами. Часть Томского разряда.</string>
     <string name="history_period_2">1708 – 1877. Петром определён к сибирской губернии. Место ссылки бунтовщиков.</string>
@@ -38,13 +40,18 @@
     <string name="history_linked_object_title">Объекты в городе, связанные с этим событием:</string>
     <string name="velorouts_title">Сургутские веломаршруты</string>
     <string name="rent_sport_title">Пункты проката:</string>
-    <string name="search_button">Найти...</string>
+    <string name="search_button">Найти</string>
+    <string name="search_hint">Введите строку для поиска</string>
+    <string name="search_description">Поиск объектов по наименованиям, тегам, категориям</string>
+    <string name="search_not_found">Ничего не найдено</string>
+    <string name="search_location_enabled">Местоположение определено (%1$.5f, %2$.5f)</string>
+    <string name="search_location_updated">Местоположение обновлено (%1$.5f, %2$.5f)</string>
     <string name="sort_by_difficulty_button">По сложности</string>
     <string name="sort_by_distance_button">По длине</string>
     <string name="search_distance_title">Выберите расстояние от Вашего местонахождения для поиска</string>
     <string name="cycle_tab_info">Описание</string>
     <string name="cycle_tab_checkpoints">Чекпоинты</string>
-    <string name="cycle_tab_cultobjects">Достопримечательности</string>
+    <string name="cycle_tab_cultobjects">Объекты культуры</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

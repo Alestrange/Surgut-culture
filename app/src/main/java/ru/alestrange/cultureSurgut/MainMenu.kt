@@ -29,6 +29,10 @@ class MainMenu {
                     openActivity(current, NearActivity())
                     true
                 }
+                R.id.miSearch -> {
+                    openActivity(current, SearchActivity())
+                    true
+                }
                 else -> true
             }
         }

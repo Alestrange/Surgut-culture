@@ -4,28 +4,37 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.SeekBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.alestrange.cultureSurgut.databinding.ActivityNearBinding
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationRequest
 import ru.alestrange.cultureSurgut.Haversine
+import ru.alestrange.cultureSurgut.MainMenu
 import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.Cultobject
+import ru.alestrange.cultureSurgut.databinding.ActivityNearBinding
+
 
 private lateinit var binding: ActivityNearBinding
 var distance: Int = 1000
 var deviceLocation: Location? = null
-private lateinit var allCultobjects : List<Cultobject>
+private lateinit var allCultobjects: List<Cultobject>
 
 private lateinit var fusedLocationClient: FusedLocationProviderClient
 
@@ -34,7 +43,7 @@ class NearActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNearBinding.inflate(layoutInflater)
-        val view:View = binding.root
+        val view: View = binding.root
         setContentView(view)
         val objectsView: RecyclerView = binding.objectsView
         objectsView.layoutManager = LinearLayoutManager(this)
@@ -45,8 +54,10 @@ class NearActivity : AppCompatActivity() {
         binding.distBar.setProgress(distance / 100, false)
         listener.changeDistance(baseContext, distance / 100)
         binding.distBar.setOnSeekBarChangeListener(listener)
-        binding.searchButton.text = resources.getText(R.string.seek_location_in_process)
+        markButtonDisable(binding.searchButton)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        binding.searchButton.setOnClickListener(::onSearchClickListener)
+        binding.updateButton.setOnClickListener(::onUpdateClickListener)
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -55,38 +66,83 @@ class NearActivity : AppCompatActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                )
-            ) {
-                ActivityCompat.requestPermissions(
+               ActivityCompat.requestPermissions(
                     this,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1
                 )
-            } else {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1
-                )
-            }
-            return
+                return
         }
         fusedLocationClient.lastLocation
-            .addOnSuccessListener { location: Location? ->
-                deviceLocation = location
-                binding.searchButton.text =
-                    //"${location?.longitude} ${location?.latitude}"
-                     resources.getText(R.string.search_button)
-            }
+            .addOnSuccessListener(::onSuccessListener)
             .addOnFailureListener {
                 Log.i("mymy", it.toString())
             }
-        binding.searchButton.setOnClickListener(::onSearchClickListener)
     }
 
-    fun onSearchClickListener(view: View){
-        if (deviceLocation !=null) {
+    fun onSuccessListener(location: Location?) {
+        deviceLocation = location
+        location?.let {
+            binding.messageText.text = resources.getString(
+                R.string.search_location_enabled,
+                it.latitude,
+                it.longitude
+            )
+            markButtonEnable(binding.searchButton)
+        }
+            ?: run {
+                binding.messageText.text =
+                    resources.getString(R.string.impossible_seek_location_not_yet)
+                markButtonDisable(binding.searchButton)
+            }
+    }
+
+
+    fun markButtonDisable(button: Button) {
+        button.isEnabled = false
+        button.setTextColor(ContextCompat.getColor(button.context, R.color.white))
+        button.setBackgroundColor(ContextCompat.getColor(button.context, R.color.grayish))
+    }
+
+    fun markButtonEnable(button: Button) {
+        button.isEnabled = true
+        button.setTextColor(ContextCompat.getColor(button.context, R.color.black))
+        button.setBackgroundColor(ContextCompat.getColor(button.context, R.color.green_surgut_dark))
+    }
+
+    fun onUpdateClickListener(view: View) {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1
+                )
+                return
+            }
+        val locationRequest = LocationRequest.create()
+        fusedLocationClient.requestLocationUpdates(
+            locationRequest, object : LocationCallback() {
+                override fun onLocationResult(locationResult: LocationResult) {
+                     onSuccessListener(locationResult.lastLocation)
+                     binding.messageText.text=resources.getString(
+                         R.string.search_location_updated,
+                         locationResult.lastLocation.latitude,
+                         locationResult.lastLocation.longitude
+                     )
+                     fusedLocationClient.removeLocationUpdates(this)
+                }
+            },
+            Looper.getMainLooper()
+        )
+    }
+
+    fun onSearchClickListener(view: View) {
+        if (deviceLocation != null) {
             val center = Haversine(deviceLocation!!.latitude, deviceLocation!!.longitude)
             val nearCultobject = allCultobjects
                 .filter {
@@ -99,9 +155,17 @@ class NearActivity : AppCompatActivity() {
                         d <= limit
                     }
                 }
-            (binding.objectsView.adapter as ObjectsActivity.ObjectsRecyclerAdapter).update(
-                nearCultobject
-            )
+            if (nearCultobject.isNotEmpty()) {
+                binding.objectsView.visibility = View.VISIBLE
+                binding.messageLayout.visibility = View.INVISIBLE
+                (binding.objectsView.adapter as ObjectsActivity.ObjectsRecyclerAdapter).update(
+                    nearCultobject
+                )
+            } else {
+                binding.objectsView.visibility = View.INVISIBLE
+                binding.messageLayout.visibility = View.VISIBLE
+                binding.messageText.text = getString(R.string.search_not_found)
+            }
         }
     }
 
@@ -118,16 +182,11 @@ class NearActivity : AppCompatActivity() {
                     if ((ContextCompat.checkSelfPermission(
                             this,
                             Manifest.permission.ACCESS_FINE_LOCATION
-                        ) ===
+                        ) ==
                                 PackageManager.PERMISSION_GRANTED)
                     ) {
                         fusedLocationClient.lastLocation
-                            .addOnSuccessListener { location: Location? ->
-                                deviceLocation = location
-                                binding.searchButton.text =
-                                    //"${location?.longitude} ${location?.latitude}"
-                                    resources.getText(R.string.search_button)
-                            }
+                            .addOnSuccessListener(::onSuccessListener)
                     }
                 } else {
                     Toast.makeText(
@@ -135,6 +194,7 @@ class NearActivity : AppCompatActivity() {
                         resources.getText(R.string.impossible_seek_location),
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.messageText.text = resources.getText(R.string.impossible_seek_location)
                 }
                 return
             }
@@ -158,5 +218,14 @@ class NearActivity : AppCompatActivity() {
 
         override fun onStartTrackingTouch(seekBar: SeekBar) {}
         override fun onStopTrackingTouch(seekBar: SeekBar) {}
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return MainMenu.menuClickHandler(this, item)
     }
 }
