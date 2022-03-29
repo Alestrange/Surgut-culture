@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import coil.ImageLoader
+import coil.executeBlocking
 import coil.request.ImageRequest
 import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
@@ -38,6 +39,8 @@ class DataUpdater {
                     )
                     .build()
                 imageLoader.enqueue(request)
+                //imageLoader.execute(request)
+                //imageLoader.executeBlocking(request)
             }
         }
 
