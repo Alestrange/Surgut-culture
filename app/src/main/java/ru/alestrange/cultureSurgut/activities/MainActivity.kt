@@ -1,6 +1,8 @@
 package ru.alestrange.cultureSurgut.activities
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -48,8 +50,11 @@ class MainActivity : AppCompatActivity() {
             binding.loadingLayout.visibility= View.VISIBLE
             binding.buttonLayout.visibility=View.INVISIBLE
             DataUpdater.updateDatabase(::onUpdateProgress)
-            binding.loadingLayout.visibility= View.INVISIBLE
-            binding.buttonLayout.visibility=View.VISIBLE
+            val delayedHandler = Handler(Looper.getMainLooper())
+            delayedHandler.postDelayed({
+                binding.loadingLayout.visibility= View.INVISIBLE
+                binding.buttonLayout.visibility=View.VISIBLE
+            }, 2000)
             SurgutCultureApplication.version =SurgutCultureApplication.webVersion
             if (SurgutCultureApplication.databaseError ==null) {
                 SurgutCultureApplication.db.surgutCultureVersionDao().deleteAll()

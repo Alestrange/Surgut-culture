@@ -16,15 +16,18 @@ import java.io.FileOutputStream
 
 class DataUpdater {
     companion object{
+        val imageListForUpdate:MutableList<String> = mutableListOf()
         lateinit var imageLoader: ImageLoader
+        var imageForUpdateCount:Int=0
+        var imageForUpdateNum:Int=0
 
         fun insertImage(imageName:String) {
-            if (!File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath/$imageName.png").exists()) {
                 imageLoader.memoryCache.clear()
                 val request = ImageRequest.Builder(SurgutCultureApplication.surgutCultureApplication.applicationContext)
                     .data("$imageUrl$imageName.jpg")
                     .target(
                         onSuccess = { result ->
+                            imageForUpdateNum++
                             val bm=result.toBitmap()
                             val file = File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath/$imageName.png")
                             val outStream = FileOutputStream(file)
@@ -34,14 +37,12 @@ class DataUpdater {
                             Log.i("sclog", "Downloaded $imageName  ${bm.width.toString()} ${bm.height.toString()}")
                         },
                         onError = { error ->
+                            imageForUpdateNum++
                             Log.i("sclog", "Downloading $imageName error: ${error.toString()}")
                         }
                     )
                     .build()
                 imageLoader.enqueue(request)
-                //imageLoader.execute(request)
-                //imageLoader.executeBlocking(request)
-            }
         }
 
         fun <T: CultureEntity>updateDatabaseTable(webApiFunction:suspend ()->List<T>)
@@ -56,7 +57,10 @@ class DataUpdater {
                 i.insertRecord()
                 if (i is ImageEntity) {
                     (i as ImageEntity).image?.let {
-                        insertImage(it)
+                        if (!File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath/$it.png").exists()) {
+                            if (!imageListForUpdate.contains(it))
+                                imageListForUpdate.add(it)
+                        }
                     }
                 }
             }
@@ -94,6 +98,11 @@ class DataUpdater {
             updateDatabaseTable<CycleRoute>(WebApi.retrofitService::getCycleRoute)
             updateDatabaseTable<CycleCheckpoint>(WebApi.retrofitService::getCycleCheckpoint)
             updateDatabaseTable<CultobjectCycleroute>(WebApi.retrofitService::getCultobjectCycleroute)
+            imageForUpdateCount= imageListForUpdate.size
+            imageForUpdateNum=0
+            imageListForUpdate.forEach {
+                insertImage(it)
+            }
         }
 
     }
