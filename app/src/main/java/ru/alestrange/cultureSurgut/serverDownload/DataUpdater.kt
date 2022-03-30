@@ -66,9 +66,8 @@ class DataUpdater {
             }
         }
 
-        fun updateDatabase(updateResults: (String, Int) -> Unit)
+        fun updateDatabase()
         {
-            updateResults(SurgutCultureApplication.surgutCultureApplication.getString(R.string.update_phase0),0)
             Interest().deleteAll()
             Tag().deleteAll()
             History().deleteAll()
@@ -85,7 +84,6 @@ class DataUpdater {
                 val f = File(SurgutCultureApplication.surgutCultureApplication.filesDir, imagePath)
                 f.mkdirs()
             }
-            updateResults(SurgutCultureApplication.surgutCultureApplication.getString(R.string.update_phase1),2)
             updateDatabaseTable<Interest>(WebApi.retrofitService::getInterest)
             updateDatabaseTable<Tag>(WebApi.retrofitService::getTag)
             updateDatabaseTable<History>(WebApi.retrofitService::getHistory)

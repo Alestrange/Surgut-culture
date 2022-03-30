@@ -43,18 +43,33 @@ class MainActivity : AppCompatActivity() {
         binding.nearButton.setOnClickListener { _ -> MainMenu.openActivity(this, NearActivity()) }
         }
 
+    private fun updateProgress(delayedHandler:Handler)
+    {
+        if (DataUpdater.imageForUpdateNum<DataUpdater.imageForUpdateCount) {
+            binding.loadingIndicator.setProgress(DataUpdater.imageForUpdateNum,true)
+            binding.loadingTextView.text=getString(R.string.update_images_text,DataUpdater.imageForUpdateNum,DataUpdater.imageForUpdateCount)
+            delayedHandler.postDelayed({
+                updateProgress(delayedHandler)
+            }, 300)
+        }
+        else {
+            binding.loadingLayout.visibility = View.INVISIBLE
+            binding.buttonLayout.visibility = View.VISIBLE
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         if (SurgutCultureApplication.internetConnection &&((SurgutCultureApplication.version.majorVersion!=SurgutCultureApplication.webVersion.majorVersion)||(SurgutCultureApplication.version.minorVersion!=SurgutCultureApplication.webVersion.minorVersion)))
         {
             binding.loadingLayout.visibility= View.VISIBLE
             binding.buttonLayout.visibility=View.INVISIBLE
-            DataUpdater.updateDatabase(::onUpdateProgress)
+            binding.loadingIndicator.max=DataUpdater.imageForUpdateCount
+            binding.loadingIndicator.progress=0
+            binding.loadingTextView.text=getString(R.string.update_text)
+            DataUpdater.updateDatabase()
             val delayedHandler = Handler(Looper.getMainLooper())
-            delayedHandler.postDelayed({
-                binding.loadingLayout.visibility= View.INVISIBLE
-                binding.buttonLayout.visibility=View.VISIBLE
-            }, 2000)
+            updateProgress(delayedHandler)
             SurgutCultureApplication.version =SurgutCultureApplication.webVersion
             if (SurgutCultureApplication.databaseError ==null) {
                 SurgutCultureApplication.db.surgutCultureVersionDao().deleteAll()
@@ -72,12 +87,6 @@ class MainActivity : AppCompatActivity() {
             R.string.version_info, SurgutCultureApplication.version.description,
             SurgutCultureApplication.version.majorVersion,
             SurgutCultureApplication.version.minorVersion)
-    }
-
-    fun onUpdateProgress(message:String,progress:Int)
-    {
-        binding.loadingIndicator.progress=progress
-        binding.loadingTextView.text=message
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

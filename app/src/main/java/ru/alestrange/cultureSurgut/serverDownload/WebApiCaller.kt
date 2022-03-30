@@ -25,7 +25,7 @@ object WebApiCaller {
                 }
             }
             result=ver.await()
-            Log.i("mymy", "Web (corutine) version ${result.minorVersion}")
+            Log.i("sclog", "Web (corutine) version ${result.minorVersion}")
         }
         return result
     }
