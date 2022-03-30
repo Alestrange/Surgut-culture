@@ -55,9 +55,7 @@ class SurgutCultureApplication: Application() {
         version = db.getCurrentVersion()
         if (version.id==0)
             databaseEmpty=true
-        webVersion= WebApiCaller.getSurgutCultureVersion()
-        Log.i("sclog", "Current version ${version.minorVersion} Web version: ${webVersion.minorVersion}")
-        internetConnection = webVersion.id != 0
+
     }
 
 

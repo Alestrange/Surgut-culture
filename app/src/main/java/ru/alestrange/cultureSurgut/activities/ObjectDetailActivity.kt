@@ -1,5 +1,6 @@
 package ru.alestrange.cultureSurgut.activities
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -11,6 +12,7 @@ import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,7 +41,7 @@ class ObjectDetailActivity : AppCompatActivity(){
             binding.textObjectName.text = cultobject?.name
             binding.textObjectDescription.text = cultobject?.description
             val bm = BitmapFactory.decodeFile("${applicationContext.filesDir}/$imagePath/${cultobject?.image}.png")
-            Log.i("mymy","result img ${bm?.width} ${bm?.height}")
+            Log.i("sclog","result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(applicationContext.resources, bm)
             binding.imageObject.setImageDrawable(d)
             val objectsView: RecyclerView = findViewById(R.id.illustrationsView)
@@ -55,7 +57,16 @@ class ObjectDetailActivity : AppCompatActivity(){
         val geoUriString = "geo:${cultobject?.coordX},${cultobject?.coordY}?z=15"
         val geoUri: Uri = Uri.parse(geoUriString)
         val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
-        startActivity(mapIntent)
+        try{
+            startActivity(mapIntent)
+        }
+        catch (e: ActivityNotFoundException) {
+            Toast.makeText(
+                this,
+                getString(R.string.impossible_find_map_application),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -18,6 +18,8 @@ class DataUpdater {
     companion object{
         val imageListForUpdate:MutableList<String> = mutableListOf()
         lateinit var imageLoader: ImageLoader
+        var isUpdating:Boolean=false
+        var dataLoadState:Boolean=false
         var imageForUpdateCount:Int=0
         var imageForUpdateNum:Int=0
 
@@ -66,7 +68,7 @@ class DataUpdater {
             }
         }
 
-        fun updateDatabase()
+        suspend fun updateDatabase()
         {
             Interest().deleteAll()
             Tag().deleteAll()
@@ -100,6 +102,13 @@ class DataUpdater {
             imageForUpdateNum=0
             imageListForUpdate.forEach {
                 insertImage(it)
+            }
+            SurgutCultureApplication.version =SurgutCultureApplication.webVersion
+            if (SurgutCultureApplication.databaseError ==null) {
+                SurgutCultureApplication.db.surgutCultureVersionDao().deleteAll()
+                SurgutCultureApplication.db.surgutCultureVersionDao().insertVersion(
+                    SurgutCultureApplication.version
+                )
             }
         }
 

@@ -30,7 +30,7 @@ object WebApiCaller {
         return result
     }
 
-    fun <T>getWebTable(webApiFunction:suspend ()->List<T>): WebApiResult<T> {
+     fun <T>getWebTable(webApiFunction:suspend ()->List<T>): WebApiResult<T> {
         var result= WebApiResult<T>()
         runBlocking {
             var ver = async(context = Dispatchers.IO) {

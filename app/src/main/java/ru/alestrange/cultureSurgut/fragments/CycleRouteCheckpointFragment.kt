@@ -1,5 +1,6 @@
 package ru.alestrange.cultureSurgut.fragments
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -14,10 +15,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.alestrange.cultureSurgut.R
+import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.activities.CycleDetailActivity
 import ru.alestrange.cultureSurgut.data.CycleCheckpoint
 import ru.alestrange.cultureSurgut.databinding.FragmentCycleRouteCheckpointBinding
@@ -83,8 +86,16 @@ class CycleRouteCheckpointFragment : Fragment() {
                     val geoUriString = "geo:0,0?q=${checkpoint[position].coordX},${checkpoint[position].coordY}"
                     val geoUri: Uri = Uri.parse(geoUriString)
                     val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
-                    context.startActivity(mapIntent)
-                }
+                    try{
+                        context.startActivity(mapIntent)
+                    }
+                    catch (e: ActivityNotFoundException) {
+                        Toast.makeText(
+                            this.context,
+                            this.context.getString(R.string.impossible_find_map_application),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }                }
             }
         }
 
