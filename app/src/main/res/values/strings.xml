@@ -16,10 +16,12 @@
     <string name="name">Name</string>
     <string name="whatNear">Что рядом?</string>
     <string name="map_button">На карте</string>
+    <string name="map_button_description">На карте %s</string>
     <string name="cityHistory">История города</string>
     <string name="byInterest">По интересам</string>
     <string name="activeSurgut">Активный Сургут</string>
     <string name="button_detail">Подробнее…</string>
+    <string name="button_detail_description">Подробнее… %s</string>
     <string name="selected_period">Выбранный период</string>
     <string name="distance_meters">%d метров</string>
     <string name="distance_kms">%d километров</string>

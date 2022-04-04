@@ -79,6 +79,7 @@ class HistoryEventActivity : AppCompatActivity() {
             holder.periodTextView?.text = events[position].period
             holder.descriptionTextView?.text = events[position].description
             holder.detailButtom?.tag=events[position].id
+            holder.detailButtom?.contentDescription= context.getString(R.string.button_detail_description, events[position].name)
             holder.detailButtom?.setOnClickListener{
                 val context = it.context
                 val intent = Intent(context, HistoryDetailActivity::class.java)

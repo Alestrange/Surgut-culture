@@ -81,6 +81,7 @@ class CycleRouteCheckpointFragment : Fragment() {
                 } ?: run{
                     holder.checkpointImageView?.visibility=View.GONE
                 }
+                holder.checkpointButton?.contentDescription= context.getString(R.string.map_button_description, checkpoint[position].description)
                 holder.checkpointButton?.setOnClickListener {
                     //val geoUriString = "geo:${checkpoint[position].coordX},${checkpoint[position].coordY}?z=12"
                     val geoUriString = "geo:0,0?q=${checkpoint[position].coordX},${checkpoint[position].coordY}"
