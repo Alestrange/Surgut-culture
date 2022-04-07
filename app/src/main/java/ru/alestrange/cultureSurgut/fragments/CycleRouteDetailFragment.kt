@@ -40,11 +40,14 @@ class CycleRouteDetailFragment : Fragment() {
         val bm =
             BitmapFactory.decodeFile("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.png")
         Log.i(
-            "mymy",
+            "sclog",
             "result img ${CycleDetailActivity.cycleRoute?.image}.png ${bm?.width} ${bm?.height}"
         )
         val d: Drawable = BitmapDrawable(resources, bm)
         binding.imageCycleRoute.setImageDrawable(d)
+        binding.imageCycleRoute.setOnClickListener {
+            CycleDetailActivity.binding.viewPager.currentItem = 3
+        }
         return view
     }
 }

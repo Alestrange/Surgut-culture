@@ -17,6 +17,7 @@
     <string name="whatNear">Что рядом?</string>
     <string name="map_button">На карте</string>
     <string name="map_button_description">На карте %s</string>
+    <string name="map_zoom">Нажмите на карту для увеличения</string>
     <string name="cityHistory">История города</string>
     <string name="byInterest">По интересам</string>
     <string name="activeSurgut">Активный Сургут</string>
@@ -25,7 +26,7 @@
     <string name="selected_period">Выбранный период</string>
     <string name="distance_meters">%d метров</string>
     <string name="distance_kms">%d километров</string>
-    <string name="version_info">%s v.%d.%d</string>
+    <string name="version_info">%s v.%s.%d.%d</string>
     <string name="update_location_button">Обновить местоположение</string>
     <string name="cycleroute_road">Тип дороги: %s</string>
     <string name="cycleroute_complex">Уровень сложности: %d из 5</string>

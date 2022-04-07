@@ -19,7 +19,20 @@
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+        <TextView
+            android:id="@+id/textZoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:importantForAccessibility="no"
+            android:text="@string/map_zoom"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_description"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageCycleRoute"
+            tools:text="@string/map_zoom" />
         <TextView
             android:id="@+id/textCycleRouteComplex"
             android:layout_width="match_parent"
@@ -34,7 +47,7 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageCycleRoute"
+            app:layout_constraintTop_toBottomOf="@id/textZoom"
             tools:text="Сложность" />
 
         <TextView

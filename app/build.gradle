@@ -10,10 +10,10 @@ android {
 
     defaultConfig {
         applicationId "ru.alestrange.cultureSurgut"
-        minSdk 26
+        minSdk 25
         targetSdk 31
         versionCode 4
-        versionName "1.101"
+        versionName "1.102"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

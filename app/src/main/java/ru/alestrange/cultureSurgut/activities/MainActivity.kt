@@ -7,22 +7,20 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import ru.alestrange.cultureSurgut.BuildConfig
 import ru.alestrange.cultureSurgut.MainMenu
 import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.databinding.ActivityMainBinding
 import ru.alestrange.cultureSurgut.serverDownload.DataUpdater
-import ru.alestrange.cultureSurgut.serverDownload.WebApiCaller
+import ru.alestrange.cultureSurgut.viewModels.MainViewModel
 
 private lateinit var binding: ActivityMainBinding
-private var isUpdateChecked:Boolean=false
 
 class MainActivity : AppCompatActivity() {
+    val model: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -60,8 +58,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateModeOff(){
         if (SurgutCultureApplication.version.id!=0) {
+            val versionName: String = BuildConfig.VERSION_NAME
             binding.aboutView.text = getString(
                 R.string.version_info, SurgutCultureApplication.version.description,
+                versionName,
                 SurgutCultureApplication.version.majorVersion,
                 SurgutCultureApplication.version.minorVersion
             )
@@ -97,27 +97,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (isUpdateChecked)
+        if (model.isUpdateChecked)
             return
-        isUpdateChecked=true
+        model.isUpdateChecked=true
         updateModeOn()
-        GlobalScope.launch(context = Dispatchers.IO, CoroutineStart.DEFAULT)
-        {
-            SurgutCultureApplication.webVersion = WebApiCaller.getSurgutCultureVersion()
-            Log.i(
-                "sclog",
-                "Current version ${SurgutCultureApplication.version.minorVersion} Web version: ${SurgutCultureApplication.webVersion.minorVersion}"
-            )
-            SurgutCultureApplication.internetConnection =
-                SurgutCultureApplication.webVersion.id != 0
-            if (SurgutCultureApplication.internetConnection && ((SurgutCultureApplication.version.majorVersion != SurgutCultureApplication.webVersion.majorVersion) || (SurgutCultureApplication.version.minorVersion != SurgutCultureApplication.webVersion.minorVersion))) {
-                Log.i("sclog", "Start updating")
-                DataUpdater.updateDatabase()
-            } else {
-                Log.i("sclog", "No need to updating")
-            }
-            DataUpdater.dataLoadState=false
-        }
+        model.updateData()
         val delayedHandler = Handler(Looper.getMainLooper())
         updateProgress(delayedHandler)
     }

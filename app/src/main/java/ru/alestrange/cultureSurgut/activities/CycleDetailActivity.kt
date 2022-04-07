@@ -17,8 +17,7 @@ import ru.alestrange.cultureSurgut.databinding.ActivityCycleDetailBinding
 import ru.alestrange.cultureSurgut.fragments.CycleRouteCheckpointFragment
 import ru.alestrange.cultureSurgut.fragments.CycleRouteCultobjectFragment
 import ru.alestrange.cultureSurgut.fragments.CycleRouteDetailFragment
-
-private lateinit var binding: ActivityCycleDetailBinding
+import ru.alestrange.cultureSurgut.fragments.CycleRouteMapFragment
 
 class CycleDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +56,7 @@ class CycleDetailActivity : AppCompatActivity() {
                 }
             })
         }
+        activity=this
     }
 
     class ViewPagerFragmentStateAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
@@ -69,14 +69,17 @@ class CycleDetailActivity : AppCompatActivity() {
                 1 -> {
                     CycleRouteDetailFragment()
                 }
-                else -> {
+                2 -> {
                     CycleRouteCultobjectFragment()
                 }
+                else -> {
+                        CycleRouteMapFragment()
+                    }
             }
         }
 
         override fun getItemCount(): Int {
-            return 3
+            return 4
         }
 
 
@@ -95,5 +98,7 @@ class CycleDetailActivity : AppCompatActivity() {
         var cycleRoute: CycleRoute?=null
         var checkpoints: List<CycleCheckpoint>?=null
         var cultobjects: List<Cultobject>?=null
+        lateinit var activity:CycleDetailActivity
+        lateinit var binding: ActivityCycleDetailBinding
     }
 }
