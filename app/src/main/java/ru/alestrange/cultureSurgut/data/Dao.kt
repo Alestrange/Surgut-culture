@@ -191,3 +191,17 @@ interface CultobjectCyclerouteDao {
     @Query("delete FROM CultobjectCycleroute")
     fun deleteAll(): Int
 }
+
+@Dao
+interface LinkDao {
+    @Query("SELECT * FROM link")
+    fun getAll(): List<Link>
+    @Query("SELECT * " +
+            "FROM link " +
+            "where link.cultobjectId=:cultobjectId")
+    fun getLinkByCultobject(cultobjectId:Int): List<Link>
+    @Insert
+    fun insertLink(vararg link: Link)
+    @Query("delete FROM link")
+    fun deleteAll(): Int
+}

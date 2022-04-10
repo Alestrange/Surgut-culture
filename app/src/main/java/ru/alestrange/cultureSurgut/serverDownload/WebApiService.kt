@@ -61,6 +61,9 @@ interface WebApiService {
     @Headers("Cache-control: no-cache")
     @GET("cultobject_cycleroute.json")
     suspend fun getCultobjectCycleroute(): List<CultobjectCycleroute>
+    @Headers("Cache-control: no-cache")
+    @GET("link.json")
+    suspend fun getLink(): List<Link>
 }
 
 object WebApi {
