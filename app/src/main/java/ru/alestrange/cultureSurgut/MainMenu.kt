@@ -39,7 +39,8 @@ class MainMenu {
 
         fun openActivity(current:Activity, next:Activity) {
             val randomIntent = Intent(current, next::class.java)
-            current.startActivity(randomIntent)
+            randomIntent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+            current.startActivityIfNeeded(randomIntent, 0)
         }
 
     }

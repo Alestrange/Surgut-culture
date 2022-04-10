@@ -32,19 +32,20 @@ class SearchActivity : AppCompatActivity() {
     }
 
     fun onSearchClickListener(view: View) {
-        val objects = SurgutCultureApplication.db.cultobjectDao().getCultobjectByText(binding.searchText.editText?.text.toString())
-        if (objects.isNotEmpty()) {
-            binding.messageText.visibility=View.INVISIBLE
-            binding.objectsView.visibility=View.VISIBLE
-            (binding.objectsView.adapter as ObjectsActivity.ObjectsRecyclerAdapter).update(
-                objects
-            )
-        }
-        else
-        {
-            binding.objectsView.visibility=View.INVISIBLE
-            binding.messageText.visibility=View.VISIBLE
-            binding.messageText.text=getString(R.string.search_not_found)
+        if (binding.searchText.editText?.text.toString()!="") {
+            val objects = SurgutCultureApplication.db.cultobjectDao()
+                .getCultobjectByText(binding.searchText.editText?.text.toString())
+            if (objects.isNotEmpty()) {
+                binding.messageText.visibility = View.INVISIBLE
+                binding.objectsView.visibility = View.VISIBLE
+                (binding.objectsView.adapter as ObjectsActivity.ObjectsRecyclerAdapter).update(
+                    objects
+                )
+            } else {
+                binding.objectsView.visibility = View.INVISIBLE
+                binding.messageText.visibility = View.VISIBLE
+                binding.messageText.text = getString(R.string.search_not_found)
+            }
         }
         hideKeyboard()
     }

@@ -13,6 +13,10 @@ import ru.alestrange.cultureSurgut.serverDownload.WebApiCaller
 class MainViewModel: ViewModel() {
     var isUpdateChecked:Boolean=false
 
+    init {
+        Log.d("sclog", "MainViewModel created!")
+    }
+
     fun updateData(){
         viewModelScope.launch(context = Dispatchers.IO, CoroutineStart.DEFAULT)
         {
@@ -31,5 +35,10 @@ class MainViewModel: ViewModel() {
             }
             DataUpdater.dataLoadState=false
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("sclog", "MainViewModel destroyed!")
     }
 }
