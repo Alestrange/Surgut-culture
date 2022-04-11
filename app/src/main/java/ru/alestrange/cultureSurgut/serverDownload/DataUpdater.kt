@@ -82,6 +82,7 @@ class DataUpdater {
             CycleRoute().deleteAll()
             CycleCheckpoint().deleteAll()
             CultobjectCycleroute().deleteAll()
+            Link().deleteAll()
             if (!File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath").exists()) {
                 val f = File(SurgutCultureApplication.surgutCultureApplication.filesDir, imagePath)
                 f.mkdirs()
@@ -98,6 +99,7 @@ class DataUpdater {
             updateDatabaseTable<CycleRoute>(WebApi.retrofitService::getCycleRoute)
             updateDatabaseTable<CycleCheckpoint>(WebApi.retrofitService::getCycleCheckpoint)
             updateDatabaseTable<CultobjectCycleroute>(WebApi.retrofitService::getCultobjectCycleroute)
+            updateDatabaseTable<Link>(WebApi.retrofitService::getLink)
             imageForUpdateCount= imageListForUpdate.size
             imageForUpdateNum=0
             imageListForUpdate.forEach {
