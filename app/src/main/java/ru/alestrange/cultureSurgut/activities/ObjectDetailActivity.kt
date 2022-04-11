@@ -138,13 +138,14 @@ class ObjectDetailActivity : AppCompatActivity(){
         }
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            if (links[position].web=="") {
+            if ((links[position].web==null)||(links[position].web=="")) {
                 holder.linkTextView?.text = links[position].description
                 holder.linkTextView?.visibility=View.VISIBLE
                 holder.linkButtom?.visibility=View.INVISIBLE
             }
             else {
                 holder.linkButtom?.tag = links[position].id
+                holder.linkButtom?.text=links[position].description
                 holder.linkButtom?.contentDescription = context.getString(
                     R.string.button_detail_description,
                     links[position].description

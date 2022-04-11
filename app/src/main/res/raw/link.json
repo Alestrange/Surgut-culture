@@ -3,35 +3,35 @@
     "id":1,
     "description":
     "Официальный сайт",
-    "link": "https://skmuseum.ru/",
+    "web": "https://skmuseum.ru/",
     "cultobjectId": 1
   },
   {
     "id":2,
     "description":
     "Информация о музее на сайте музеев России",
-    "link": "http://www.museum.ru/M1783",
+    "web": "http://www.museum.ru/M1783",
     "cultobjectId": 1
   },
   {
     "id":3,
     "description":
     "Страница в сети Вконтакте",
-    "link": "https://vk.com/skmuseum",
+    "web": "https://vk.com/skmuseum",
     "cultobjectId": 1
   },
   {
     "id":4,
     "description":
     "Александр Жидченко. Сургут-Нефтеюганск, 2 города в 1 уикенд. 2017",
-    "link": "",
+    "web": "",
     "cultobjectId": 1
   },
   {
     "id":5,
     "description":
     "Александр Жидченко. Сургут-Нефтеюганск, 2 города в 1 уикенд. 2017",
-    "link": "",
+    "web": "",
     "cultobjectId": 2
   }
 ]
