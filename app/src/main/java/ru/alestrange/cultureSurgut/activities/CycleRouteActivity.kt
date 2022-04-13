@@ -93,15 +93,15 @@ class CycleRouteActivity : AppCompatActivity() {
             holder.dintanceTextView?.text =
                 context.getString(R.string.cycleroute_distance, cycleRoutes[position].distance)
 
-            if (!File("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png").exists())
+            if (!File("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.jpg").exists())
                 cycleRoutes[position].image?.let {
                     DataUpdater.insertImage(it)
                 }
             val bm =
-                BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.png")
+                BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cycleRoutes[position].image}.jpg")
             Log.i(
                 "mymy",
-                "result img ${cycleRoutes[position].image}.png ${bm?.width} ${bm?.height}"
+                "result img ${cycleRoutes[position].image}.jpg ${bm?.width} ${bm?.height}"
             )
             val d: Drawable = BitmapDrawable(context.resources, bm)
             holder.imageView?.setImageDrawable(d)

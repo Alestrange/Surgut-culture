@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -21,46 +22,50 @@ import ru.alestrange.cultureSurgut.R
 import ru.alestrange.cultureSurgut.SurgutCultureApplication
 import ru.alestrange.cultureSurgut.data.Cultobject
 import ru.alestrange.cultureSurgut.data.Illustration
+import ru.alestrange.cultureSurgut.data.Link
 import ru.alestrange.cultureSurgut.databinding.ActivityObjectDetailBinding
 import ru.alestrange.cultureSurgut.imagePath
 
 private lateinit var binding: ActivityObjectDetailBinding
 
-private var cultobject:Cultobject?=null
+private var cultobject: Cultobject? = null
 
-class ObjectDetailActivity : AppCompatActivity(){
+class ObjectDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityObjectDetailBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         val objectId = intent?.extras?.getInt("objectId")
-        if (objectId!=null)
-        {
+        if (objectId != null) {
             cultobject = SurgutCultureApplication.db.cultobjectDao().getCultobjectById(objectId)
             binding.textObjectName.text = cultobject?.name
             binding.textObjectDescription.text = cultobject?.description
-            val bm = BitmapFactory.decodeFile("${applicationContext.filesDir}/$imagePath/${cultobject?.image}.png")
-            Log.i("sclog","result img ${bm?.width} ${bm?.height}")
+            val bm =
+                BitmapFactory.decodeFile("${applicationContext.filesDir}/$imagePath/${cultobject?.image}.jpg")
+            Log.i("sclog", "result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(applicationContext.resources, bm)
             binding.imageObject.setImageDrawable(d)
-            val objectsView: RecyclerView = findViewById(R.id.illustrationsView)
+            val objectsView: RecyclerView = binding.illustrationsView
             objectsView.layoutManager = LinearLayoutManager(this)
-            val cultobjects = SurgutCultureApplication.db.illustrationDao().getIllustrationByCultobject(objectId)
+            val cultobjects =
+                SurgutCultureApplication.db.illustrationDao().getIllustrationByCultobject(objectId)
             objectsView.adapter = IllustrationRecyclerAdapter(cultobjects, baseContext)
-            binding.mapButton.setOnClickListener{ _ -> onMapClick()}
+            val linksView: RecyclerView = binding.linkView
+            linksView.layoutManager = LinearLayoutManager(this)
+            val links = SurgutCultureApplication.db.linkDao().getLinkByCultobject(objectId)
+            linksView.adapter = LinkRecyclerAdapter(links, baseContext)
+            binding.mapButton.setOnClickListener { _ -> onMapClick() }
         }
     }
 
-    private fun onMapClick()
-    {
+    private fun onMapClick() {
         val geoUriString = "geo:${cultobject?.coordX},${cultobject?.coordY}?z=15"
         val geoUri: Uri = Uri.parse(geoUriString)
         val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
-        try{
+        try {
             startActivity(mapIntent)
-        }
-        catch (e: ActivityNotFoundException) {
+        } catch (e: ActivityNotFoundException) {
             Toast.makeText(
                 this,
                 getString(R.string.impossible_find_map_application),
@@ -78,11 +83,13 @@ class ObjectDetailActivity : AppCompatActivity(){
         return MainMenu.menuClickHandler(this, item)
     }
 
-    class IllustrationRecyclerAdapter(private val illustrations: List<Illustration>, val context: Context):
-        RecyclerView.Adapter<IllustrationRecyclerAdapter.MyViewHolder>()
-    {
+    class IllustrationRecyclerAdapter(
+        private val illustrations: List<Illustration>,
+        val context: Context
+    ) :
+        RecyclerView.Adapter<IllustrationRecyclerAdapter.MyViewHolder>() {
 
-        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var objectTextView: TextView? = null
             var objectImageView: ImageView? = null
 
@@ -91,6 +98,7 @@ class ObjectDetailActivity : AppCompatActivity(){
                 objectImageView = itemView.findViewById(R.id.imageObject)
             }
         }
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val itemView =
                 LayoutInflater.from(parent.context)
@@ -100,8 +108,9 @@ class ObjectDetailActivity : AppCompatActivity(){
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.objectTextView?.text = illustrations[position].description
-            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${illustrations[position].image}.png")
-            Log.i("mymy","result img ${bm?.width} ${bm?.height}")
+            val bm =
+                BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${illustrations[position].image}.jpg")
+            Log.i("sclog", "result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
             holder.objectImageView?.setImageDrawable(d)
         }
@@ -109,8 +118,46 @@ class ObjectDetailActivity : AppCompatActivity(){
         override fun getItemCount(): Int {
             return illustrations.count()
         }
-
     }
 
+    class LinkRecyclerAdapter(private val links: List<Link>, val context: Context) :
+        RecyclerView.Adapter<LinkRecyclerAdapter.MyViewHolder>() {
+
+        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            var linkButtom: Button? = null
+
+            init {
+                linkButtom = itemView.findViewById(R.id.linkButton)
+            }
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+            val itemView =
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.linkview_item, parent, false)
+            return MyViewHolder(itemView)
+        }
+
+        override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+            holder.linkButtom?.tag = links[position].id
+            holder.linkButtom?.text = links[position].description
+            holder.linkButtom?.contentDescription = context.getString(
+                R.string.button_detail_description,
+                links[position].description
+            )
+            holder.linkButtom?.setOnClickListener {
+                if ((links[position].web!=null)&&(links[position].web!="")) {
+                    val context = it.context
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(links[position].web)
+                    context.startActivity(intent)
+                }
+            }
+        }
+
+        override fun getItemCount(): Int {
+            return links.count()
+        }
+    }
 
 }

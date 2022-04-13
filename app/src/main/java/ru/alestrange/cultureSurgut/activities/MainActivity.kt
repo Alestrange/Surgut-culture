@@ -20,7 +20,7 @@ import ru.alestrange.cultureSurgut.viewModels.MainViewModel
 private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    val model: MainViewModel by viewModels()
+    private val model: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
         binding.nearButton.setOnClickListener { _ -> MainMenu.openActivity(this, NearActivity()) }
+        Log.d("sclog", "Main activity created. Update state: ${model.isUpdateChecked} ")
     }
 
     private fun updateModeOn(){
@@ -97,9 +98,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (model.isUpdateChecked)
+        Log.d("sclog", "Resume main activity. Update state: ${model.isUpdateChecked} ")
+        if (model.isUpdateChecked){
+            updateModeOff()
             return
+        }
         model.isUpdateChecked=true
+        Log.d("sclog", "isUpdateChecked was false. Update state: ${model.isUpdateChecked} ")
         updateModeOn()
         model.updateData()
         val delayedHandler = Handler(Looper.getMainLooper())

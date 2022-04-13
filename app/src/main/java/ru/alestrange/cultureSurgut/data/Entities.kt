@@ -306,3 +306,26 @@ class CultobjectCycleroute: CultureEntity {
         db.cultobjectCyclerouteDao().insertCultobjectCycleroute(this)
     }
 }
+
+@Entity
+@Serializable
+class Link: CultureEntity {
+    @PrimaryKey override var id: Int = 0
+    var description: String? = null
+    var web:String? = null
+    var cultobjectId:Int? = 0
+    fun CultobjectCycleroute(id: Int, description: String?, web: String?, cultobjectId: Int?) {
+        this.id = id
+        this.description = description
+        this.web = web
+        this.cultobjectId = cultobjectId
+    }
+    override fun deleteAll()
+    {
+        db.linkDao().deleteAll()
+    }
+    override fun insertRecord()
+    {
+        db.linkDao().insertLink(this)
+    }
+}
