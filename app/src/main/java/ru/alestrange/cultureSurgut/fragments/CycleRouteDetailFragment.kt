@@ -33,15 +33,15 @@ class CycleRouteDetailFragment : Fragment() {
             R.string.cycleroute_distance,
             CycleDetailActivity.cycleRoute?.distance)
         binding.textHistoryDescription.text= CycleDetailActivity.cycleRoute?.description
-        if (!File("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.png").exists())
+        if (!File("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.jpg").exists())
             CycleDetailActivity.cycleRoute?.image?.let {
                 DataUpdater.insertImage(it)
             }
         val bm =
-            BitmapFactory.decodeFile("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.png")
+            BitmapFactory.decodeFile("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.jpg")
         Log.i(
             "sclog",
-            "result img ${CycleDetailActivity.cycleRoute?.image}.png ${bm?.width} ${bm?.height}"
+            "result img ${CycleDetailActivity.cycleRoute?.image}.jpg ${bm?.width} ${bm?.height}"
         )
         val d: Drawable = BitmapDrawable(resources, bm)
         binding.imageCycleRoute.setImageDrawable(d)

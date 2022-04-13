@@ -199,7 +199,7 @@ interface LinkDao {
     @Query("SELECT * " +
             "FROM link " +
             "where link.cultobjectId=:cultobjectId "+
-            "order by link.web"
+            "order by link.id"
     )
     fun getLinkByCultobject(cultobjectId:Int): List<Link>
     @Insert

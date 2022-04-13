@@ -73,7 +73,7 @@ class CycleRouteCheckpointFragment : Fragment() {
                 holder.checkpointTextView?.text =
                     checkpoint[position].description
                 val bm =
-                    BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${checkpoint[position].image}.png")
+                    BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${checkpoint[position].image}.jpg")
                 Log.i("mymy", "result img ${bm?.width} ${bm?.height}")
                 bm?.let{
                     val d: Drawable = BitmapDrawable(context.resources, it)

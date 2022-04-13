@@ -27,7 +27,7 @@ class CycleRouteMapFragment : Fragment() {
         binding = FragmentCycleRouteMapBinding.inflate(inflater, container, false)
         val view = binding.root
         var bm =
-            BitmapFactory.decodeFile("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.png")
+            BitmapFactory.decodeFile("${context?.filesDir}/$imagePath/${CycleDetailActivity.cycleRoute?.image}.jpg")
         if (bm.width>bm.height) {
             val matrix = Matrix()
             matrix.postRotate(90F)
@@ -43,7 +43,7 @@ class CycleRouteMapFragment : Fragment() {
         }
         Log.i(
             "sclog",
-            "result img ${CycleDetailActivity.cycleRoute?.image}.png ${bm?.width} ${bm?.height}"
+            "result img ${CycleDetailActivity.cycleRoute?.image}.jpg ${bm?.width} ${bm?.height}"
         )
         val d: Drawable = BitmapDrawable(resources, bm)
         binding.imageCycleRoute.setImageDrawable(d)

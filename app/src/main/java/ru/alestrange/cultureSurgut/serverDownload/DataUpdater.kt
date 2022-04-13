@@ -31,9 +31,9 @@ class DataUpdater {
                         onSuccess = { result ->
                             imageForUpdateNum++
                             val bm=result.toBitmap()
-                            val file = File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath/$imageName.png")
+                            val file = File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath/$imageName.jpg")
                             val outStream = FileOutputStream(file)
-                            bm.compress(Bitmap.CompressFormat.PNG, 100, outStream)
+                            bm.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
                             outStream.flush()
                             outStream.close()
                             Log.i("sclog", "Downloaded $imageName  ${bm.width.toString()} ${bm.height.toString()}")
@@ -59,7 +59,7 @@ class DataUpdater {
                 i.insertRecord()
                 if (i is ImageEntity) {
                     (i as ImageEntity).image?.let {
-                        if (!File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath/$it.png").exists()) {
+                        if (!File("${SurgutCultureApplication.surgutCultureApplication.filesDir}/$imagePath/$it.jpg").exists()) {
                             if (!imageListForUpdate.contains(it))
                                 imageListForUpdate.add(it)
                         }

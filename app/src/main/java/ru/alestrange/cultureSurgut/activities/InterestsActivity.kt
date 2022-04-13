@@ -60,8 +60,8 @@ class InterestsActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.interestTextView?.text = interests[position].name
-            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${interests[position].image}.png")
-            Log.i("mymy","result img ${bm?.width} ${bm?.height}")
+            val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${interests[position].image}.jpg")
+            Log.i("sclog","result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
             holder.interestImageView?.setImageDrawable(d)
             holder.interestImageView?.tag=interests[position].id

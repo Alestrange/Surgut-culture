@@ -74,7 +74,7 @@ class SportActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             holder.tagTextView?.text = tags[position].name
             val bm =
-                BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${tags[position].image}.png")
+                BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${tags[position].image}.jpg")
             Log.i("mymy", "result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
             holder.tagImageView?.setImageDrawable(d)
