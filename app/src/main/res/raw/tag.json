@@ -34,5 +34,8 @@
   {"id":33,"name":"Прокат электросамокатов","image":"interest_monument", "interestId":8},
   {"id":34,"name":"Прокат роликовых коньков","image":"interest_monument", "interestId":8},
   {"id":35,"name":"Арт-объект","image":"interest_monument", "interestId":3},
-  {"id":36,"name":"Мемориал","image":"interest_monument", "interestId":3}
+  {"id":36,"name":"Мемориал","image":"interest_monument", "interestId":3},
+  {"id":37,"name":"Спорт","image":"interest_monument", "interestId":8},
+  {"id":38,"name":"Активный отдых","image":"interest_monument", "interestId":8},
+  {"id":39,"name":"Прокат лыж","image":"interest_monument", "interestId":8}
 ]
