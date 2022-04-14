@@ -79,6 +79,7 @@ class ObjectsActivity : AppCompatActivity() {
             val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${cultobjects[position].image}.jpg")
             Log.i("mymy","result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
+            holder.objectImageView?.contentDescription=cultobjects[position].name
             holder.objectImageView?.setImageDrawable(d)
             holder.objectImageView?.tag=cultobjects[position].id
             holder.objectImageView?.setOnClickListener {

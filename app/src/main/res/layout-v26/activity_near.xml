@@ -18,12 +18,13 @@
 
     <SeekBar
         android:id="@+id/distBar"
-        android:contentDescription="@string/search_distance_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:min="1"
         android:max="100"
         android:progress="5"
+        android:contentDescription="@string/search_distance_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/distTitle"/>

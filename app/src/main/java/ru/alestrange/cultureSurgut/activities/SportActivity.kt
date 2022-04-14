@@ -77,6 +77,7 @@ class SportActivity : AppCompatActivity() {
                 BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${tags[position].image}.jpg")
             Log.i("mymy", "result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
+            holder.tagImageView?.contentDescription=tags[position].name
             holder.tagImageView?.setImageDrawable(d)
             holder.tagImageView?.tag = tags[position].id
             holder.tagImageView?.setOnClickListener {

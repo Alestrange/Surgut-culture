@@ -104,6 +104,7 @@ class CycleRouteActivity : AppCompatActivity() {
                 "result img ${cycleRoutes[position].image}.jpg ${bm?.width} ${bm?.height}"
             )
             val d: Drawable = BitmapDrawable(context.resources, bm)
+            holder.imageView?.contentDescription=cycleRoutes[position].name
             holder.imageView?.setImageDrawable(d)
             holder.imageView?.tag = cycleRoutes[position].id
             holder.imageView?.setOnClickListener {
