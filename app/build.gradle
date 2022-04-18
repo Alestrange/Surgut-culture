@@ -12,7 +12,7 @@ android {
         applicationId "ru.alestrange.cultureSurgut"
         minSdk 25
         targetSdk 31
-        versionCode 4
+        versionCode 5
         versionName "1.102"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

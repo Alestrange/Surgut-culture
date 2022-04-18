@@ -63,6 +63,7 @@ class InterestsActivity : AppCompatActivity() {
             val bm = BitmapFactory.decodeFile("${context.filesDir}/$imagePath/${interests[position].image}.jpg")
             Log.i("sclog","result img ${bm?.width} ${bm?.height}")
             val d: Drawable = BitmapDrawable(context.resources, bm)
+            holder.interestImageView?.contentDescription=interests[position].name
             holder.interestImageView?.setImageDrawable(d)
             holder.interestImageView?.tag=interests[position].id
             holder.interestImageView?.setOnClickListener {

@@ -11,6 +11,7 @@
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/drawable/ic_historywheel.xml" value="0.2035" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/drawable/ic_wheelarrow.xml" value="0.126" />
+        <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout-v26/activity_near.xml" value="0.18385416666666668" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_cycle_detail.xml" value="0.19427083333333334" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_cycle_route.xml" value="0.1921875" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/layout/activity_history.xml" value="0.2" />
@@ -43,13 +44,6 @@
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1985" />
         <entry key="..\:/AndroidProjects/Surgut-culture/app/src/main/res/xml/network_security_config.xml" value="0.20885416666666667" />
         <entry key="..\:/Surgut-culture/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Alexandre Strange/StudioProjects/Surgut-culture/app/src/main/res/layout/activity_cycle_detail.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Alexandre Strange/StudioProjects/Surgut-culture/app/src/main/res/layout/activity_near.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Alexandre Strange/StudioProjects/Surgut-culture/app/src/main/res/layout/activity_object_detail.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Alexandre Strange/StudioProjects/Surgut-culture/app/src/main/res/layout/cycleroute_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Alexandre Strange/StudioProjects/Surgut-culture/app/src/main/res/layout/interestsview_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Alexandre Strange/StudioProjects/Surgut-culture/app/src/main/res/layout/objectsview_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Alexandre Strange/StudioProjects/Surgut-culture/app/src/main/res/menu/main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Yung1/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/activity_list_item.xml" value="0.20885416666666667" />
       </map>
     </option>
