@@ -17,7 +17,7 @@ private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
-var okHttpClient = OkHttpClient.Builder()
+var okHttpClient: OkHttpClient = OkHttpClient.Builder()
     .cache(null)
     .build()
 
