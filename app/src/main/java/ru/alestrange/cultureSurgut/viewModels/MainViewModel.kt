@@ -11,7 +11,6 @@ import ru.alestrange.cultureSurgut.serverDownload.DataUpdater
 import ru.alestrange.cultureSurgut.serverDownload.WebApiCaller
 
 class MainViewModel: ViewModel() {
-    var isUpdateChecked:Boolean=false
 
     init {
         Log.d("sclog", "MainViewModel created!")

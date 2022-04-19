@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
         binding.nearButton.setOnClickListener { _ -> MainMenu.openActivity(this, NearActivity()) }
-        Log.d("sclog", "Main activity created. Update state: ${model.isUpdateChecked} ")
+        Log.d("sclog", "Main activity created. Update state: ${SurgutCultureApplication.isUpdateChecked} ")
     }
 
     private fun updateModeOn(){
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                 binding.loadingTextView.text = getString(R.string.update_text)
             delayedHandler.postDelayed({
                 updateProgress(delayedHandler)
-            }, 100)
+            }, 500)
         } else {
             updateModeOff()
         }
@@ -98,13 +98,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        Log.d("sclog", "Resume main activity. Update state: ${model.isUpdateChecked} ")
-        if (model.isUpdateChecked){
+        Log.d("sclog", "Resume main activity. Update state: ${SurgutCultureApplication.isUpdateChecked} ")
+        if (SurgutCultureApplication.isUpdateChecked){
             updateModeOff()
             return
         }
-        model.isUpdateChecked=true
-        Log.d("sclog", "isUpdateChecked was false. Update state: ${model.isUpdateChecked} ")
+        SurgutCultureApplication.isUpdateChecked=true
+        Log.d("sclog", "isUpdateChecked was false. Update state: ${SurgutCultureApplication.isUpdateChecked} ")
         updateModeOn()
         model.updateData()
         val delayedHandler = Handler(Looper.getMainLooper())

@@ -70,5 +70,6 @@ class SurgutCultureApplication: Application() {
         var internetConnection: Boolean = false
         var databaseEmpty: Boolean = false
         var databaseError:Exception? = null
+        var isUpdateChecked:Boolean=false
     }
 }
