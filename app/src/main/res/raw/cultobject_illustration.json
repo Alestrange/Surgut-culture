@@ -34,5 +34,9 @@
   {"id":33,"cultobjectId":35, "illustrationId": 33},
   {"id":34,"cultobjectId":35, "illustrationId": 34},
   {"id":35,"cultobjectId":32, "illustrationId": 35},
-  {"id":36,"cultobjectId":34, "illustrationId": 36}
+  {"id":36,"cultobjectId":34, "illustrationId": 36},
+  {"id":37,"cultobjectId":44, "illustrationId": 37},
+  {"id":38,"cultobjectId":43, "illustrationId": 38},
+  {"id":39,"cultobjectId":43, "illustrationId": 39},
+  {"id":40,"cultobjectId":43, "illustrationId": 40}
 ]

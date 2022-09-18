@@ -34,5 +34,9 @@
   {"id":33,"description":"Карта трассы", "image": "pic_snezhinka"},
   {"id":34,"description":"Расписание прокатов лыж", "image": "pic_snezhinka2"},
   {"id":35,"description":"Памятник трудовому подвигу нефтянников", "image": "pic_pamyatnik_neftyannikam"},
-  {"id":36,"description":"Граффити", "image": "pic_pass_graffity"}
+  {"id":36,"description":"Граффити", "image": "pic_pass_graffity"},
+  {"id":37,"description":"Стерх", "image": "pic_sterh.jpg"},
+  {"id":38,"description":"Сайма", "image": "pic_saima.jpg"},
+  {"id":39,"description":"Сайма", "image": "pic_saima2.jpg"},
+  {"id":40,"description":"Сайма", "image": "pic_saima3.jpg"}
 ]

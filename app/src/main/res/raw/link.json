@@ -23,15 +23,162 @@
   {
     "id":4,
     "description":
-    "Александр Жидченко. Сургут-Нефтеюганск, 2 города в 1 уикенд. 2017",
-    "web": "",
-    "cultobjectId": 1
+    "Официальный сайт",
+    "web": "https://stariy-surgut.ru/",
+    "cultobjectId": 2
   },
   {
     "id":5,
     "description":
-    "Александр Жидченко. Сургут-Нефтеюганск, 2 города в 1 уикенд. 2017",
-    "web": "",
-    "cultobjectId": 2
+    "Страница музея на сайте музеев Сургута",
+    "web": "https://skmuseum.ru/klepikov/",
+    "cultobjectId": 3
+  },
+  {
+    "id":6,
+    "description":
+    "Страница музея на сайте музеев Сургута",
+    "web": "https://skmuseum.ru/cpn/",
+    "cultobjectId": 4
+  },
+  {
+    "id":7,
+    "description":
+    "Страница храма на сайте храмов Сургута",
+    "web": "http://hramsurgu.ru/",
+    "cultobjectId": 5
+  },
+  {
+    "id":8,
+    "description":
+    "Официальный сайт",
+    "web": "https://www.sfil.ru/",
+    "cultobjectId": 7
+  },
+  {
+    "id":9,
+    "description":
+    "Официальный сайт",
+    "web": "http://geohram.ru/",
+    "cultobjectId": 12
+  },
+  {
+    "id":10,
+    "description":
+    "Официальный сайт",
+    "web": "http://surgut.cerkov.ru/",
+    "cultobjectId": 14
+  },
+  {
+    "id":11,
+    "description":
+    "Официальный сайт",
+    "web": "https://www.lds-surgut.ru/",
+    "cultobjectId": 17
+  },
+  {
+    "id":12,
+    "description":
+    "Страница центра на сайте о фитнесс-клубах России",
+    "web": "https://sportgyms.ru/surgut/8416-fok-neftyanik.html",
+    "cultobjectId": 22
+  },
+  {
+    "id":13,
+    "description":
+    "Официальный сайт",
+    "web": "http://baptistsurgut.ru/",
+    "cultobjectId": 24
+  },
+  {
+    "id":14,
+    "description":
+    "Официальный сайт",
+    "web": "https://catholicsurgut.ru/",
+    "cultobjectId": 25
+  },
+  {
+    "id":15,
+    "description":
+    "Официальный сайт",
+    "web": "https://www.kinougra.ru/",
+    "cultobjectId": 27
+  },
+  {
+    "id":16,
+    "description":
+    "Афиша кино в Сургуте",
+    "web": "https://surkino.ru/",
+    "cultobjectId": 27
+  },
+  {
+    "id":17,
+    "description":
+    "Официальный сайт",
+    "web": "https://www.dineftyanik.ru/",
+    "cultobjectId": 31
+  },
+  {
+    "id":18,
+    "description":
+    "Официальный сайт",
+    "web": "https://surgutpark.ru/",
+    "cultobjectId": 33
+  },
+  {
+    "id":19,
+    "description":
+    "Страница на сайте Сургутских спортивных организаций",
+    "web": "http://www.neftyanik-sport.ru/content/lyzhnaya-baza-snezhinka",
+    "cultobjectId": 35
+  },
+  {
+    "id":20,
+    "description":
+    "Официальный сайт",
+    "web": "https://surgutgalaktika.ru/",
+    "cultobjectId": 39
+  },
+  {
+    "id":21,
+    "description":
+    "Афиша кино в Сургуте",
+    "web": "https://surkino.ru/",
+    "cultobjectId": 39
+  },
+  {
+    "id":22,
+    "description":
+    "Афиша кино в Сургуте",
+    "web": "https://surkino.ru/",
+    "cultobjectId": 40
+  },
+  {
+    "id":23,
+    "description":
+    "Официальный сайт",
+    "web": "http://art-sterh.ru/",
+    "cultobjectId": 44
+  },
+  {
+    "id":24,
+    "description":
+    "Официальный сайт",
+    "web": "https://surgutgazstroy.ru/projects/completed/city_centre/",
+    "cultobjectId": 48
+  },
+  {
+    "id":25,
+    "description":
+    "Официальный сайт",
+    "web": "http://geohram.ru/",
+    "cultobjectId": 12
+  },
+  {
+    "id":26,
+    "description":
+    "Официальный сайт",
+    "web": "http://surgut.cerkov.ru/",
+    "cultobjectId": 14
   }
 ]
