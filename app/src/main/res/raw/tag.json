@@ -31,7 +31,6 @@
   {"id":30,"name":"Общественные пространства","image":"interest_monument", "interestId":5},
   {"id":31,"name":"Прокат велосипедов","image":"velosiped", "interestId":8},
   {"id":32,"name":"Прокат коньков","image":"konki", "interestId":8},
-  {"id":33,"name":"Прокат электросамокатов","image":"interest_monument", "interestId":8},
   {"id":34,"name":"Прокат роликовых коньков","image":"interest_monument", "interestId":8},
   {"id":35,"name":"Арт-объект","image":"interest_monument", "interestId":3},
   {"id":36,"name":"Мемориал","image":"interest_monument", "interestId":3},
