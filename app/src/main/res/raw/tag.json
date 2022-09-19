@@ -26,15 +26,13 @@
   {"id":25,"name":"Мечеть","image":"interest_monument", "interestId":7},
   {"id":26,"name":"Религиозный объект","image":"interest_monument", "interestId":7},
   {"id":27,"name":"Часовня","image":"interest_monument", "interestId":7},
-  {"id":28,"name":"Мосты","image":"interest_monument", "interestId":2},
+  {"id":28,"name":"Мосты","image":"interest_monument", "interestId":5},
   {"id":29,"name":"Фонтаны","image":"interest_monument", "interestId":2},
   {"id":30,"name":"Общественные пространства","image":"interest_monument", "interestId":5},
   {"id":31,"name":"Прокат велосипедов","image":"velosiped", "interestId":8},
   {"id":32,"name":"Прокат коньков","image":"konki", "interestId":8},
-  {"id":34,"name":"Прокат роликовых коньков","image":"interest_monument", "interestId":8},
   {"id":35,"name":"Арт-объект","image":"interest_monument", "interestId":3},
   {"id":36,"name":"Мемориал","image":"interest_monument", "interestId":3},
-  {"id":37,"name":"Спорт","image":"interest_monument", "interestId":8},
-  {"id":38,"name":"Активный отдых","image":"interest_monument", "interestId":8},
-  {"id":39,"name":"Прокат лыж","image":"interest_monument", "interestId":8}
+  {"id":37,"name":"Спорт","image":"obj_ice_palace", "interestId":8},
+  {"id":38,"name":"Активный отдых","image":"interest_monument", "interestId":8}
 ]

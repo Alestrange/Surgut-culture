@@ -170,15 +170,8 @@
   {
     "id":25,
     "description":
-    "Официальный сайт",
-    "web": "http://geohram.ru/",
-    "cultobjectId": 12
-  },
-  {
-    "id":26,
-    "description":
-    "Официальный сайт",
-    "web": "http://surgut.cerkov.ru/",
-    "cultobjectId": 14
+    "Страница в сети Вконтакте",
+    "web": "https://vk.com/veloprokat_saima",
+    "cultobjectId": 18
   }
 ]
