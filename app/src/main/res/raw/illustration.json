@@ -40,13 +40,8 @@
   {"id":39,"description":"Сайма", "image": "pic_saima2"},
   {"id":41,"description":"Сайма", "image": "pic_saima3"},
   {"id":42,"description":"Информация о строительстве ГРЭСС", "image": "pic_history_gress_table"},
-  {"id":43,"description":"Сайма", "image": "pic_saima3"},
-  {"id":44,"description":"Сайма", "image": "pic_saima3"},
-  {"id":45,"description":"Сайма", "image": "pic_saima3"},
-  {"id":46,"description":"Сайма", "image": "pic_saima3"},
-  {"id":47,"description":"Сайма", "image": "pic_saima3"},
-  {"id":48,"description":"Сайма", "image": "pic_saima3"},
-  {"id":49,"description":"Сайма", "image": "pic_saima3"},
-  {"id":50,"description":"Сайма", "image": "pic_saima3"},
-  {"id":51,"description":"Сайма", "image": "pic_saima3"}
+  {"id":43,"description":"Информация о заговоре заключённых", "image": "pic_history_ssilka"},
+  {"id":44,"description":"Информация о строительстве казённых зданий в первой половине XIX века", "image": "pic_history_17vek_stroyka_koz"},
+  {"id":45,"description":"Информация о промышленных предприятиях Тобольской губернии в первой половине XIX века", "image": "pic_history_17vek_industry"},
+  {"id":46,"description":"Информация о А. В. Колчаке", "image": "pic_history_kolchak"}
 ]

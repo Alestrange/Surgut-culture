@@ -28,7 +28,6 @@
   {"id":27,"name":"Часовня","image":"interest_monument", "interestId":7},
   {"id":28,"name":"Мосты","image":"interest_monument", "interestId":5},
   {"id":29,"name":"Фонтаны","image":"interest_monument", "interestId":2},
-  {"id":30,"name":"Общественные пространства","image":"interest_monument", "interestId":5},
   {"id":31,"name":"Прокат велосипедов","image":"velosiped", "interestId":8},
   {"id":32,"name":"Прокат коньков","image":"konki", "interestId":8},
   {"id":35,"name":"Арт-объект","image":"interest_monument", "interestId":3},
