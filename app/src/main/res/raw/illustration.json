@@ -38,5 +38,15 @@
   {"id":37,"description":"Стерх", "image": "pic_sterh"},
   {"id":38,"description":"Сайма", "image": "pic_saima"},
   {"id":39,"description":"Сайма", "image": "pic_saima2"},
-  {"id":40,"description":"Сайма", "image": "pic_saima3"}
+  {"id":41,"description":"Сайма", "image": "pic_saima3"},
+  {"id":42,"description":"Информация о строительстве ГРЭСС", "image": "pic_history_gress_table"},
+  {"id":43,"description":"Сайма", "image": "pic_saima3"},
+  {"id":44,"description":"Сайма", "image": "pic_saima3"},
+  {"id":45,"description":"Сайма", "image": "pic_saima3"},
+  {"id":46,"description":"Сайма", "image": "pic_saima3"},
+  {"id":47,"description":"Сайма", "image": "pic_saima3"},
+  {"id":48,"description":"Сайма", "image": "pic_saima3"},
+  {"id":49,"description":"Сайма", "image": "pic_saima3"},
+  {"id":50,"description":"Сайма", "image": "pic_saima3"},
+  {"id":51,"description":"Сайма", "image": "pic_saima3"}
 ]

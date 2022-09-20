@@ -1,8 +1,3 @@
 [
-  {"id":2,"historyId":1, "illustrationId": 2},
-  {"id":4,"historyId":11, "illustrationId": 4},
-  {"id":5,"historyId":13, "illustrationId": 5},
-  {"id":6,"historyId":13, "illustrationId": 6},
-  {"id":7,"historyId":12, "illustrationId": 7},
-  {"id":8,"historyId":12, "illustrationId": 8}
+  {"id":1,"historyId":14, "illustrationId": 42}
 ]
