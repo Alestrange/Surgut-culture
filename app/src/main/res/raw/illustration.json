@@ -43,5 +43,13 @@
   {"id":43,"description":"Информация о заговоре заключённых", "image": "pic_history_ssilka"},
   {"id":44,"description":"Информация о строительстве казённых зданий в первой половине XIX века", "image": "pic_history_17vek_stroyka_koz"},
   {"id":45,"description":"Информация о промышленных предприятиях Тобольской губернии в первой половине XIX века", "image": "pic_history_17vek_industry"},
-  {"id":46,"description":"Информация о А. В. Колчаке", "image": "pic_history_kolchak"}
+  {"id":46,"description":"Информация о А. В. Колчаке", "image": "pic_history_kolchak"},
+  {"id":47,"description":"Центральная площадь", "image": "pic_centre_ploshad"},
+  {"id":48,"description":"Парк аттракционов", "image": "pic_centre_ploshad2"},
+  {"id":49,"description":"Спуск к воде", "image": "pic_naberezhnaya_obi2"},
+  {"id":50,"description":"Набережная", "image": "pic_naberezhnaya_sayma"},
+  {"id":51,"description":"Обратная сторона памятника", "image": "pic_pamyatnik_repress"},
+  {"id":52,"description":"Боковая часть музея", "image": "pic_surgut_my_history"},
+  {"id":53,"description":"Граффити музея", "image": "pic_surgut_my_history2"},
+  {"id":54,"description":"Макет парусника на набережной", "image": "pic__naberezhnaya_obi"}
 ]
