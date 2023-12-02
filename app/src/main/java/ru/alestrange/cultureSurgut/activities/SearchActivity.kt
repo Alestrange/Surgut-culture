@@ -31,7 +31,7 @@ class SearchActivity : AppCompatActivity() {
         binding.searchButton.setOnClickListener(::onSearchClickListener)
     }
 
-    fun onSearchClickListener(view: View) {
+    fun onSearchClickListener(@Suppress("UNUSED_PARAMETER")view: View) {
         if (binding.searchText.editText?.text.toString()!="") {
             val objects = SurgutCultureApplication.db.cultobjectDao()
                 .getCultobjectByText(binding.searchText.editText?.text.toString())

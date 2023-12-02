@@ -2,17 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     >
     <item
         android:id="@+id/miHome"
-        android:contentDescription="home"
+        android:contentDescription="@string/home_button"
         android:icon="@drawable/ic_baseline_home_24"
         app:showAsAction="always"
         android:title="">
     </item>
     <item
         android:id="@+id/miSearch"
-        android:contentDescription="search  "
+        android:contentDescription="@string/search_button"
         android:icon="@drawable/ic_baseline_search_24"
         app:showAsAction="always"
         android:title="">

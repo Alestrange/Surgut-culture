@@ -32,6 +32,7 @@
     <string name="cycleroute_complex">Уровень сложности: %d из 5</string>
     <string name="cycleroute_distance">Дистанция: %d км</string>
     <string name="impossible_find_map_application">К сожалению, на вашем устройстве не установлено приложение для показа на карте</string>
+    <string name="impossible_find_browser_application">К сожалению, на вашем устройстве не возможно открыть приложение для просмотра web-страниц</string>
     <string name="impossible_seek_location">К сожалению, приложение не сможет определить Ваше местоположение</string>
     <string name="impossible_seek_location_not_yet">Подождите, пока устройства определит Ваше местоположение</string>
     <string name="impossible_first_update">Для первого запуска приложения нужен доступ к сети Интернет</string>
@@ -46,6 +47,7 @@
     <string name="velorouts_title">Сургутские веломаршруты</string>
     <string name="rent_sport_title">Пункты проката:</string>
     <string name="search_button">Найти</string>
+    <string name="home_button">Главная страница</string>
     <string name="search_hint">Введите строку для поиска</string>
     <string name="search_description">Поиск объектов по наименованиям, тегам, категориям</string>
     <string name="search_not_found">Ничего не найдено</string>

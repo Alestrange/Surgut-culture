@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/search_distance_title"
         android:textSize="@dimen/text_annotation"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,6 +35,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="@dimen/text_annotation"
+        android:textColor="@color/black"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/distBar"
@@ -81,6 +83,7 @@
         android:gravity="center"
         android:text="@string/seek_location_in_process"
         android:textSize="@dimen/text_title"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/updateButton"

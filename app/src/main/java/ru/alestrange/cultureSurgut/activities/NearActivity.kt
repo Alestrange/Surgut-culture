@@ -109,7 +109,7 @@ class NearActivity : AppCompatActivity() {
         button.setBackgroundColor(ContextCompat.getColor(button.context, R.color.green_surgut_dark))
     }
 
-    fun onUpdateClickListener(view: View) {
+    fun onUpdateClickListener(@Suppress("UNUSED_PARAMETER")view: View) {
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -131,8 +131,8 @@ class NearActivity : AppCompatActivity() {
                      onSuccessListener(locationResult.lastLocation)
                      binding.messageText.text=resources.getString(
                          R.string.search_location_updated,
-                         locationResult.lastLocation.latitude,
-                         locationResult.lastLocation.longitude
+                         locationResult.lastLocation?.latitude,
+                         locationResult.lastLocation?.longitude
                      )
                      fusedLocationClient.removeLocationUpdates(this)
                 }
@@ -141,7 +141,7 @@ class NearActivity : AppCompatActivity() {
         )
     }
 
-    fun onSearchClickListener(view: View) {
+    fun onSearchClickListener(@Suppress("UNUSED_PARAMETER")view: View) {
         if (deviceLocation != null) {
             val center = Haversine(deviceLocation!!.latitude, deviceLocation!!.longitude)
             val nearCultobject = allCultobjects

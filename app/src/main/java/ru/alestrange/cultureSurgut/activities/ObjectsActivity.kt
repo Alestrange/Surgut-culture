@@ -99,6 +99,5 @@ class ObjectsActivity : AppCompatActivity() {
             this.cultobjects=cultobjects
             notifyDataSetChanged()
         }
-
     }
 }

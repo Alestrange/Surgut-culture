@@ -125,7 +125,6 @@ class ObjectDetailActivity : AppCompatActivity() {
 
         class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var linkButtom: Button? = null
-
             init {
                 linkButtom = itemView.findViewById(R.id.linkButton)
             }
@@ -150,7 +149,15 @@ class ObjectDetailActivity : AppCompatActivity() {
                     val context = it.context
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.data = Uri.parse(links[position].web)
-                    context.startActivity(intent)
+                    try {
+                        context.startActivity(intent)
+                    } catch (e: ActivityNotFoundException) {
+                        Toast.makeText(
+                            context,
+                            context.getString(R.string.impossible_find_browser_application),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }
