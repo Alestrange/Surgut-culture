@@ -6,6 +6,7 @@
   {"id":5,"name":"Прогулки на свежем воздухе","image":"obj_alley_gasovikov","description":""},
   {"id":6,"name":"Кино","image":"obj_kino_galaxy","description":""},
   {"id":7,"name":"Религия","image":"obj_preobrajen_sobor","description":""},
-  {"id":8,"name":"Спорт","image":"obj_ice_palace","description":""}
+  {"id":8,"name":"Спорт","image":"obj_ice_palace","description":""},
+  {"id":9,"name":"Граффити и муралы","image":"obj_graffity_mira11","description":""}
 ]
 

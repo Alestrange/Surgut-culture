@@ -1,10 +1,11 @@
 [
-  {"id":1,"cultobjectId":1, "cyclerouteId": 1},
-  {"id":2,"cultobjectId":2, "cyclerouteId": 1},
-  {"id":3,"cultobjectId":1, "cyclerouteId": 2},
-  {"id":4,"cultobjectId":2, "cyclerouteId": 2},
-  {"id":5,"cultobjectId":2, "cyclerouteId": 3},
-  {"id":6,"cultobjectId":2, "cyclerouteId": 3},
-  {"id":7,"cultobjectId":3, "cyclerouteId": 4},
-  {"id":8,"cultobjectId":3, "cyclerouteId": 4}
+  {"id":1,"cultobjectId":35, "cyclerouteId": 1},
+  {"id":2,"cultobjectId":43, "cyclerouteId": 3},
+  {"id":3,"cultobjectId":35, "cyclerouteId": 5},
+  {"id":4,"cultobjectId":58, "cyclerouteId": 6},
+  {"id":5,"cultobjectId":55, "cyclerouteId": 6},
+  {"id":6,"cultobjectId":56, "cyclerouteId": 6},
+  {"id":7,"cultobjectId":57, "cyclerouteId": 6},
+  {"id":8,"cultobjectId":59, "cyclerouteId": 6},
+  {"id":9,"cultobjectId":60, "cyclerouteId": 6}
 ]

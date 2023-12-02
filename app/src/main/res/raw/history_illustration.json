@@ -1,8 +1,7 @@
 [
-  {"id":2,"historyId":1, "illustrationId": 2},
-  {"id":4,"historyId":11, "illustrationId": 4},
-  {"id":5,"historyId":13, "illustrationId": 5},
-  {"id":6,"historyId":13, "illustrationId": 6},
-  {"id":7,"historyId":12, "illustrationId": 7},
-  {"id":8,"historyId":12, "illustrationId": 8}
+  {"id":1,"historyId":14, "illustrationId": 42},
+  {"id":2,"historyId":4, "illustrationId": 43},
+  {"id":3,"historyId":5, "illustrationId": 44},
+  {"id":4,"historyId":5, "illustrationId": 45},
+  {"id":5,"historyId":8, "illustrationId": 46}
 ]
